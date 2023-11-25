@@ -5,7 +5,9 @@ Trabalho de Conclusão de Curso 2024
     <li>Correção de provas</li>
     <li>Geração de provas embaralhadas</li>
 </ul>
+
 <h1>Autores:</h1>
+
 <ul>
   <li>Gabriel Costa Fileno</li>
   <li>Kaio Eduardo Braga Barbosa</li>
