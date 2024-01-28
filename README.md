@@ -63,23 +63,25 @@ Trabalho de Conclusão de Curso 2024
 <details><summary>👨‍💻 Login na aplicação</summary>
          
 </details>
-<details><summary>📊 Correção das provas</summary>
+<details><summary>💯 Correção das provas</summary>
 
    - [ ] Ler QRCode e Gabarito 
    - [ ] Extrair informações para banco local
+   - [ ] Salvar em pasta designada
          
 </details>
-<details><summary>📊 Impressão de overlay com gabarito e nota correta do aluno</summary>
+<details><summary>🖨 Impressão de overlay com gabarito e nota correta do aluno</summary>
 
    - [ ] Gabarito correto
    - [ ] Nota do aluno
          
 </details>
-<details><summary>📊 Gerenciamento de processos de provas</summary>
+<details><summary>🗂️ Gerenciamento de processos de provas</summary>
 
-- [ ] Criação de provas designadas: turma > geral
-- [ ] Embaralhamento de questões
-- [ ] Embaralhamento de alternativas <sub><sup>Uso de GPT para sugestões</sup></sub>
+- [ ] Visualizar histórico de correções
+- [ ] Autor das correções
+- [ ] Visualizar erros de leitura
+- [ ] Filtros por bimestre, tipo de prova, disciplina e turma
 - <details><summary>🚥 Kanban: progresso por colunas</summary>
   
   - 🔘 Em andamento
