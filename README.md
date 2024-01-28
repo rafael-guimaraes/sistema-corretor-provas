@@ -17,14 +17,14 @@ Trabalho de Conclusão de Curso 2024
 <details><summary>👷‍♂️ Cargos</summary>
   
   - [ ] Administrador:
-    -  Acesso total
+    - Acesso total
   - [ ] Direção
   - [ ] Coordenador
   - [ ] Orientadora
   - [ ] Professor
 
 </details> 
-<details><summary>👨‍💻 Login único para todos os cargos</summary>
+<details><summary>👨‍💻 Página de Login única para todos os cargos</summary>
 
 </details>
 <details><summary>📝 Painel de criação de provas</summary>
@@ -60,12 +60,12 @@ Trabalho de Conclusão de Curso 2024
 ### Aplicação Desktop
 #### Recursos
 
-<details><summary>👨‍💻 Login na aplicação</summary>
+<details><summary>👨‍💻 Janela de Login na aplicação</summary>
          
 </details>
 <details><summary>⚙ Configurações</summary>
 
-   - [ ] Definir numero de threads destinadas ao processo de leitura ( limite recomendado : numero de nucleos - 1) 
+   - [ ] Definir numero de threads destinadas ao processo de leitura (limite recomendado: núcleos - 1) 
    - [ ] Definir pasta de leitura das imagens
    - [ ] Habilitar ou não o inicio automatico da aplicação, se positivo definir o intervalo
    - [ ] CRUD Administradores
@@ -73,24 +73,35 @@ Trabalho de Conclusão de Curso 2024
 </details>
 <details><summary>💯 Correção das provas</summary>
 
-   - [ ] Ler QRCode e Gabarito 
-   - [ ] Extrair informações para banco local
-   - [ ] Salvar em pasta designada
+   - [ ] Leitura QRCode e Gabarito 
+   - [ ] Extração das informações para banco local
+   - [ ] Armazenamento em pasta designada
+   - <details><summary>🚥 Armazenamento em pasta designada</summary>
+     
+      - 📂 Provas        
+         - 📂 Erros de leitura
+         - 📂 Exame Final
+            - 📂 Disciplina
+         - 📂 Bimestre
+            - 📂 Disciplina
+               - 📂 Turma
+               - 📂 Recuperação
+
+</details>
          
 </details>
 <details><summary>🖨 Impressão de overlay com gabarito e nota correta do aluno</summary>
 
-   - [ ] Gerar o PDF
-   - [ ] Nota do aluno
-   - [ ] Gabarito correto
-
+   - [ ] Geração do PDF
+     - [ ] Nota do aluno
+     - [ ] Gabarito correto
          
 </details>
 <details><summary>🗂️ Gerenciamento de processos de provas</summary>
 
-- [ ] Visualizar histórico de correções
+- [ ] Visualização do histórico de correções
 - [ ] Autor das correções
-- [ ] Visualizar erros de leitura
+- [ ] Visualização dos erros de leitura
 - [ ] Filtros por bimestre, tipo de prova, disciplina e turma
 - <details><summary>🚥 Kanban: progresso por colunas</summary>
   
