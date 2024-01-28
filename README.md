@@ -1,18 +1,99 @@
 # TCC
 Trabalho de Conclusão de Curso 2024
 
-<h1>Módulos de desenvolvimento</h1>
-<ul>
-    <li>Correção de provas</li>
-    <li>Geração de provas embaralhadas</li>
-</ul>
+## Autores:
+- [Gabriel Costa Fileno](https://github.com/FILEN0)
+- [Kaio Eduardo Braga Barbosa](https://github.com/kaio0824)
+- [Rafael Augusto Guimarães da Silva](https://github.com/rafael-guimaraes)
 
-<h1>Autores:</h1>
+## Módulos de desenvolvimento
+- Correção de provas
+- Geração de provas embaralhadas
 
-<ul>
-  <li><a href="https://github.com/FILEN0" >Gabriel Costa Fileno</a></li>
-  <li><a href="https://github.com/kaio0824">Kaio Eduardo Braga Barbosa</a></li>
-  <li><a href="https://github.com/rafael-guimaraes">Rafael Augusto Guimarães da Silva</a></li>
-</ul>
+## Descrição do projeto
+### Aplicação Web
+#### Recursos
 
-<a></a>
+<details><summary>👷‍♂️ Cargos</summary>
+  
+  - [ ] Administrador:
+    -  Acesso total
+  - [ ] Direção
+  - [ ] Coordenador
+  - [ ] Orientadora
+  - [ ] Professor
+
+</details> 
+<details><summary>👨‍💻 Login único para todos os cargos</summary>
+
+</details>
+<details><summary>📝 Painel de criação de provas</summary>
+    
+- [ ] Criação de provas designadas: turma > geral
+- [ ] Embaralhamento de questões
+- [ ] Embaralhamento de alternativas <sub><sup>Uso de GPT para sugestões</sup></sub>
+- <details><summary>🚥 Kanban: progresso por colunas</summary>
+  
+  - 🔴 Não iniciado
+     - [ ] Botão de criar no topo
+     - [ ] Cards das provas não iniciadas (sabe-se que deve ser criada/ cabeçalho já existe)
+  - 🟠 Em Andamento
+     - [ ] Cards das provas que estão sendo criadas, com algum numerador de questões <sub><sup>Ex.: 1/5 ou 20% das questões necessárias</sup></sub>
+  - 🟡 Aguardando confirmação
+     - [ ] Cards das provas que podem ser submetidas para o processo de impressão ou continuar criando questões
+  - 🟢 Submetidas
+     - [ ] Cards de provas criadas e submetidas para impressão
+     - [ ] Passível de cancelamento
+
+</details>
+
+</details>
+<details><summary>📊 Painel de relatórios</summary>
+
+   - [ ] Acompanhamento de aluno
+   - [ ] Projeção de notas
+   - [ ] Desempenho das turmas
+   - [ ] Gráfico de desempenho por bimestre
+         
+</details>
+   
+### Aplicação Desktop
+#### Recursos
+
+<details><summary>👨‍💻 Login na aplicação</summary>
+         
+</details>
+<details><summary>📊 Correção das provas</summary>
+
+   - [ ] Ler QRCode e Gabarito 
+   - [ ] Extrair informações para banco local
+         
+</details>
+<details><summary>📊 Impressão de overlay com gabarito e nota correta do aluno</summary>
+
+   - [ ] Gabarito correto
+   - [ ] Nota do aluno
+         
+</details>
+<details><summary>📊 Gerenciamento de processos de provas</summary>
+
+- [ ] Criação de provas designadas: turma > geral
+- [ ] Embaralhamento de questões
+- [ ] Embaralhamento de alternativas <sub><sup>Uso de GPT para sugestões</sup></sub>
+- <details><summary>🚥 Kanban: progresso por colunas</summary>
+  
+  - 🔘 Em andamento
+     - [ ] Cards das provas que estão sendo lidas, fração de alunos por turma <sub><sup>Ex.: 10/30 ou 33,33% das questões necessárias</sup></sub>
+     - [ ] Processo automatizado de criação dos cards
+  - 🟠 Leitura realizada
+     - [ ] Cards das turmas que não tiveram todas as provas lidas (pendente substitutiva)
+     - [ ] Apresentação dos erros de leitura
+  - 🟡 Leitura completa
+     - [ ] Cards de provas que possuem todos os alunos ou justificativa para avançar
+     - [ ] Imprimir overlay
+  - 🟢 Pronta para devolutiva
+     - [ ] Cards de provas que possuem overlay impressa
+
+</details>
+         
+</details>
