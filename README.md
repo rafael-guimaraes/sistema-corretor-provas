@@ -14,14 +14,26 @@ Trabalho de Conclusão de Curso 2024
 ### Aplicação Web
 #### Recursos
 
-<details><summary>👷‍♂️ Cargos</summary>
+<details><summaCargos</summary>
   
   - [ ] Administrador:
     - Acesso total
   - [ ] Direção
+    - Criação de provas
+    - Análise de desempenho dos alunos
+    - Editar provas feitas anteriormente 
+    - Submeter provas para a administração 
   - [ ] Coordenador
+    - Visualizar provas de professores do curso coordenado 
+    - Análise de desempenho dos alunos
+    - Pode herdar a classe de professor
   - [ ] Orientadora
+    - Análise de desempenho dos alunos 
+    - Visualizar provas
   - [ ] Professor
+    - Criação de provas
+    - Análise de desempenho dos alunos
+    - Editar provas feitas anteriormente 
 
 </details> 
 <details><summary>👨‍💻 Página de Login única para todos os cargos</summary>
