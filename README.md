@@ -65,7 +65,7 @@ Trabalho de Conclusão de Curso 2024
 </details>
 <details><summary>⚙ Configurações</summary>
 
-   - [ ] Definir numero de threads destinadas ao processo de leitura ( limite recomendado : numero de cores - 1) 
+   - [ ] Definir numero de threads destinadas ao processo de leitura ( limite recomendado : numero de nucleos - 1) 
    - [ ] Definir pasta de leitura das imagens
    - [ ] Habilitar ou não o inicio automatico da aplicação, se positivo definir o intervalo
    - [ ] CRUD Administradores
