@@ -63,6 +63,14 @@ Trabalho de Conclusão de Curso 2024
 <details><summary>👨‍💻 Login na aplicação</summary>
          
 </details>
+<details><summary>⚙ Configurações</summary>
+
+   - [ ] Definir numero de threads destinadas ao processo de leitura ( limite recomendado : numero de cores - 1) 
+   - [ ] Definir pasta de leitura das imagens
+   - [ ] Habilitar ou não o inicio automatico da aplicação, se positivo definir o intervalo
+   - [ ] CRUD Administradores
+         
+</details>
 <details><summary>💯 Correção das provas</summary>
 
    - [ ] Ler QRCode e Gabarito 
@@ -72,8 +80,10 @@ Trabalho de Conclusão de Curso 2024
 </details>
 <details><summary>🖨 Impressão de overlay com gabarito e nota correta do aluno</summary>
 
-   - [ ] Gabarito correto
+   - [ ] Gerar o PDF
    - [ ] Nota do aluno
+   - [ ] Gabarito correto
+
          
 </details>
 <details><summary>🗂️ Gerenciamento de processos de provas</summary>
