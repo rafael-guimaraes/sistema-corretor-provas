@@ -41,7 +41,7 @@ Trabalho de Conclusão de Curso 2024
 </details>
 <details><summary>📝 Painel de criação de provas</summary>
     
-- [ ] Criação de provas designadas: turma > geral
+- [ ] Criação de provas designadas: aluno > turma > geral
 - [ ] Embaralhamento de questões
 - [ ] Embaralhamento de alternativas <sub><sup>Uso de GPT para sugestões</sup></sub>
 - <details><summary>🚥 Kanban: progresso por colunas</summary>
