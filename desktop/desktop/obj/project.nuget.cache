@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "X6B4iN/arSpLyAbUM9/J6N2stZYVpOoGEA8FKqq0+RoGrzp3wr9OUVfE3xXikI2A4da2iesJ4W4aAKewXfECag==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rafae\\Downloads\\desktop\\desktop\\desktop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rafae\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
+    "C:\\Users\\rafae\\.nuget\\packages\\siticone.desktop.ui\\2.1.1\\siticone.desktop.ui.2.1.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Siticone.Desktop.UI 2.1.1' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net8.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Siticone.Desktop.UI",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}
