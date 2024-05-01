@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\rafae\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\rafae\\.nuget\\packages"
+      "C:\\Users\\kaiob\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\kaiob\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

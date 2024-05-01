@@ -65,7 +65,7 @@
             materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton3.Name = "materialButton3";
             materialButton3.NoAccentTextColor = Color.Empty;
-            materialButton3.Size = new Size(108, 29);
+            materialButton3.Size = new Size(108, 28);
             materialButton3.TabIndex = 13;
             materialButton3.Text = "FILTRAR";
             materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -75,10 +75,10 @@
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(23, 85);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(830, 22);
+            textBox1.Size = new Size(830, 28);
             textBox1.TabIndex = 12;
             // 
             // label1

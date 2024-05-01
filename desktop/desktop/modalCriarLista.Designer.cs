@@ -72,6 +72,7 @@
             button2.TabIndex = 6;
             button2.Text = "CRIAR LISTA";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -85,10 +86,10 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(278, 370);
+            textBox2.Location = new Point(282, 370);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(244, 30);
+            textBox2.Size = new Size(240, 30);
             textBox2.TabIndex = 4;
             // 
             // label2
@@ -104,10 +105,10 @@
             // textBox1
             // 
             textBox1.Location = new Point(43, 54);
-            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(266, 30);
+            textBox1.Size = new Size(262, 23);
             textBox1.TabIndex = 2;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
