@@ -28,276 +28,295 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel12 = new Panel();
-            label5 = new Label();
-            panel3 = new Panel();
-            materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            panel2 = new Panel();
-            label1 = new Label();
-            panel5 = new Panel();
-            label2 = new Label();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            panel7 = new Panel();
-            label3 = new Label();
-            label4 = new Label();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            criadas = new FlowLayoutPanel();
-            panel10 = new Panel();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            panel12.SuspendLayout();
-            panel2.SuspendLayout();
-            panel5.SuspendLayout();
-            panel7.SuspendLayout();
-            panel10.SuspendLayout();
+            panelCabecalho_Criadas = new Panel();
+            labelTitulo_Criadas = new Label();
+            panelProva_Focada = new Panel();
+            buttonFiltro = new MaterialSkin.Controls.MaterialButton();
+            panelCabecalho_Impressas = new Panel();
+            labelTitulo_Impressas = new Label();
+            panelCabecalho_Corrigidas = new Panel();
+            labelTitulo_Corrigidas = new Label();
+            buttonOrdem = new MaterialSkin.Controls.MaterialButton();
+            panelCabecalho_Sobrescritas = new Panel();
+            labelTitulo_Sobrescritas = new Label();
+            labelTitulo_Devolvidas = new Label();
+            flowpanelLista_Sobrescritas = new FlowLayoutPanel();
+            flowpanelLista_Corrigidas = new FlowLayoutPanel();
+            flowpanelLista_Impressas = new FlowLayoutPanel();
+            flowpanelLista_Criadas = new FlowLayoutPanel();
+            panelCabecalho_Devolvidas = new Panel();
+            flowpanelLista_Devolvidas = new FlowLayoutPanel();
+            panelCabecalho_Criadas.SuspendLayout();
+            panelCabecalho_Impressas.SuspendLayout();
+            panelCabecalho_Corrigidas.SuspendLayout();
+            panelCabecalho_Sobrescritas.SuspendLayout();
+            panelCabecalho_Devolvidas.SuspendLayout();
             SuspendLayout();
             // 
-            // panel12
+            // panelProva_Focada
             // 
-            panel12.BackColor = SystemColors.ControlLight;
-            panel12.Controls.Add(label5);
-            panel12.Location = new Point(41, 135);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(181, 56);
-            panel12.TabIndex = 25;
+            panelProva_Focada.BackColor = SystemColors.ControlLight;
+            panelProva_Focada.Location = new Point(47, 115);
+            panelProva_Focada.Margin = new Padding(3, 4, 3, 4);
+            panelProva_Focada.Name = "panelProva_Focada";
+            panelProva_Focada.Size = new Size(1062, 57);
+            panelProva_Focada.TabIndex = 24;
+
             // 
-            // label5
+            // panelCabecalho_Criadas
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(40, 16);
-            label5.Name = "label5";
-            label5.Size = new Size(93, 25);
-            label5.TabIndex = 2;
-            label5.Text = "CRIADAS";
+            panelCabecalho_Criadas.BackColor = SystemColors.ControlLight;
+            panelCabecalho_Criadas.Controls.Add(labelTitulo_Criadas);
+            panelCabecalho_Criadas.Location = new Point(47, 180);
+            panelCabecalho_Criadas.Margin = new Padding(3, 4, 3, 4);
+            panelCabecalho_Criadas.Name = "panelCabecalho_Criadas";
+            panelCabecalho_Criadas.Size = new Size(207, 75);
+            panelCabecalho_Criadas.TabIndex = 25;
             // 
-            // panel3
+            // labelTitulo_Criadas
             // 
-            panel3.BackColor = SystemColors.ControlLight;
-            panel3.Location = new Point(41, 86);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(929, 43);
-            panel3.TabIndex = 24;
+            labelTitulo_Criadas.AutoSize = true;
+            labelTitulo_Criadas.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitulo_Criadas.Location = new Point(46, 21);
+            labelTitulo_Criadas.Name = "labelTitulo_Criadas";
+            labelTitulo_Criadas.Size = new Size(118, 32);
+            labelTitulo_Criadas.TabIndex = 2;
+            labelTitulo_Criadas.Text = "CRIADAS";
             // 
-            // materialButton2
+            // flowpanelLista_Criadas
             // 
-            materialButton2.AutoSize = false;
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.Location = new Point(758, 34);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(75, 36);
-            materialButton2.TabIndex = 23;
-            materialButton2.Text = "filtrar";
-            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            flowpanelLista_Criadas.AutoScroll = true;
+            flowpanelLista_Criadas.BackColor = SystemColors.ControlLightLight;
+            flowpanelLista_Criadas.FlowDirection = FlowDirection.TopDown;
+            flowpanelLista_Criadas.Location = new Point(47, 252);
+            flowpanelLista_Criadas.Margin = new Padding(3, 4, 3, 4);
+            flowpanelLista_Criadas.Name = "flowpanelLista_Criadas";
+            flowpanelLista_Criadas.Size = new Size(207, 421);
+            flowpanelLista_Criadas.TabIndex = 30;
             // 
-            // panel2
+            // panelCabecalho_Impressas
             // 
-            panel2.BackColor = SystemColors.ControlLight;
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(228, 135);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(181, 56);
-            panel2.TabIndex = 26;
+            panelCabecalho_Impressas.BackColor = SystemColors.ControlLight;
+            panelCabecalho_Impressas.Controls.Add(labelTitulo_Impressas);
+            panelCabecalho_Impressas.Location = new Point(261, 180);
+            panelCabecalho_Impressas.Margin = new Padding(3, 4, 3, 4);
+            panelCabecalho_Impressas.Name = "panelCabecalho_Impressas";
+            panelCabecalho_Impressas.Size = new Size(207, 75);
+            panelCabecalho_Impressas.TabIndex = 26;
             // 
-            // label1
+            // labelTitulo_Impressas
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(33, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(116, 25);
-            label1.TabIndex = 2;
-            label1.Text = "IMPRESSAS";
+            labelTitulo_Impressas.AutoSize = true;
+            labelTitulo_Impressas.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitulo_Impressas.Location = new Point(38, 21);
+            labelTitulo_Impressas.Name = "labelTitulo_Impressas";
+            labelTitulo_Impressas.Size = new Size(145, 32);
+            labelTitulo_Impressas.TabIndex = 2;
+            labelTitulo_Impressas.Text = "IMPRESSAS";
             // 
-            // panel5
+            // flowpanelLista_Impressas
             // 
-            panel5.BackColor = SystemColors.ControlLight;
-            panel5.Controls.Add(label2);
-            panel5.Location = new Point(415, 135);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(181, 56);
-            panel5.TabIndex = 27;
+            flowpanelLista_Impressas.AutoScroll = true;
+            flowpanelLista_Impressas.BackColor = SystemColors.ControlLightLight;
+            flowpanelLista_Impressas.FlowDirection = FlowDirection.TopDown;
+            flowpanelLista_Impressas.Location = new Point(261, 252);
+            flowpanelLista_Impressas.Margin = new Padding(3, 4, 3, 4);
+            flowpanelLista_Impressas.Name = "flowpanelLista_Impressas";
+            flowpanelLista_Impressas.Size = new Size(207, 421);
+            flowpanelLista_Impressas.TabIndex = 31;
+
+
+            
             // 
-            // label2
+            // panelCabecalho_Corrigidas
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(131, 25);
-            label2.TabIndex = 2;
-            label2.Text = "CORRIGINDO";
+            panelCabecalho_Corrigidas.BackColor = SystemColors.ControlLight;
+            panelCabecalho_Corrigidas.Controls.Add(labelTitulo_Corrigidas);
+            panelCabecalho_Corrigidas.Location = new Point(474, 180);
+            panelCabecalho_Corrigidas.Margin = new Padding(3, 4, 3, 4);
+            panelCabecalho_Corrigidas.Name = "panelCabecalho_Corrigidas";
+            panelCabecalho_Corrigidas.Size = new Size(207, 75);
+            panelCabecalho_Corrigidas.TabIndex = 27;
             // 
-            // materialButton1
+            // labelTitulo_Corrigidas
             // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(841, 34);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(128, 36);
-            materialButton1.TabIndex = 22;
-            materialButton1.Text = "ordenar por:     ";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            labelTitulo_Corrigidas.AutoSize = true;
+            labelTitulo_Corrigidas.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitulo_Corrigidas.Location = new Point(27, 21);
+            labelTitulo_Corrigidas.Name = "labelTitulo_Corrigidas";
+            labelTitulo_Corrigidas.Size = new Size(160, 32);
+            labelTitulo_Corrigidas.TabIndex = 2;
+            labelTitulo_Corrigidas.Text = "CORRIGIDAS";
             // 
-            // panel7
+            // flowpanelLista_Corrigidas
             // 
-            panel7.BackColor = SystemColors.ControlLight;
-            panel7.Controls.Add(label3);
-            panel7.Location = new Point(602, 135);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(181, 56);
-            panel7.TabIndex = 28;
+            flowpanelLista_Corrigidas.AutoScroll = true;
+            flowpanelLista_Corrigidas.BackColor = SystemColors.ControlLightLight;
+            flowpanelLista_Corrigidas.FlowDirection = FlowDirection.TopDown;
+            flowpanelLista_Corrigidas.Location = new Point(474, 252);
+            flowpanelLista_Corrigidas.Margin = new Padding(3, 4, 3, 4);
+            flowpanelLista_Corrigidas.Name = "flowpanelLista_Corrigidas";
+            flowpanelLista_Corrigidas.Size = new Size(207, 421);
+            flowpanelLista_Corrigidas.TabIndex = 32;
             // 
-            // label3
+            // panelCabecalho_Sobrescritas
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(30, 16);
-            label3.Name = "label3";
-            label3.Size = new Size(126, 25);
-            label3.TabIndex = 2;
-            label3.Text = "CORRIGIDAS";
+            panelCabecalho_Sobrescritas.BackColor = SystemColors.ControlLight;
+            panelCabecalho_Sobrescritas.Controls.Add(labelTitulo_Sobrescritas);
+            panelCabecalho_Sobrescritas.Location = new Point(688, 180);
+            panelCabecalho_Sobrescritas.Margin = new Padding(3, 4, 3, 4);
+            panelCabecalho_Sobrescritas.Name = "panelCabecalho_Sobrescritas";
+            panelCabecalho_Sobrescritas.Size = new Size(207, 75);
+            panelCabecalho_Sobrescritas.TabIndex = 28;
             // 
-            // label4
+            // labelTitulo_Sobrescritas
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(25, 16);
-            label4.Name = "label4";
-            label4.Size = new Size(129, 25);
-            label4.TabIndex = 2;
-            label4.Text = "DEVOLVIDAS";
+            labelTitulo_Sobrescritas.AutoSize = true;
+            labelTitulo_Sobrescritas.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitulo_Sobrescritas.Location = new Point(34, 21);
+            labelTitulo_Sobrescritas.Name = "labelTitulo_Sobrescritas";
+            labelTitulo_Sobrescritas.Size = new Size(183, 32);
+            labelTitulo_Sobrescritas.TabIndex = 2;
+            labelTitulo_Sobrescritas.Text = "SOBRESCRITAS";
+            labelTitulo_Sobrescritas.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // flowLayoutPanel4
+            // flowpanelLista_Sobrescritas
             // 
-            flowLayoutPanel4.AutoScroll = true;
-            flowLayoutPanel4.BackColor = SystemColors.ControlLightLight;
-            flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel4.Location = new Point(602, 189);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(181, 316);
-            flowLayoutPanel4.TabIndex = 33;
+            flowpanelLista_Sobrescritas.AutoScroll = true;
+            flowpanelLista_Sobrescritas.BackColor = SystemColors.ControlLightLight;
+            flowpanelLista_Sobrescritas.FlowDirection = FlowDirection.TopDown;
+            flowpanelLista_Sobrescritas.Location = new Point(688, 252);
+            flowpanelLista_Sobrescritas.Margin = new Padding(3, 4, 3, 4);
+            flowpanelLista_Sobrescritas.Name = "flowpanelLista_Sobrescritas";
+            flowpanelLista_Sobrescritas.Size = new Size(207, 421);
+            flowpanelLista_Sobrescritas.TabIndex = 33;
             // 
-            // flowLayoutPanel3
+            // panelCabecalho_Devolvidas
             // 
-            flowLayoutPanel3.AutoScroll = true;
-            flowLayoutPanel3.BackColor = SystemColors.ControlLightLight;
-            flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel3.Location = new Point(415, 189);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(181, 316);
-            flowLayoutPanel3.TabIndex = 32;
+            panelCabecalho_Devolvidas.BackColor = SystemColors.ControlLight;
+            panelCabecalho_Devolvidas.Controls.Add(labelTitulo_Devolvidas);
+            panelCabecalho_Devolvidas.Location = new Point(902, 180);
+            panelCabecalho_Devolvidas.Margin = new Padding(3, 4, 3, 4);
+            panelCabecalho_Devolvidas.Name = "panelCabecalho_Devolvidas";
+            panelCabecalho_Devolvidas.Size = new Size(207, 75);
+            panelCabecalho_Devolvidas.TabIndex = 29;
             // 
-            // flowLayoutPanel2
+            // labelTitulo_Devolvidas
             // 
-            flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.BackColor = SystemColors.ControlLightLight;
-            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Location = new Point(228, 189);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(181, 316);
-            flowLayoutPanel2.TabIndex = 31;
+            labelTitulo_Devolvidas.AutoSize = true;
+            labelTitulo_Devolvidas.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitulo_Devolvidas.Location = new Point(29, 21);
+            labelTitulo_Devolvidas.Name = "labelTitulo_Devolvidas";
+            labelTitulo_Devolvidas.Size = new Size(162, 32);
+            labelTitulo_Devolvidas.TabIndex = 2;
+            labelTitulo_Devolvidas.Text = "DEVOLVIDAS";
             // 
-            // criadas
+            // flowpanelLista_Devolvidas
             // 
-            criadas.AutoScroll = true;
-            criadas.BackColor = SystemColors.ControlLightLight;
-            criadas.FlowDirection = FlowDirection.TopDown;
-            criadas.Location = new Point(41, 189);
-            criadas.Name = "criadas";
-            criadas.Size = new Size(181, 316);
-            criadas.TabIndex = 30;
+            flowpanelLista_Devolvidas.AutoScroll = true;
+            flowpanelLista_Devolvidas.BackColor = SystemColors.ControlLightLight;
+            flowpanelLista_Devolvidas.FlowDirection = FlowDirection.TopDown;
+            flowpanelLista_Devolvidas.Location = new Point(902, 252);
+            flowpanelLista_Devolvidas.Margin = new Padding(3, 4, 3, 4);
+            flowpanelLista_Devolvidas.Name = "flowpanelLista_Devolvidas";
+            flowpanelLista_Devolvidas.Size = new Size(207, 421);
+            flowpanelLista_Devolvidas.TabIndex = 34;
+
             // 
-            // panel10
+            // buttonFiltro
             // 
-            panel10.BackColor = SystemColors.ControlLight;
-            panel10.Controls.Add(label4);
-            panel10.Location = new Point(789, 135);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(181, 56);
-            panel10.TabIndex = 29;
+            buttonFiltro.AutoSize = false;
+            buttonFiltro.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonFiltro.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            buttonFiltro.Depth = 0;
+            buttonFiltro.HighEmphasis = true;
+            buttonFiltro.Icon = null;
+            buttonFiltro.Location = new Point(866, 45);
+            buttonFiltro.Margin = new Padding(5, 8, 5, 8);
+            buttonFiltro.MouseState = MaterialSkin.MouseState.HOVER;
+            buttonFiltro.Name = "buttonFiltro";
+            buttonFiltro.NoAccentTextColor = Color.Empty;
+            buttonFiltro.Size = new Size(86, 48);
+            buttonFiltro.TabIndex = 23;
+            buttonFiltro.Text = "filtrar";
+            buttonFiltro.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            buttonFiltro.UseAccentColor = false;
+            buttonFiltro.UseVisualStyleBackColor = true;            
             // 
-            // flowLayoutPanel5
+            // buttonOrdem
             // 
-            flowLayoutPanel5.AutoScroll = true;
-            flowLayoutPanel5.BackColor = SystemColors.ControlLightLight;
-            flowLayoutPanel5.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel5.Location = new Point(789, 189);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Size = new Size(181, 316);
-            flowLayoutPanel5.TabIndex = 34;
+            buttonOrdem.AutoSize = false;
+            buttonOrdem.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonOrdem.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            buttonOrdem.Depth = 0;
+            buttonOrdem.HighEmphasis = true;
+            buttonOrdem.Icon = null;
+            buttonOrdem.Location = new Point(961, 45);
+            buttonOrdem.Margin = new Padding(5, 8, 5, 8);
+            buttonOrdem.MouseState = MaterialSkin.MouseState.HOVER;
+            buttonOrdem.Name = "buttonOrdem";
+            buttonOrdem.NoAccentTextColor = Color.Empty;
+            buttonOrdem.Size = new Size(146, 48);
+            buttonOrdem.TabIndex = 22;
+            buttonOrdem.Text = "ordenar por:     ";
+            buttonOrdem.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            buttonOrdem.UseAccentColor = false;
+            buttonOrdem.UseVisualStyleBackColor = true;            
+            
             // 
             // telaInicial
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(flowLayoutPanel5);
-            Controls.Add(panel12);
-            Controls.Add(panel3);
-            Controls.Add(materialButton2);
-            Controls.Add(panel2);
-            Controls.Add(panel5);
-            Controls.Add(materialButton1);
-            Controls.Add(panel7);
-            Controls.Add(flowLayoutPanel4);
-            Controls.Add(flowLayoutPanel3);
-            Controls.Add(flowLayoutPanel2);
-            Controls.Add(criadas);
-            Controls.Add(panel10);
+            Controls.Add(buttonOrdem);
+            Controls.Add(buttonFiltro);
+            Controls.Add(panelProva_Focada);
+            Controls.Add(panelCabecalho_Criadas);
+            Controls.Add(panelCabecalho_Impressas);
+            Controls.Add(panelCabecalho_Corrigidas);
+            Controls.Add(panelCabecalho_Sobrescritas);
+            Controls.Add(panelCabecalho_Devolvidas);
+            Controls.Add(flowpanelLista_Criadas);
+            Controls.Add(flowpanelLista_Impressas);
+            Controls.Add(flowpanelLista_Corrigidas);
+            Controls.Add(flowpanelLista_Sobrescritas);
+            Controls.Add(flowpanelLista_Devolvidas);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "telaInicial";
-            Size = new Size(1011, 538);
+            Size = new Size(1155, 717);
             Load += telaInicial_Load;
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
+            panelCabecalho_Criadas.ResumeLayout(false);
+            panelCabecalho_Criadas.PerformLayout();
+            panelCabecalho_Impressas.ResumeLayout(false);
+            panelCabecalho_Impressas.PerformLayout();
+            panelCabecalho_Corrigidas.ResumeLayout(false);
+            panelCabecalho_Corrigidas.PerformLayout();
+            panelCabecalho_Sobrescritas.ResumeLayout(false);
+            panelCabecalho_Sobrescritas.PerformLayout();
+            panelCabecalho_Devolvidas.ResumeLayout(false);
+            panelCabecalho_Devolvidas.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel12;
-        private Label label5;
-        private Panel panel3;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private Panel panel2;
-        private Label label1;
-        private Panel panel5;
-        private Label label2;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private Panel panel7;
-        private Label label3;
-        private Label label4;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private FlowLayoutPanel criadas;
-        private Panel panel10;
-        private FlowLayoutPanel flowLayoutPanel5;
+        private Panel panelProva_Focada;
+        private Label labelTitulo_Criadas;
+        private Label labelTitulo_Impressas;
+        private Label labelTitulo_Corrigidas;
+        private Label labelTitulo_Sobrescritas;
+        private Label labelTitulo_Devolvidas;
+        private MaterialSkin.Controls.MaterialButton buttonFiltro;
+        private Panel panelCabecalho_Criadas;
+        private Panel panelCabecalho_Impressas;
+        private Panel panelCabecalho_Corrigidas;
+        private Panel panelCabecalho_Sobrescritas;
+        private Panel panelCabecalho_Devolvidas;
+        private MaterialSkin.Controls.MaterialButton buttonOrdem;
+        private FlowLayoutPanel flowpanelLista_Criadas;
+        private FlowLayoutPanel flowpanelLista_Impressas;
+        private FlowLayoutPanel flowpanelLista_Corrigidas;
+        private FlowLayoutPanel flowpanelLista_Sobrescritas;
+        private FlowLayoutPanel flowpanelLista_Devolvidas;
     }
 }

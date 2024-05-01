@@ -39,9 +39,9 @@ namespace desktop
         private void telaInicial_Load(object sender, EventArgs e)
         {
             adicionar_prova.Text = "+";
-            adicionar_prova.Size = new Size(criadas.Width - 10, 40);
+            adicionar_prova.Size = new Size(flowpanelLista_Criadas.Width - 10, 40);
             adicionar_prova.AutoSize = false;
-            criadas.Controls.Add(adicionar_prova);
+            flowpanelLista_Criadas.Controls.Add(adicionar_prova);
             Form1.websocket.OnMessage += Respostas;
             adicionar_prova.Click += (sender, e) => { Form1.websocket.OnMessage -= Respostas; };
         }
