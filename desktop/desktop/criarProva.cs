@@ -14,7 +14,7 @@ namespace desktop
     {
 
         Color cinza = Color.Gray;
-        String[] categoriaIndex = { "SUB", "REC", "EXAME" };
+        String[] categoriaIndex = { "REGULAR", "SUBSTITUTIVA", "RECUPERAÇÃO", "EXAME" };
         String[] disciplinaIndex = { "Matemática FGB 1", "Matemática FGB 2", "Matemática AP" };
         String[] periodoIndex = { "1", "2", "3", "4", "GERAL" };
         public criarProva()
