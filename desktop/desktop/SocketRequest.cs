@@ -13,7 +13,7 @@ namespace desktop
         private UserControl CurrentScreen;
 
         public SocketAPI()
-        {    
+        {
             request_method = "undefined";
         }
         private JObject buildRequest()
@@ -46,26 +46,84 @@ namespace desktop
             return this;
         }
 
-        public JObject Listas(string nome)
+        public JObject Listas(string titulo)
+        {
+            request_route = "listas";
+            request_body = new JObject(
+                        new JProperty("filtro", titulo)
+                    );
+
+            switch (request_method)
+            {
+                case "GET":
+                    return buildRequest();
+                default:
+                    MessageBox.Show("Esta requisição não existe!");
+                    return new JObject(new JProperty("status", 400));
+
+            }
+        }
+        public JObject Listas(int ID_lista)
         {
             request_route = "listas";
             switch (request_method)
             {
                 case "GET":
-                    request_body = new JObject();
+                    request_body = new JObject(
+                        new JProperty("id", ID_lista));
+                    return buildRequest();
+                case "DELETE":
+                    request_body = new JObject(
+                        new JProperty("id", ID_lista));
                     return buildRequest();
                 default:
-                    request_body = new JObject();
-                    return new JObject("status", 400);
-
+                    MessageBox.Show("Esta requisição não existe!");
+                    return new JObject(new JProperty("status", 400));
             }
-
         }
-        public JObject Listas()
+        public JObject Listas(int[] matriculas, string titulo)
         {
             request_route = "listas";
-            request_body = new JObject();
-            return buildRequest();
+            switch (request_method)
+            {
+                case "POST":
+                    request_body = new JObject(
+                        new JProperty("matriculas", matriculas),
+                        new JProperty("titulo", titulo));
+                    return buildRequest();
+                default:
+                    MessageBox.Show("Esta requisição não existe!");
+                    return new JObject(new JProperty("status", 400));
+            }
+        }
+
+        public JObject Alunos(string matricula)
+        {
+            request_route = "alunos";
+            MessageBox.Show(matricula);
+            int id;
+            try
+            {
+                id = int.Parse(matricula);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return new JObject(new JProperty("status", 400));
+            }
+
+
+            switch (request_method)
+            {
+                case "GET":
+                    request_body = new JObject(
+                        new JProperty("matricula", id),
+                        new JProperty("filtro", "matricula"));
+                    return buildRequest();
+                default:
+                    MessageBox.Show("Esta requisição não existe!");
+                    return new JObject(new JProperty("status", 400));
+            }
         }
     }
 }

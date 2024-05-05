@@ -87,6 +87,7 @@
             button1.TabIndex = 5;
             button1.Text = "ENVIAR";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox2
             // 
@@ -136,6 +137,7 @@
             Name = "modalCriarLista";
             Padding = new Padding(3, 85, 3, 4);
             StartPosition = FormStartPosition.CenterScreen;
+            Load += modalCriarLista_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -42,6 +42,7 @@
             btnEditarLista.Size = new Size(47, 49);
             btnEditarLista.TabIndex = 1;
             btnEditarLista.UseVisualStyleBackColor = true;
+            btnEditarLista.Click += btnEditarLista_Click;
             // 
             // btnDeletarLista
             // 

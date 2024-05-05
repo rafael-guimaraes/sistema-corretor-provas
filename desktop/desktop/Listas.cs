@@ -31,11 +31,16 @@ namespace desktop
 
         private void Listas_Load(object sender, EventArgs e)
         {
-            Form1.Request(socket.get().Listas());
+
+            Form1.Request(socket.get().Listas(""));
             Form1.Socket.OnMessage += OnResponse;
             botaoCriar_Prova.Click += (s, e) =>
             {
                 Form1.Socket.OnMessage -= OnResponse;
+            };
+            botaoNova_Lista.Click += (s, e) =>
+            {
+                Form1.Socket.OnMessage -= OnResponse;                
             };
         }
         private void OnResponse(object sender, MessageEventArgs e)
