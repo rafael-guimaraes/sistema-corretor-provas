@@ -2,7 +2,9 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using Siticone;
 using Siticone.Desktop.UI;
+using Newtonsoft.Json.Linq;
 using WebSocketSharp;
+using System.ComponentModel;
 
 
 namespace desktop
@@ -11,20 +13,39 @@ namespace desktop
     public partial class Form1 : MaterialForm
     {
         MaterialSkinManager materialSkinManager;
-        int contador = 1;
-        static WebSocket ws;
 
-        public static WebSocket websocket
-        {
-            get { return ws; }
-        }
+        //WebSocket Config
+        private static WebSocket socket;
+        private const string URL = "127.0.0.1";
+        private const int PORT = 5000;
+
+        //API
+        private JObject request;
+
+        private string tela_atual;
 
         public Form1()
         {
             InitializeComponent();
-            
         }
 
+        private void OnResponse(string response)
+        {
+                
+        }
+        public static WebSocket Socket { get { return socket; } }
+        
+        private void WebSocketConnection()
+        {
+            socket = new WebSocket("ws://" + URL + ":" + PORT);
+            socket.Connect();
+            socket.OnMessage += (s, e) => OnResponse(e.Data);
+        }
+
+        public static void Request(JObject request)
+        {
+            socket.Send(request.ToString());
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             materialSkinManager = MaterialSkinManager.Instance;
@@ -33,45 +54,37 @@ namespace desktop
                                                                 Primary.BlueGrey900,
                                                                 Accent.Cyan700,
                                                                 TextShade.WHITE);
-            ws = new WebSocket("ws://localhost:5000");
-            ws.Connect();
-           
+            WebSocketConnection();
             trocarTela("telaInicial");
-
         }
 
-       
-        
         public void trocarTela(String tela)
         {
-            panel1.Controls.Clear();
+            panelInicial.Controls.Clear();
+            tela_atual = tela;
 
-            telaInicial inicial = new telaInicial();
-            inicial.criarLista += (s, args) => trocarTela("criarLista");
+            switch (tela){
+                case "telaInicial":
+                    telaInicial inicial = new telaInicial(socket);
+                    inicial.criarLista += (s, args) => trocarTela("criarLista");
+                    Text = "ACOMPANHAMENTO DAS AVALIAÇÕES";
+                    panelInicial.Controls.Add(inicial);
 
-            Listas telaListas = new Listas();
-            telaListas.criarProva += (s, args) => trocarTela("criarProva");
+                    break;
+                case "criarLista":
+                    Listas telaListas = new Listas();
+                    telaListas.criarProva += (s, args) => trocarTela("criarProva");
 
+                    Text = "SELECIONAR EXISTENTE";
+                    panelInicial.Controls.Add(telaListas);
+                    break;
+                case "criarProva":
+                    criarProva criarP = new criarProva();
+                    criarP.voltarInicio += (s, args) => trocarTela("telaInicial");
 
-            criarProva criarP = new criarProva();
-            criarP.voltarInicio += (s, args) => trocarTela("telaInicial");
-            
-
-            if (tela == "criarLista")
-            {
-                Text = "SELECIONAR EXISTENTE";
-                panel1.Controls.Add(telaListas);
-
-            }
-            else if (tela == "criarProva")
-            {
-                Text = "";
-                panel1.Controls.Add(criarP);
-
-            }else if (tela == "telaInicial")
-            {
-                Text = "ACOMPANHAMENTO DAS AVALIAÇÕES";
-                panel1.Controls.Add(inicial);
+                    Text = "CRIAR PROVA ";
+                    panelInicial.Controls.Add(criarP);
+                    break;
             }
         }
 

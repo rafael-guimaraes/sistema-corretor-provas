@@ -50,25 +50,28 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(-3, 59);
+            panel1.Location = new Point(-3, 79);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(632, 477);
+            panel1.Size = new Size(722, 636);
             panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = SystemColors.ControlLight;
-            flowLayoutPanel1.Location = new Point(43, 90);
+            flowLayoutPanel1.Location = new Point(49, 120);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(554, 263);
+            flowLayoutPanel1.Size = new Size(633, 351);
             flowLayoutPanel1.TabIndex = 7;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(467, 438);
+            button2.Location = new Point(534, 584);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(130, 30);
+            button2.Size = new Size(149, 40);
             button2.TabIndex = 6;
             button2.Text = "CRIAR LISTA";
             button2.UseVisualStyleBackColor = true;
@@ -77,36 +80,39 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(529, 369);
+            button1.Location = new Point(605, 492);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(69, 31);
+            button1.Size = new Size(79, 41);
             button1.TabIndex = 5;
             button1.Text = "ENVIAR";
             button1.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(282, 370);
+            textBox2.Location = new Point(322, 493);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(240, 30);
+            textBox2.Size = new Size(274, 39);
             textBox2.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(43, 369);
+            label2.Location = new Point(49, 492);
             label2.Name = "label2";
-            label2.Size = new Size(233, 30);
+            label2.Size = new Size(298, 37);
             label2.TabIndex = 3;
             label2.Text = "INSIRA A MATRÍCULA";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(43, 54);
+            textBox1.Location = new Point(49, 72);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(262, 23);
+            textBox1.Size = new Size(299, 27);
             textBox1.TabIndex = 2;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -114,19 +120,21 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(43, 21);
+            label1.Location = new Point(49, 28);
             label1.Name = "label1";
-            label1.Size = new Size(262, 30);
+            label1.Size = new Size(332, 37);
             label1.TabIndex = 1;
             label1.Text = "CRIAR LISTA DE ALUNOS";
             // 
             // modalCriarLista
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(628, 533);
+            ClientSize = new Size(718, 711);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "modalCriarLista";
+            Padding = new Padding(3, 85, 3, 4);
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

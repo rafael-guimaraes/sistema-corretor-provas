@@ -30,16 +30,16 @@
         {
             materialButton3 = new MaterialSkin.Controls.MaterialButton();
             panel1 = new Panel();
+            label2 = new Label();
             materialComboBox3 = new MaterialSkin.Controls.MaterialComboBox();
+            label3 = new Label();
             materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            label4 = new Label();
             materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
             label1 = new Label();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
             materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
             panel3 = new Panel();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,8 +50,8 @@
             materialButton3.Depth = 0;
             materialButton3.HighEmphasis = true;
             materialButton3.Icon = null;
-            materialButton3.Location = new Point(847, 488);
-            materialButton3.Margin = new Padding(4, 6, 4, 6);
+            materialButton3.Location = new Point(968, 651);
+            materialButton3.Margin = new Padding(5, 8, 5, 8);
             materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton3.Name = "materialButton3";
             materialButton3.NoAccentTextColor = Color.Empty;
@@ -75,10 +75,21 @@
             panel1.Controls.Add(materialSwitch1);
             panel1.Controls.Add(materialButton3);
             panel1.Controls.Add(panel3);
-            panel1.Location = new Point(-1, -1);
+            panel1.Location = new Point(-1, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1012, 538);
+            panel1.Size = new Size(1157, 716);
             panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(31, 145);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 28);
+            label2.TabIndex = 14;
+            label2.Text = "TIPO DE PROVA";
             // 
             // materialComboBox3
             // 
@@ -94,13 +105,24 @@
             materialComboBox3.FormattingEnabled = true;
             materialComboBox3.IntegralHeight = false;
             materialComboBox3.ItemHeight = 43;
-            materialComboBox3.Location = new Point(27, 350);
+            materialComboBox3.Location = new Point(31, 467);
+            materialComboBox3.Margin = new Padding(3, 4, 3, 4);
             materialComboBox3.MaxDropDownItems = 4;
             materialComboBox3.MouseState = MaterialSkin.MouseState.OUT;
             materialComboBox3.Name = "materialComboBox3";
-            materialComboBox3.Size = new Size(333, 49);
+            materialComboBox3.Size = new Size(380, 49);
             materialComboBox3.StartIndex = 0;
             materialComboBox3.TabIndex = 13;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(31, 292);
+            label3.Name = "label3";
+            label3.Size = new Size(112, 28);
+            label3.TabIndex = 15;
+            label3.Text = "DISICPLINA";
             // 
             // materialComboBox2
             // 
@@ -116,13 +138,24 @@
             materialComboBox2.FormattingEnabled = true;
             materialComboBox2.IntegralHeight = false;
             materialComboBox2.ItemHeight = 43;
-            materialComboBox2.Location = new Point(27, 243);
+            materialComboBox2.Location = new Point(31, 324);
+            materialComboBox2.Margin = new Padding(3, 4, 3, 4);
             materialComboBox2.MaxDropDownItems = 4;
             materialComboBox2.MouseState = MaterialSkin.MouseState.OUT;
             materialComboBox2.Name = "materialComboBox2";
-            materialComboBox2.Size = new Size(333, 49);
+            materialComboBox2.Size = new Size(380, 49);
             materialComboBox2.StartIndex = 0;
             materialComboBox2.TabIndex = 12;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(31, 435);
+            label4.Name = "label4";
+            label4.Size = new Size(99, 28);
+            label4.TabIndex = 16;
+            label4.Text = "BIMESTRE";
             // 
             // materialComboBox1
             // 
@@ -138,11 +171,12 @@
             materialComboBox1.FormattingEnabled = true;
             materialComboBox1.IntegralHeight = false;
             materialComboBox1.ItemHeight = 43;
-            materialComboBox1.Location = new Point(27, 136);
+            materialComboBox1.Location = new Point(31, 181);
+            materialComboBox1.Margin = new Padding(3, 4, 3, 4);
             materialComboBox1.MaxDropDownItems = 4;
             materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
             materialComboBox1.Name = "materialComboBox1";
-            materialComboBox1.Size = new Size(333, 49);
+            materialComboBox1.Size = new Size(380, 49);
             materialComboBox1.StartIndex = 0;
             materialComboBox1.TabIndex = 11;
             materialComboBox1.Tag = "";
@@ -151,9 +185,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(27, 31);
+            label1.Location = new Point(31, 41);
             label1.Name = "label1";
-            label1.Size = new Size(153, 30);
+            label1.Size = new Size(196, 37);
             label1.TabIndex = 10;
             label1.Text = "CRIAR PROVA";
             // 
@@ -165,12 +199,12 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(27, 443);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.Location = new Point(31, 591);
+            materialButton1.Margin = new Padding(5, 8, 5, 8);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(333, 36);
+            materialButton1.Size = new Size(381, 48);
             materialButton1.TabIndex = 7;
             materialButton1.Text = "SELECIONAR ARQUIVO";
             materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -181,7 +215,7 @@
             // 
             materialSwitch1.AutoSize = true;
             materialSwitch1.Depth = 0;
-            materialSwitch1.Location = new Point(396, 69);
+            materialSwitch1.Location = new Point(453, 92);
             materialSwitch1.Margin = new Padding(0);
             materialSwitch1.MouseLocation = new Point(-1, -1);
             materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -194,49 +228,22 @@
             // 
             // panel3
             // 
-            panel3.Location = new Point(396, 109);
+            panel3.Location = new Point(453, 145);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(545, 370);
+            panel3.Size = new Size(623, 493);
             panel3.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(27, 109);
-            label2.Name = "label2";
-            label2.Size = new Size(120, 21);
-            label2.TabIndex = 14;
-            label2.Text = "TIPO DE PROVA";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(27, 219);
-            label3.Name = "label3";
-            label3.Size = new Size(91, 21);
-            label3.TabIndex = 15;
-            label3.Text = "DISICPLINA";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(27, 326);
-            label4.Name = "label4";
-            label4.Size = new Size(80, 21);
-            label4.TabIndex = 16;
-            label4.Text = "BIMESTRE";
             // 
             // criarProva
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "criarProva";
-            Size = new Size(1011, 537);
+            Size = new Size(1155, 716);
+            Load += criarProva_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

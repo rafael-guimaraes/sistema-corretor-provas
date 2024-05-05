@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebSocketSharp;
 
 namespace desktop
 {
@@ -20,9 +23,7 @@ namespace desktop
         public criarProva()
         {
             InitializeComponent();
-            materialComboBox1.Items.AddRange(categoriaIndex);
-            materialComboBox2.Items.AddRange(disciplinaIndex);
-            materialComboBox3.Items.AddRange(periodoIndex);
+            
             setColor();
         }
 
@@ -37,6 +38,21 @@ namespace desktop
 
         }
 
+        private void criarProva_Load(object sender, EventArgs e)
+        {
+            materialComboBox1.Items.AddRange(categoriaIndex);
+            materialComboBox2.Items.AddRange(disciplinaIndex);
+            materialComboBox3.Items.AddRange(periodoIndex);
+            Form1.Socket.OnMessage += OnResponse;
+            materialButton3.Click += (s, e) =>
+            {
+                Form1.Socket.OnMessage -= OnResponse;
+            };
+        }
+        private void OnResponse(object sender, MessageEventArgs e)
+        {
+            MessageBox.Show("AQUI ESTA NA TELA CRIAR PROVA" + e.Data);
+        }
         public event EventHandler voltarInicio
         {
             add

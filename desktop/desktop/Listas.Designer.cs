@@ -28,152 +28,158 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            materialButton3 = new MaterialSkin.Controls.MaterialButton();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            panelTela_Lista_Chamada = new Panel();
+            botaoFiltrar_Listas = new MaterialSkin.Controls.MaterialButton();
+            textBoxFiltro_Listas = new TextBox();
+            labelTitulo_Listas_Chamada = new Label();
+            botaoCriar_Prova = new MaterialSkin.Controls.MaterialButton();
             panel2 = new Panel();
-            tabela = new FlowLayoutPanel();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            panel1.SuspendLayout();
+            panelTabela_Listas = new FlowLayoutPanel();
+            botaoNova_Lista = new MaterialSkin.Controls.MaterialButton();
+            panelTela_Lista_Chamada.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panelTela_Lista_Chamada
             // 
-            panel1.Controls.Add(materialButton3);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(materialButton2);
-            panel1.Controls.Add(panel2);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1012, 537);
-            panel1.TabIndex = 0;
+            panelTela_Lista_Chamada.Controls.Add(botaoFiltrar_Listas);
+            panelTela_Lista_Chamada.Controls.Add(textBoxFiltro_Listas);
+            panelTela_Lista_Chamada.Controls.Add(labelTitulo_Listas_Chamada);
+            panelTela_Lista_Chamada.Controls.Add(botaoCriar_Prova);
+            panelTela_Lista_Chamada.Controls.Add(panel2);
+            panelTela_Lista_Chamada.Location = new Point(0, 0);
+            panelTela_Lista_Chamada.Margin = new Padding(3, 4, 3, 4);
+            panelTela_Lista_Chamada.Name = "panelTela_Lista_Chamada";
+            panelTela_Lista_Chamada.Size = new Size(1157, 716);
+            panelTela_Lista_Chamada.TabIndex = 0;
             // 
-            // materialButton3
+            // botaoFiltrar_Listas
             // 
-            materialButton3.AutoSize = false;
-            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton3.Depth = 0;
-            materialButton3.HighEmphasis = true;
-            materialButton3.Icon = null;
-            materialButton3.Location = new Point(860, 85);
-            materialButton3.Margin = new Padding(4, 6, 4, 6);
-            materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton3.Name = "materialButton3";
-            materialButton3.NoAccentTextColor = Color.Empty;
-            materialButton3.Size = new Size(108, 28);
-            materialButton3.TabIndex = 13;
-            materialButton3.Text = "FILTRAR";
-            materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton3.UseAccentColor = false;
-            materialButton3.UseVisualStyleBackColor = true;
+            botaoFiltrar_Listas.AutoSize = false;
+            botaoFiltrar_Listas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            botaoFiltrar_Listas.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            botaoFiltrar_Listas.Depth = 0;
+            botaoFiltrar_Listas.HighEmphasis = true;
+            botaoFiltrar_Listas.Icon = null;
+            botaoFiltrar_Listas.Location = new Point(983, 113);
+            botaoFiltrar_Listas.Margin = new Padding(5, 8, 5, 8);
+            botaoFiltrar_Listas.MouseState = MaterialSkin.MouseState.HOVER;
+            botaoFiltrar_Listas.Name = "botaoFiltrar_Listas";
+            botaoFiltrar_Listas.NoAccentTextColor = Color.Empty;
+            botaoFiltrar_Listas.Size = new Size(123, 37);
+            botaoFiltrar_Listas.TabIndex = 13;
+            botaoFiltrar_Listas.Text = "FILTRAR";
+            botaoFiltrar_Listas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            botaoFiltrar_Listas.UseAccentColor = false;
+            botaoFiltrar_Listas.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBoxFiltro_Listas
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(23, 85);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(830, 28);
-            textBox1.TabIndex = 12;
+            textBoxFiltro_Listas.BorderStyle = BorderStyle.None;
+            textBoxFiltro_Listas.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxFiltro_Listas.Location = new Point(26, 113);
+            textBoxFiltro_Listas.Margin = new Padding(3, 4, 3, 4);
+            textBoxFiltro_Listas.Name = "textBoxFiltro_Listas";
+            textBoxFiltro_Listas.Size = new Size(949, 35);
+            textBoxFiltro_Listas.TabIndex = 12;
             // 
-            // label1
+            // labelTitulo_Listas_Chamada
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(23, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(216, 30);
-            label1.TabIndex = 11;
-            label1.Text = "LISTA DE CHAMADA";
+            labelTitulo_Listas_Chamada.AutoSize = true;
+            labelTitulo_Listas_Chamada.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitulo_Listas_Chamada.Location = new Point(26, 41);
+            labelTitulo_Listas_Chamada.Name = "labelTitulo_Listas_Chamada";
+            labelTitulo_Listas_Chamada.Size = new Size(277, 37);
+            labelTitulo_Listas_Chamada.TabIndex = 11;
+            labelTitulo_Listas_Chamada.Text = "LISTA DE CHAMADA";
             // 
-            // materialButton2
+            // botaoCriar_Prova
             // 
-            materialButton2.AutoSize = false;
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.Location = new Point(771, 487);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(197, 44);
-            materialButton2.TabIndex = 5;
-            materialButton2.Text = "CRIAR PROVA";
-            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            botaoCriar_Prova.AutoSize = false;
+            botaoCriar_Prova.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            botaoCriar_Prova.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            botaoCriar_Prova.Depth = 0;
+            botaoCriar_Prova.HighEmphasis = true;
+            botaoCriar_Prova.Icon = null;
+            botaoCriar_Prova.Location = new Point(881, 649);
+            botaoCriar_Prova.Margin = new Padding(5, 8, 5, 8);
+            botaoCriar_Prova.MouseState = MaterialSkin.MouseState.HOVER;
+            botaoCriar_Prova.Name = "botaoCriar_Prova";
+            botaoCriar_Prova.NoAccentTextColor = Color.Empty;
+            botaoCriar_Prova.Size = new Size(225, 59);
+            botaoCriar_Prova.TabIndex = 5;
+            botaoCriar_Prova.Text = "CRIAR PROVA";
+            botaoCriar_Prova.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            botaoCriar_Prova.UseAccentColor = false;
+            botaoCriar_Prova.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
-            panel2.Controls.Add(tabela);
-            panel2.Controls.Add(materialButton1);
-            panel2.Location = new Point(23, 120);
+            panel2.Controls.Add(panelTabela_Listas);
+            panel2.Controls.Add(botaoNova_Lista);
+            panel2.Location = new Point(26, 160);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(945, 347);
+            panel2.Size = new Size(1080, 463);
             panel2.TabIndex = 1;
             // 
-            // tabela
+            // panelTabela_Listas
             // 
-            tabela.AutoScroll = true;
-            tabela.FlowDirection = FlowDirection.TopDown;
-            tabela.Location = new Point(0, 59);
-            tabela.Name = "tabela";
-            tabela.Size = new Size(945, 311);
-            tabela.TabIndex = 1;
-            tabela.WrapContents = false;
+            panelTabela_Listas.AutoScroll = true;
+            panelTabela_Listas.FlowDirection = FlowDirection.TopDown;
+            panelTabela_Listas.Location = new Point(0, 79);
+            panelTabela_Listas.Margin = new Padding(3, 4, 3, 4);
+            panelTabela_Listas.Name = "panelTabela_Listas";
+            panelTabela_Listas.Size = new Size(1080, 415);
+            panelTabela_Listas.TabIndex = 1;
+            panelTabela_Listas.WrapContents = false;
             // 
-            // materialButton1
+            // botaoNova_Lista
             // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(15, 14);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(917, 36);
-            materialButton1.TabIndex = 0;
-            materialButton1.Text = "+ NOVA LISTA DE ALUNOS";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
-            materialButton1.Click += materialButton1_Click;
+            botaoNova_Lista.AutoSize = false;
+            botaoNova_Lista.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            botaoNova_Lista.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            botaoNova_Lista.Depth = 0;
+            botaoNova_Lista.HighEmphasis = true;
+            botaoNova_Lista.Icon = null;
+            botaoNova_Lista.Location = new Point(17, 19);
+            botaoNova_Lista.Margin = new Padding(5, 8, 5, 8);
+            botaoNova_Lista.MouseState = MaterialSkin.MouseState.HOVER;
+            botaoNova_Lista.Name = "botaoNova_Lista";
+            botaoNova_Lista.NoAccentTextColor = Color.Empty;
+            botaoNova_Lista.Size = new Size(1048, 48);
+            botaoNova_Lista.TabIndex = 0;
+            botaoNova_Lista.Text = "+ NOVA LISTA DE ALUNOS";
+            botaoNova_Lista.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            botaoNova_Lista.UseAccentColor = false;
+            botaoNova_Lista.UseVisualStyleBackColor = true;
+            botaoNova_Lista.Click += botaoNova_Lista_Click;
             // 
             // Listas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel1);
+            Controls.Add(panelTela_Lista_Chamada);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Listas";
-            Size = new Size(1011, 537);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Size = new Size(1155, 716);
+            Load += Listas_Load;
+            panelTela_Lista_Chamada.ResumeLayout(false);
+            panelTela_Lista_Chamada.PerformLayout();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelTela_Lista_Chamada;
         private Panel panel2;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private FlowLayoutPanel tabela;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private Label label1;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
-        private TextBox textBox1;
+        private MaterialSkin.Controls.MaterialButton botaoNova_Lista;
+        private FlowLayoutPanel panelTabela_Listas;
+        private MaterialSkin.Controls.MaterialButton botaoCriar_Prova;
+        private Label labelTitulo_Listas_Chamada;
+        private MaterialSkin.Controls.MaterialButton botaoFiltrar_Listas;
+        private TextBox textBoxFiltro_Listas;
     }
 }

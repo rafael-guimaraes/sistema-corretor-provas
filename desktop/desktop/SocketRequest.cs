@@ -1,62 +1,46 @@
-﻿
+﻿using WebSocketSharp;
 using Newtonsoft.Json.Linq;
 
 namespace desktop
 {
-    public class SocketRequest
+    public class SocketAPI
     {
-        private const string URL = "127.0.0.1";
-        private const int PORT = 5000;
-        private SocketConnection socket;
-
         private string request_method;
         private string request_route = "";
-
         private JObject request_body;
-        private int request_status;
-        public SocketRequest()
-        {
-            socket = new SocketConnection(URL,PORT);
+        private JObject response = new JObject();
+
+        private UserControl CurrentScreen;
+
+        public SocketAPI()
+        {    
             request_method = "undefined";
-            socket.Received += (sender, args) => OnResponse();
         }
-        protected virtual void OnResponse()
+        private JObject buildRequest()
         {
-            Response?.Invoke(this, EventArgs.Empty);
-        }
-        public event EventHandler Response;
-        public JObject getResponse()
-        {
-            return socket.getResponse();
+            return new JObject(
+                new JProperty("method", request_method),
+                new JProperty("body", request_body),
+                new JProperty("route", request_route));
         }
 
-        private JObject sendRequest()
-        {            
-            JObject request = new JObject(
-                                    new JProperty("method",request_method), 
-                                    new JProperty("body", request_body),
-                                    new JProperty("route", request_route),
-                                    new JProperty("origin", Form1.tela_atual));
-            return socket.send(request);
-        }
-        
 
-        public SocketRequest get()
+        public SocketAPI get()
         {
             request_method = "GET";
             return this;
         }
-        public SocketRequest post()
+        public SocketAPI post()
         {
             request_method = "POST";
             return this;
         }
-        public SocketRequest put()
+        public SocketAPI put()
         {
             request_method = "PUT";
             return this;
         }
-        public SocketRequest delete()
+        public SocketAPI delete()
         {
             request_method = "DELETE";
             return this;
@@ -69,10 +53,10 @@ namespace desktop
             {
                 case "GET":
                     request_body = new JObject();
-                    return sendRequest();
+                    return buildRequest();
                 default:
                     request_body = new JObject();
-                    return new JObject("status",400);
+                    return new JObject("status", 400);
 
             }
 
@@ -81,7 +65,7 @@ namespace desktop
         {
             request_route = "listas";
             request_body = new JObject();
-            return sendRequest();
+            return buildRequest();
         }
     }
 }
