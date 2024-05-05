@@ -14,7 +14,7 @@ async def requisicoes(websocket, path):
             if request["method"] == "GET":
                 payload = str({"status":200,"body":[{"ID":1,"titulo":"Lista1"},{"ID":2,"titulo":"Lista2"}]})
         else:
-            payload = str({"status":503,"body":"Bad Request"})
+            payload = str({"status":400,"body":"Bad Request"})
 
 
 
