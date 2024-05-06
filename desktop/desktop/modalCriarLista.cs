@@ -20,7 +20,7 @@ namespace desktop
 
         Color cinzaEscuro = Color.DarkGray;
         private SocketAPI socket;
-        private JArray alunos;
+        private JArray alunos = new JArray();
 
 
         private void OnResponse(object sender, MessageEventArgs e)
