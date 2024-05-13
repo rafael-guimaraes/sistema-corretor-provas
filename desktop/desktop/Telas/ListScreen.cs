@@ -25,16 +25,7 @@ namespace desktop
         { add { buttonStarterScreen.Click += value; } remove { buttonStarterScreen.Click -= value; } }
 
         public event EventHandler gotoCreateScreen
-        { add { buttonCreateScreen.Click += value;} remove { buttonCreateScreen.Click -= value; } }
-
-        private void Listas_Load(object sender, EventArgs e)
-        {
-
-            main.Request(socket.Task("getListas").Body());
-            main.Socket.OnMessage += OnResponse;
-            buttonCreateScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
-            buttonNewListScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
-        }
+        { add { buttonCreateScreen.Click += value; } remove { buttonCreateScreen.Click -= value; } }
         private void OnResponse(object sender, MessageEventArgs e)
         {
             MessageBox.Show(e.Data);
@@ -59,5 +50,17 @@ namespace desktop
             }
         }
 
+        private void panelTela_Lista_Chamada_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ListScreen_Load(object sender, EventArgs e)
+        {
+            main.Socket.OnMessage += OnResponse;
+            main.Request(socket.Task("getListas").Body());
+            buttonCreateScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
+            buttonNewListScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
+        }
     }
 }

@@ -35,15 +35,7 @@ class Config:
         # print("\n\n\n\n\nRESULT:\n\n"+str(result))
 
         if result["acknowledged"]:
-            filtered_result = []
-            for aluno in result["data"]:
-                print(aluno)
-                filtered_aluno = {}
-                for key,value in aluno.items():
-                    if key != "_id": filtered_aluno[key] = value
-                filtered_result.append(filtered_aluno)
-                print(filtered_result[-1])
-            return sorted(filtered_result,key= lambda d: d["matricula"])
+            return sorted(result["data"],key= lambda d: d["matricula"])
         else:
             return "Erro ao inserir no banco"
         
@@ -53,7 +45,7 @@ class Config:
         
         listas = []
         for turma in turmas:
-            lista = {"lista":turma}
+            lista = {"title":turma,"type":"class"}
             alunos_turma = self._database.getData("alunos",{"turma":turma})
             print(alunos_turma)
             matriculas = list(map(lambda a: a["matricula"],alunos_turma))

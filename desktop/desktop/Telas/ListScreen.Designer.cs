@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelTela_Lista_Chamada = new Panel();
             label1 = new Label();
             buttonStarterScreen = new MaterialSkin.Controls.MaterialButton();
             botaoFiltrar_Listas = new MaterialSkin.Controls.MaterialButton();
@@ -37,29 +36,14 @@
             panel2 = new Panel();
             panelTabela_Listas = new FlowLayoutPanel();
             buttonNewListScreen = new MaterialSkin.Controls.MaterialButton();
-            panelTela_Lista_Chamada.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // panelTela_Lista_Chamada
-            // 
-            panelTela_Lista_Chamada.Controls.Add(label1);
-            panelTela_Lista_Chamada.Controls.Add(buttonStarterScreen);
-            panelTela_Lista_Chamada.Controls.Add(botaoFiltrar_Listas);
-            panelTela_Lista_Chamada.Controls.Add(textBoxFiltro_Listas);
-            panelTela_Lista_Chamada.Controls.Add(buttonCreateScreen);
-            panelTela_Lista_Chamada.Controls.Add(panel2);
-            panelTela_Lista_Chamada.Location = new Point(0, 0);
-            panelTela_Lista_Chamada.Margin = new Padding(3, 4, 3, 4);
-            panelTela_Lista_Chamada.Name = "panelTela_Lista_Chamada";
-            panelTela_Lista_Chamada.Size = new Size(1155, 740);
-            panelTela_Lista_Chamada.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(37, 98);
+            label1.Location = new Point(37, 87);
             label1.Name = "label1";
             label1.Size = new Size(292, 37);
             label1.TabIndex = 32;
@@ -67,6 +51,7 @@
             // 
             // buttonStarterScreen
             // 
+            buttonStarterScreen.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             buttonStarterScreen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             buttonStarterScreen.Depth = 0;
             buttonStarterScreen.HighEmphasis = true;
@@ -91,7 +76,7 @@
             botaoFiltrar_Listas.Depth = 0;
             botaoFiltrar_Listas.HighEmphasis = true;
             botaoFiltrar_Listas.Icon = null;
-            botaoFiltrar_Listas.Location = new Point(983, 159);
+            botaoFiltrar_Listas.Location = new Point(992, 140);
             botaoFiltrar_Listas.Margin = new Padding(5, 8, 5, 8);
             botaoFiltrar_Listas.MouseState = MaterialSkin.MouseState.HOVER;
             botaoFiltrar_Listas.Name = "botaoFiltrar_Listas";
@@ -107,7 +92,7 @@
             // 
             textBoxFiltro_Listas.BorderStyle = BorderStyle.None;
             textBoxFiltro_Listas.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxFiltro_Listas.Location = new Point(26, 159);
+            textBoxFiltro_Listas.Location = new Point(35, 142);
             textBoxFiltro_Listas.Margin = new Padding(3, 4, 3, 4);
             textBoxFiltro_Listas.Name = "textBoxFiltro_Listas";
             textBoxFiltro_Listas.Size = new Size(949, 35);
@@ -121,7 +106,7 @@
             buttonCreateScreen.Depth = 0;
             buttonCreateScreen.HighEmphasis = true;
             buttonCreateScreen.Icon = null;
-            buttonCreateScreen.Location = new Point(881, 635);
+            buttonCreateScreen.Location = new Point(892, 627);
             buttonCreateScreen.Margin = new Padding(5, 8, 5, 8);
             buttonCreateScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonCreateScreen.Name = "buttonCreateScreen";
@@ -138,7 +123,7 @@
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(panelTabela_Listas);
             panel2.Controls.Add(buttonNewListScreen);
-            panel2.Location = new Point(26, 208);
+            panel2.Location = new Point(35, 191);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(1080, 415);
@@ -179,20 +164,22 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panelTela_Lista_Chamada);
+            Controls.Add(label1);
+            Controls.Add(botaoFiltrar_Listas);
+            Controls.Add(textBoxFiltro_Listas);
+            Controls.Add(buttonStarterScreen);
+            Controls.Add(buttonCreateScreen);
+            Controls.Add(panel2);
             Margin = new Padding(3, 4, 3, 4);
             Name = "ListScreen";
             Size = new Size(1155, 716);
-            Load += Listas_Load;
-            panelTela_Lista_Chamada.ResumeLayout(false);
-            panelTela_Lista_Chamada.PerformLayout();
+            Load += ListScreen_Load;
             panel2.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Panel panelTela_Lista_Chamada;
         private Panel panel2;
         private MaterialSkin.Controls.MaterialButton buttonNewListScreen;
         private FlowLayoutPanel panelTabela_Listas;

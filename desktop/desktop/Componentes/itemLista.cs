@@ -30,8 +30,8 @@ namespace desktop
                                                               Primary.BlueGrey900,
                                                               Accent.Cyan700,
                                                               TextShade.WHITE);
-            checkListItem.Text = lista["titulo"].ToString();
-            id_lista = lista["ID"].ToString();
+            checkListItem.Text = lista["title"].ToString();
+            id_lista = lista["_id"].ToString();
             socket = new SocketAPI("listas");
         }
 
@@ -41,6 +41,11 @@ namespace desktop
         }
 
         private void buttonEditList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemLista_Load(object sender, EventArgs e)
         {
 
         }

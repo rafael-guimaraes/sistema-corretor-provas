@@ -8,10 +8,12 @@ class Listas:
 
     def runTask(self):
         if self._task == "getListas":
-            return self.getListas()
+            return self.getListas({})
         
     def getListas(self,filter={}):
-        return self._database.getData("listas",filter,distinct="lista")
+        listas = self._database.getData("listas",filter)
+        print ("\n\n\n\n\nANS:\n\n" + str (listas))
+        return listas
 
             
 

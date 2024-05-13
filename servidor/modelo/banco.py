@@ -13,6 +13,15 @@ class Banco():
             self.connection = None
             self.database = None
 
+    def strObjectID(self,data:list|tuple):
+        new_list = []
+        for item in data:
+            new_dict = {}
+            for k,v in item.items():
+                new_dict[k] = str(v) if k == "_id" else v
+            new_list.append(new_dict)            
+        return new_list
+    
     def insertData(self, collection, data):
         if self.database is None:
             print("Erro: Não foi possível acessar o banco de dados.")
@@ -26,7 +35,7 @@ class Banco():
             print("\n\n\n\n\nDATA:\n\n"+str(data))
             response = {
                 "acknowledged": result.acknowledged,
-                "data":data
+                "data":self.strObjectID(data)
             }
             return response
         
@@ -41,7 +50,7 @@ class Banco():
         collection = self.database[collection]
         try:
             if not distinct:
-                result = list(collection.find(filter))
+                result = self.strObjectID(list(collection.find(filter)))
             else:
                 result = list(collection.distinct(distinct))
             return result

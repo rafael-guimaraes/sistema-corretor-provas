@@ -141,6 +141,8 @@ namespace desktop
 
             Text = "LISTAS DE CHAMADA";
 
+            activeScreen.Controls.Add(screen);
+            return;
         }
         private void loadCreateScreen()
         {

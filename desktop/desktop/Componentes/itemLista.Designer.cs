@@ -76,6 +76,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "itemLista";
             Size = new Size(761, 56);
+            Load += itemLista_Load;
             ResumeLayout(false);
             PerformLayout();
         }
