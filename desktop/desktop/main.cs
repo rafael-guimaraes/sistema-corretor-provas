@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using WebSocketSharp;
 using System.ComponentModel;
 using desktop.Telas;
+using System.Windows.Forms;
 
 
 namespace desktop
@@ -67,6 +68,9 @@ namespace desktop
                     break;
                 case "list":
                     loadListScreen();
+                    break;
+                case "new_list":
+                    loadNewListScreen();
                     break;
                 case "create":
                     loadCreateScreen();
@@ -138,11 +142,24 @@ namespace desktop
             ListScreen screen = new ListScreen();
             screen.gotoStarterScreen += (sender, args) => switchScreen("menu");
             screen.gotoCreateScreen += (sender, args) => switchScreen("create");
+            screen.gotoNewListScreen += (sender, args) => switchScreen("new_list");
 
             Text = "LISTAS DE CHAMADA";
 
             activeScreen.Controls.Add(screen);
             return;
+        }
+
+        private void loadNewListScreen()
+        {
+            NewListScreen screen = new NewListScreen();
+            screen.gotoListScreen += (sender, args) => switchScreen("list");
+
+            Text = "CRIAR LISTA DE CHAMADA";
+
+            activeScreen.Controls.Add(screen);
+            return;
+
         }
         private void loadCreateScreen()
         {

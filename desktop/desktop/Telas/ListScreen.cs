@@ -17,6 +17,7 @@ namespace desktop
     {
 
         SocketAPI socket = new SocketAPI("Listas");
+        private JArray staticList;
         public ListScreen()
         {
             InitializeComponent();
@@ -26,33 +27,57 @@ namespace desktop
 
         public event EventHandler gotoCreateScreen
         { add { buttonCreateScreen.Click += value; } remove { buttonCreateScreen.Click -= value; } }
-        private void OnResponse(object sender, MessageEventArgs e)
+
+        public event EventHandler gotoNewListScreen
+        { add { buttonNewListScreen.Click += value; } remove { buttonNewListScreen.Click -= value; } }
+
+        private void loadListItems(string filter)
         {
-            MessageBox.Show(e.Data);
-            JObject response = JObject.Parse(e.Data);
-            MessageBox.Show(response["task"].ToString());
-            MessageBox.Show(response["data"].ToString());
-            JArray listas = JArray.Parse(response["data"].ToString());
-            foreach (JObject item in listas)
-            { 
-                if (panelTabela_Listas.InvokeRequired)
+            if (panelTabela_Listas.InvokeRequired)
+                panelTabela_Listas.Invoke((MethodInvoker)delegate
                 {
-                    panelTabela_Listas.Invoke((MethodInvoker)delegate {
+                    panelTabela_Listas.Controls.Clear();
+                });
+            else
+                panelTabela_Listas.Controls.Clear();
+
+            foreach (JObject item in staticList)
+            {
+                string title = item["title"].ToString().ToLower();
+                filter = filter.ToLower();
+                if (title.Contains(filter)){
+
+                    if (panelTabela_Listas.InvokeRequired)
+                    {
+                        panelTabela_Listas.Invoke((MethodInvoker)delegate
+                        {
+                            itemLista lista = new itemLista(item);
+                            panelTabela_Listas.Controls.Add(lista);
+                        });
+                    }
+                    else
+                    {
                         itemLista lista = new itemLista(item);
                         panelTabela_Listas.Controls.Add(lista);
-                    });
-                }
-                else
-                {
-                    itemLista lista = new itemLista(item);
-                    panelTabela_Listas.Controls.Add(lista);
+                    }
                 }
             }
         }
-
-        private void panelTela_Lista_Chamada_Paint(object sender, PaintEventArgs e)
+        private void OnResponse(object sender, MessageEventArgs e)
         {
-
+            JObject response = JObject.Parse(e.Data);
+            string task = response["task"].ToString();
+            switch (task)
+            {
+                case "getListas":
+                    staticList = JArray.Parse(response["data"].ToString());
+                    loadListItems("");
+                    MessageBox.Show(staticList.ToString());
+                    break;
+                case "deleteListByID":
+                    MessageBox.Show(response["data"].ToString());
+                    break;
+            }
         }
 
         private void ListScreen_Load(object sender, EventArgs e)
@@ -61,6 +86,11 @@ namespace desktop
             main.Request(socket.Task("getListas").Body());
             buttonCreateScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
             buttonNewListScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
+        }
+
+        private void textBoxFiltro_Listas_TextChanged(object sender, EventArgs e)
+        {
+            loadListItems(textBoxFiltro_Listas.Text);
         }
     }
 }

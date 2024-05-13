@@ -29,10 +29,7 @@ namespace desktop.Telas
         }
 
         public event EventHandler gotoStarterScreen
-        {
-            add { buttonStarterScreen.Click += value; }
-            remove { buttonStarterScreen.Click -= value; }
-        }
+        { add { buttonStarterScreen.Click += value; } remove { buttonStarterScreen.Click -= value; } }
 
         private void disableAllButtons()
         {

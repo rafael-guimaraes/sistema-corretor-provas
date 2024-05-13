@@ -1,6 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.errors import ConnectionFailure, PyMongoError
+from bson.objectid import ObjectId
 
 class Banco():
     def __init__(self,url:str): 
@@ -76,6 +77,19 @@ class Banco():
 
         colecao = self.database[colecao]
         try:
-            colecao.delete_many(filtro)
+            return colecao.delete_many(filtro)
+        except PyMongoError as e:
+            print("Erro ao deletar dados:", e)
+    
+    def deleteDataByID(self, collection, id=None):
+        if self.database is None:
+            print("Erro: Não foi possível acessar o banco de dados.")
+            return
+        
+        collection = self.database[collection]
+
+        object_id = ObjectId(id)
+        try:
+            return collection.delete_one({"_id": object_id})
         except PyMongoError as e:
             print("Erro ao deletar dados:", e)

@@ -35,21 +35,23 @@
             // 
             // buttonEditList
             // 
-            buttonEditList.Location = new Point(656, 4);
+            buttonEditList.Location = new Point(950, 4);
             buttonEditList.Margin = new Padding(3, 4, 3, 4);
             buttonEditList.Name = "buttonEditList";
             buttonEditList.Size = new Size(47, 49);
             buttonEditList.TabIndex = 1;
+            buttonEditList.Text = "Edit";
             buttonEditList.UseVisualStyleBackColor = true;
             buttonEditList.Click += buttonEditList_Click;
             // 
             // buttonDeleteList
             // 
-            buttonDeleteList.Location = new Point(710, 4);
+            buttonDeleteList.Location = new Point(1003, 4);
             buttonDeleteList.Margin = new Padding(3, 4, 3, 4);
             buttonDeleteList.Name = "buttonDeleteList";
             buttonDeleteList.Size = new Size(47, 49);
             buttonDeleteList.TabIndex = 2;
+            buttonDeleteList.Text = "X";
             buttonDeleteList.UseVisualStyleBackColor = true;
             buttonDeleteList.Click += buttonDeleteList_Click;
             // 
@@ -57,7 +59,7 @@
             // 
             checkListItem.AutoSize = true;
             checkListItem.Font = new Font("Segoe UI", 18F);
-            checkListItem.ForeColor = SystemColors.Control;
+            checkListItem.ForeColor = SystemColors.ActiveCaptionText;
             checkListItem.Location = new Point(16, 8);
             checkListItem.Name = "checkListItem";
             checkListItem.Size = new Size(133, 45);
@@ -69,13 +71,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(91, 109, 117);
+            BackColor = SystemColors.ControlLight;
             Controls.Add(checkListItem);
             Controls.Add(buttonDeleteList);
             Controls.Add(buttonEditList);
             Margin = new Padding(3, 4, 3, 4);
             Name = "itemLista";
-            Size = new Size(761, 56);
+            Size = new Size(1053, 56);
             Load += itemLista_Load;
             ResumeLayout(false);
             PerformLayout();

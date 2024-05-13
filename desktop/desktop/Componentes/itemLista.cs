@@ -17,10 +17,12 @@ namespace desktop
     {
 
         String fundo = "50, 65, 72";
-        private string id_lista;
+        private string listID;
+        private string listType;
+        public string listTitle;
 
         MaterialSkinManager materialSkinManager;
-        SocketAPI socket;
+        SocketAPI socket = new SocketAPI("Listas");
         public itemLista(JObject lista)
         {
             InitializeComponent();
@@ -30,14 +32,16 @@ namespace desktop
                                                               Primary.BlueGrey900,
                                                               Accent.Cyan700,
                                                               TextShade.WHITE);
-            checkListItem.Text = lista["title"].ToString();
-            id_lista = lista["_id"].ToString();
-            socket = new SocketAPI("listas");
+            listTitle = lista["title"].ToString();
+            checkListItem.Text = listTitle;
+            listID = lista["_id"].ToString();
+            listType = lista["type"].ToString();
         }
 
         private void buttonDeleteList_Click(object sender, EventArgs e)
         {
-            main.Request(socket.Task("deleteListByID").Body(id_lista));
+            main.Request(socket.Task("deleteListByID").Body(listID));
+            main.Request(socket.Task("getListas").Body());
         }
 
         private void buttonEditList_Click(object sender, EventArgs e)

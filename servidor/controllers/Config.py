@@ -45,12 +45,16 @@ class Config:
         
         listas = []
         for turma in turmas:
+
             lista = {"title":turma,"type":"class"}
+
             alunos_turma = self._database.getData("alunos",{"turma":turma})
-            print(alunos_turma)
+
             matriculas = list(map(lambda a: a["matricula"],alunos_turma))
             lista["alunos"] = matriculas
+
             listas.append(lista)
+
         listas_criadas = self._database.insertData("listas",listas)
         if (listas_criadas["acknowledged"]):
             return listas

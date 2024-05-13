@@ -97,6 +97,7 @@
             textBoxFiltro_Listas.Name = "textBoxFiltro_Listas";
             textBoxFiltro_Listas.Size = new Size(949, 35);
             textBoxFiltro_Listas.TabIndex = 12;
+            textBoxFiltro_Listas.TextChanged += textBoxFiltro_Listas_TextChanged;
             // 
             // buttonCreateScreen
             // 
@@ -126,7 +127,7 @@
             panel2.Location = new Point(35, 191);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1080, 415);
+            panel2.Size = new Size(1082, 415);
             panel2.TabIndex = 1;
             // 
             // panelTabela_Listas
@@ -148,12 +149,12 @@
             buttonNewListScreen.Depth = 0;
             buttonNewListScreen.HighEmphasis = true;
             buttonNewListScreen.Icon = null;
-            buttonNewListScreen.Location = new Point(27, 8);
+            buttonNewListScreen.Location = new Point(0, 8);
             buttonNewListScreen.Margin = new Padding(5, 8, 5, 8);
             buttonNewListScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonNewListScreen.Name = "buttonNewListScreen";
             buttonNewListScreen.NoAccentTextColor = Color.Empty;
-            buttonNewListScreen.Size = new Size(1048, 48);
+            buttonNewListScreen.Size = new Size(1082, 48);
             buttonNewListScreen.TabIndex = 0;
             buttonNewListScreen.Text = "+ NOVA LISTA DE ALUNOS";
             buttonNewListScreen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
