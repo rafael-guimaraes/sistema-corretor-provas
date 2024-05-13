@@ -37,9 +37,11 @@ namespace desktop
         }
         private void OnResponse(object sender, MessageEventArgs e)
         {
-            JObject payload = JObject.Parse(e.Data);
-            JArray listas = JArray.Parse(payload["body"].ToString());
-
+            MessageBox.Show(e.Data);
+            JObject response = JObject.Parse(e.Data);
+            MessageBox.Show(response["task"].ToString());
+            MessageBox.Show(response["data"].ToString());
+            JArray listas = JArray.Parse(response["data"].ToString());
             foreach (JObject item in listas)
             { 
                 if (panelTabela_Listas.InvokeRequired)
