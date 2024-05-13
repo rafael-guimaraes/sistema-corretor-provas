@@ -3,59 +3,69 @@ from pymongo.server_api import ServerApi
 from pymongo.errors import ConnectionFailure, PyMongoError
 
 class Banco():
-    def __init__(self, usuario, senha): 
+    def __init__(self,url:str): 
         try:
-            self.client = MongoClient()
-            self.client.admin.command('ping')
-            self.db = self.client['univap']
+            self.connection = MongoClient(url)
+            print(self.connection.admin.command('ping'))
+            self.database = self.connection.univap
         except ConnectionFailure as e:
             print("Não foi possível conectar ao banco de dados:", e)
-            self.client = None
-            self.db = None
+            self.connection = None
+            self.database = None
 
-    def inserir_dados(self, colecao, dados):
-        if self.db is None:
+    def insertData(self, collection, data):
+        if self.database is None:
             print("Erro: Não foi possível acessar o banco de dados.")
-            return
-
-        colecao = self.db[colecao]
+            return 
+        collection = self.database[collection]
         try:
-            if isinstance(dados, list):
-                colecao.insert_many(dados)
-            else:
-                colecao.insert_one(dados)
+            print("\n\n\n\n\nDATA:\n\n"+str(data))
+            if type(data) not in (list,tuple) :
+                data = [data]
+            result = collection.insert_many(data)
+            print("\n\n\n\n\nDATA:\n\n"+str(data))
+            response = {
+                "acknowledged": result.acknowledged,
+                "data":data
+            }
+            return response
+        
         except PyMongoError as e:
             print("Erro ao inserir dados:", e)
 
-    def buscar_dados(self, colecao, filtro = {}):
-        if self.db is None:
+    def getData(self, collection, filter = {}, distinct = False):
+        if self.database is None:
             print("Erro: Não foi possível acessar o banco de dados.")
             return None
 
-        colecao = self.db[colecao]
+        collection = self.database[collection]
         try:
-            return colecao.find(filtro)
+            if not distinct:
+                result = list(collection.find(filter))
+            else:
+                result = list(collection.distinct(distinct))
+            return result
         except PyMongoError as e:
             print("Erro ao buscar dados:", e)
             return None
 
-    def atualizar_dados(self, colecao, novos_dados, filtro = {}):
-        if self.db is None:
+    def updateData(self, colecao, novos_dados, filtro = {}):
+        if self.database is None:
             print("Erro: Não foi possível acessar o banco de dados.")
             return
 
-        colecao = self.db[colecao]
+        colecao = self.database[colecao]
         try:
             colecao.update_many(filtro, {"$set": novos_dados})
         except PyMongoError as e:
             print("Erro ao atualizar dados:", e)
 
-    def deletar_dados(self, colecao, filtro = {}):
-        if self.db is None:
+    def deleteData(self, colecao, filtro = {}):
+        if self.database is None:
             print("Erro: Não foi possível acessar o banco de dados.")
             return
 
-        colecao = self.db[colecao]
+        colecao = self.database[colecao]
         try:
             colecao.delete_many(filtro)
         except PyMongoError as e:
