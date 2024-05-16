@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,15 +15,28 @@ namespace desktop.Telas
 {
     public partial class NewListScreen : UserControl
     {
+        private string filePath;
+        SocketAPI socket = new SocketAPI("Config");
+        private int matricula;
         public NewListScreen()
         {
             InitializeComponent();
         }
         private void OnResponse(object sender, MessageEventArgs e)
         {
-            MessageBox.Show(e.Data);
             JObject response = JObject.Parse(e.Data);
-            MessageBox.Show(response["task"].ToString());
+            string task = response["task"].ToString();
+            switch (task)
+            {
+                case "importListFile":
+                    MessageBox.Show(response["data"].ToString(),"NOVA LISTA");
+                    break;
+                case "appendAlunoLista":
+                    break;
+            }
+
+
+            string data = response["task"].ToString();
             MessageBox.Show(response["data"].ToString());
         }
 
@@ -31,6 +45,14 @@ namespace desktop.Telas
         private void NewListScreen_Load(object sender, EventArgs e)
         {
             main.Socket.OnMessage += OnResponse;
+
+            buttonImportFile.AutoSizeMode = AutoSizeMode.GrowOnly;
+            buttonImportFile.Size = new Size(324, 52);
+            buttonImportFile.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            buttonImportFile.Enabled = false;
+
+            buttonSelectFile.AutoSizeMode = AutoSizeMode.GrowOnly;
+            buttonSelectFile.Size = new Size(324, 52);
         }
 
         private void buttonListScreen_Click(object sender, EventArgs e)
@@ -38,9 +60,56 @@ namespace desktop.Telas
             main.Socket.OnMessage -= OnResponse;
         }
 
-        private void textBoxListName_Click(object sender, EventArgs e)
+        private void buttonSelectFile_Click(object sender, EventArgs e)
         {
+            openFileDialog.Filter = "Arquivos CSV (*.csv)|*.csv";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
 
+
+                labelSelectedFile.Text = "Arquivo selecionado: " + Path.GetFileName(filePath); ;
+                buttonImportFile.Enabled = true;
+                buttonImportFile.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+                buttonSelectFile.Text = "ALTERAR ARQUIVO";
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhum arquivo selecionado!", "Erro");
+
+                labelSelectedFile.Text = "Nenhum arquivo selecionado.";
+                buttonImportFile.Enabled = false;
+                buttonImportFile.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+                buttonSelectFile.Text = "SELECIONAR ARQUIVO";
+            }
+        }
+
+        private void buttonImportFile_Click(object sender, EventArgs e)
+        {
+            main.Request(socket.Task("importListFile").Body(filePath));
+            buttonImportFile.Enabled = false;
+        }
+
+        private void textBoxInsertMatricula_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    if(textBoxInsertMatricula.Text.Length == 8)
+                    {
+                        matricula = int.Parse(textBoxInsertMatricula.Text);
+                        main.Request(socket.Task("appendAlunoLista").Body(matricula.ToString()));
+                    }
+                    else
+                        MessageBox.Show(textBoxInsertMatricula.Text + " não é uma matrícula válida", "ERRO");
+                }
+                catch 
+                {
+                    MessageBox.Show(textBoxInsertMatricula.Text + " não é uma matrícula válida", "ERRO");
+                }
+            }            
         }
     }
 }

@@ -29,11 +29,9 @@ class Banco():
             return 
         collection = self.database[collection]
         try:
-            print("\n\n\n\n\nDATA:\n\n"+str(data))
             if type(data) not in (list,tuple) :
                 data = [data]
             result = collection.insert_many(data)
-            print("\n\n\n\n\nDATA:\n\n"+str(data))
             response = {
                 "acknowledged": result.acknowledged,
                 "data":self.strObjectID(data)

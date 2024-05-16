@@ -45,7 +45,8 @@ namespace desktop
             {
                 string title = item["title"].ToString().ToLower();
                 filter = filter.ToLower();
-                if (title.Contains(filter)){
+                if (title.Contains(filter))
+                {
 
                     if (panelTabela_Listas.InvokeRequired)
                     {
@@ -83,7 +84,7 @@ namespace desktop
         private void ListScreen_Load(object sender, EventArgs e)
         {
             main.Socket.OnMessage += OnResponse;
-            main.Request(socket.Task("getListas").Body());
+            main.Request(socket.Task("getListas").Body("{}"));
             buttonCreateScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
             buttonNewListScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
         }
@@ -91,6 +92,12 @@ namespace desktop
         private void textBoxFiltro_Listas_TextChanged(object sender, EventArgs e)
         {
             loadListItems(textBoxFiltro_Listas.Text);
+        }
+
+        private void buttonStarterScreen_Click(object sender, EventArgs e)
+        {
+            main.Socket.OnMessage -= OnResponse;
+
         }
     }
 }

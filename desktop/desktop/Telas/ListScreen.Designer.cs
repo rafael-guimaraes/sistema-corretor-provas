@@ -67,6 +67,7 @@
             buttonStarterScreen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             buttonStarterScreen.UseAccentColor = false;
             buttonStarterScreen.UseVisualStyleBackColor = true;
+            buttonStarterScreen.Click += buttonStarterScreen_Click;
             // 
             // botaoFiltrar_Listas
             // 

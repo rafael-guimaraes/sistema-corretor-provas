@@ -76,7 +76,7 @@
             // 
             // openFileDialog
             // 
-            openFileDialog.FileName = "openFileDialog";
+            openFileDialog.FileName = "csv";
             // 
             // labelSelectedFile
             // 

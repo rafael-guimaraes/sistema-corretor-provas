@@ -5,6 +5,7 @@ from modelo.Banco import Banco
 from controllers.Config import Config
 from controllers.Alunos import Alunos
 from controllers.Listas import Listas
+import json 
 
 def Router(database,Request) -> dict:
 
@@ -12,14 +13,33 @@ def Router(database,Request) -> dict:
     context = Request["context"]
     payload = Request["body"]
 
+    Response = ""
+
     if context == "Alunos":
-        contextObject = Alunos(database,task,payload)
+
+        contextObject = Alunos(database)
+        if task == "getAlunos":
+            Response = contextObject.getAlunos(dict(payload))
+       
 
     elif context == "Listas":
-        contextObject = Listas(database,task,payload)
+
+        contextObject = Listas(database)
+        if task == "getListas":
+            Response = contextObject.getListas(json.loads(payload))
+        if task == "deleteListByID":
+            Response = contextObject.deleteListByID(payload)
 
     elif context == "Config":
-        contextObject = Config(database,task,payload)
 
-    return {"data":contextObject.runTask(),"task":task}
+        contextObject = Config(database)
+        if task == "importListFile":
+            Response = contextObject.importListFile(payload)
+        if task == "importAlunosFile":
+            Response = contextObject.importAlunosFile(payload)
+            subTask = Listas(database)
+            subResponse = subTask.createListasTurmas()
+            print("Resposta subResponse:\n" + str(subResponse))
+
+    return {"data":Response,"task":task}
 
