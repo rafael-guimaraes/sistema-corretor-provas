@@ -17,7 +17,6 @@ namespace desktop.Telas
     {
         private string filePath;
         SocketAPI socket = new SocketAPI("Config");
-        private int matricula;
         public NewListScreen()
         {
             InitializeComponent();
@@ -31,13 +30,18 @@ namespace desktop.Telas
                 case "importListFile":
                     MessageBox.Show(response["data"].ToString(),"NOVA LISTA");
                     break;
-                case "appendAlunoLista":
+                case "getAlunosByID":
+                    // Adicionar ao panelListAlunos um componente contendo MATRICULA + NOME
+
+                    string matricula = response["data"]["matricula"].ToString();
+                    string aluno = response["data"]["nome"].ToString();
+
+                    MessageBox.Show(aluno, matricula);
                     break;
             }
 
 
             string data = response["task"].ToString();
-            MessageBox.Show(response["data"].ToString());
         }
 
         public event EventHandler gotoListScreen
@@ -87,7 +91,7 @@ namespace desktop.Telas
 
         private void buttonImportFile_Click(object sender, EventArgs e)
         {
-            main.Request(socket.Task("importListFile").Body(filePath));
+            main.Request(socket.Context("Config").Task("importListFile").Body(filePath));
             buttonImportFile.Enabled = false;
         }
 
@@ -99,15 +103,15 @@ namespace desktop.Telas
                 {
                     if(textBoxInsertMatricula.Text.Length == 8)
                     {
-                        matricula = int.Parse(textBoxInsertMatricula.Text);
-                        main.Request(socket.Task("appendAlunoLista").Body(matricula.ToString()));
+                        int int_matricula = int.Parse(textBoxInsertMatricula.Text);
+                        main.Request(socket.Context("Alunos").Task("getAlunosByID").Body(textBoxInsertMatricula.Text));
                     }
                     else
-                        MessageBox.Show(textBoxInsertMatricula.Text + " não é uma matrícula válida", "ERRO");
+                        MessageBox.Show(textBoxInsertMatricula.Text + " não é uma matrícula válida (len)", "ERRO");
                 }
-                catch 
+                catch (Exception ex)
                 {
-                    MessageBox.Show(textBoxInsertMatricula.Text + " não é uma matrícula válida", "ERRO");
+                    MessageBox.Show(textBoxInsertMatricula.Text + " não é uma matrícula válida ("+ ex.ToString() + ")", "ERRO");
                 }
             }            
         }

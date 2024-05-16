@@ -5,7 +5,7 @@ class Alunos:
         self._database = database
         
     def getAlunos(self,filter:dict):
-        return self._database.getData("Listas",filter)
+        return self._database.getData("alunos",filter)
 
     
 

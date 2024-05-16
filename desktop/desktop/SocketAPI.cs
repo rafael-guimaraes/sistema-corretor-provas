@@ -32,6 +32,13 @@ namespace desktop
             this.task = task;
             return this;
         }
+
+        public SocketAPI Context(string context)
+        {
+            this.context = context;
+            return this;
+        }
+
         public JObject Body(string body)
         {
             this.body = body;

@@ -19,7 +19,9 @@ def Router(database,Request) -> dict:
 
         contextObject = Alunos(database)
         if task == "getAlunos":
-            Response = contextObject.getAlunos(dict(payload))
+            Response = contextObject.getAlunos(json.loads(payload))
+        if task == "getAlunosByID":
+            Response = contextObject.getAlunos({"matricula":payload})[0]
        
 
     elif context == "Listas":
@@ -39,7 +41,6 @@ def Router(database,Request) -> dict:
             Response = contextObject.importAlunosFile(payload)
             subTask = Listas(database)
             subResponse = subTask.createListasTurmas()
-            print("Resposta subResponse:\n" + str(subResponse))
-
+    print(Response)
     return {"data":Response,"task":task}
 
