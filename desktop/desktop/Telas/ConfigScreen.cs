@@ -24,6 +24,19 @@ namespace desktop.Telas
         {
             MessageBox.Show(e.Data);
             JObject response = JObject.Parse(e.Data);
+            string task = response["task"].ToString();
+
+            switch (task)
+            {
+                case "importAlunosFile":
+                    JArray data = JArray.Parse(response["data"].ToString());
+                    foreach (JObject item in data)
+                    {
+                        ImportStudents display = (ImportStudents) panelConfigOption.Controls[0];
+                        display.addStudentItem(item);
+                    }
+                    break;
+            }
             MessageBox.Show(response["task"].ToString());
             MessageBox.Show(response["data"].ToString());
         }

@@ -35,3 +35,4 @@ C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\obj\Debug\net8.0-windows\des
 C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\obj\Debug\net8.0-windows\desktop.Componentes.ImportStudents.resources
 C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\obj\Debug\net8.0-windows\desktop.Componentes.ImportClasses.resources
 C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\obj\Debug\net8.0-windows\desktop.Componentes.TranslateOutput.resources
+C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\obj\Debug\net8.0-windows\desktop.Componentes.itemStudent.resources

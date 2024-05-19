@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +28,7 @@ namespace desktop.Componentes
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filePath = openFileDialog.FileName;
-                
+
 
                 labelSelectedFile.Text = "Arquivo selecionado: " + Path.GetFileName(filePath); ;
                 buttonImportFile.Enabled = true;
@@ -64,5 +65,36 @@ namespace desktop.Componentes
             main.Request(socket.Task("importAlunosFile").Body(filePath));
             buttonImportFile.Enabled = false;
         }
+
+        public void addStudentItem(JObject student)
+        {
+            if (listStudentItems.InvokeRequired)
+            {
+                listStudentItems.Invoke((MethodInvoker)delegate
+                {
+                    itemStudent listItem = new itemStudent(student);
+                    listStudentItems.Controls.Add(listItem);
+                });
+            }
+            else
+            {
+                itemStudent listItem = new itemStudent(student);
+                listStudentItems.Controls.Add(listItem);
+            }
+
+            if (labelCount.InvokeRequired)
+            {
+                labelCount.Invoke((MethodInvoker)delegate
+                {
+                    labelCount.Text = (int.Parse(labelCount.Text) + 1).ToString();
+                });
+            }
+            else
+            {
+                labelCount.Text = (int.Parse(labelCount.Text)+ 1).ToString();
+            }
+            
+        }
+
     }
 }

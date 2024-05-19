@@ -33,6 +33,9 @@
             openFileDialog = new OpenFileDialog();
             labelSelectedFile = new Label();
             buttonImportFile = new MaterialSkin.Controls.MaterialButton();
+            listStudentItems = new FlowLayoutPanel();
+            titleCount = new Label();
+            labelCount = new Label();
             SuspendLayout();
             // 
             // buttonSave
@@ -107,11 +110,43 @@
             buttonImportFile.UseVisualStyleBackColor = true;
             buttonImportFile.Click += buttonImportFile_Click;
             // 
+            // listStudentItems
+            // 
+            listStudentItems.AutoScroll = true;
+            listStudentItems.AutoScrollMargin = new Size(5, 5);
+            listStudentItems.BackColor = Color.WhiteSmoke;
+            listStudentItems.BorderStyle = BorderStyle.Fixed3D;
+            listStudentItems.Location = new Point(36, 88);
+            listStudentItems.Name = "listStudentItems";
+            listStudentItems.Size = new Size(763, 323);
+            listStudentItems.TabIndex = 4;
+            // 
+            // titleCount
+            // 
+            titleCount.AutoSize = true;
+            titleCount.Location = new Point(37, 416);
+            titleCount.Name = "titleCount";
+            titleCount.Size = new Size(141, 20);
+            titleCount.TabIndex = 5;
+            titleCount.Text = "Alunos cadastrados:";
+            // 
+            // labelCount
+            // 
+            labelCount.AutoSize = true;
+            labelCount.Location = new Point(180, 416);
+            labelCount.Name = "labelCount";
+            labelCount.Size = new Size(17, 20);
+            labelCount.TabIndex = 6;
+            labelCount.Text = "0";
+            // 
             // ImportStudents
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(labelCount);
+            Controls.Add(titleCount);
+            Controls.Add(listStudentItems);
             Controls.Add(buttonImportFile);
             Controls.Add(labelSelectedFile);
             Controls.Add(buttonSelectFile);
@@ -130,5 +165,8 @@
         private OpenFileDialog openFileDialog;
         private Label labelSelectedFile;
         private MaterialSkin.Controls.MaterialButton buttonImportFile;
+        private FlowLayoutPanel listStudentItems;
+        private Label titleCount;
+        private Label labelCount;
     }
 }
