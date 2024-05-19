@@ -18,7 +18,6 @@ class ImportCSV():
         json = {}
         for i,v in self._csv_indexes.items():
             json[self._fields[v]] = fields[i]
-        print ("\n\n",json,"\n\n")
         return json
 
     def _issues(self):

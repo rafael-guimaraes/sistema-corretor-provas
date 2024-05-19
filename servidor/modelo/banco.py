@@ -31,7 +31,9 @@ class Banco():
         try:
             if type(data) not in (list,tuple) :
                 data = [data]
-            result = collection.insert_many(data)
+
+            result = collection.insert_many(data, ordered=False)
+
             response = {
                 "acknowledged": result.acknowledged,
                 "data":self.strObjectID(data)

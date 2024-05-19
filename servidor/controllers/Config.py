@@ -1,13 +1,15 @@
 
 from modelo.Banco import Banco as DB
 from modelo.ImportCSV import ImportCSV as CSV
+from setup.env import env
+env = env()
 class Config:
     def __init__(self,database:DB) -> None:
         self._database = database
         pass
 
     def getConfigAlunos(self) -> dict:
-        return self._database.getData("config",{"type":"translateAlunos"})[0]["data"]
+        return self._database.getData(env.COLLECTION_CONFIG,{"type":"translateAlunos"})[0]["data"]
     
         
     def importListFile(self,file_path):
@@ -19,7 +21,7 @@ class Config:
         payload = CSVManager.read()
 
         if payload["status"] == "success":
-            result = self._database.insertData("alunos",payload["data"])
+            result = self._database.insertData(env.COLLECTION_ALUNOS,payload["data"])
         else:
             return "Erro ao ler o arquivo:" + payload["content"]
 
@@ -36,7 +38,7 @@ class Config:
         payload = CSVManager.read()
 
         if payload["status"] == "success":
-            result = self._database.insertData("alunos",payload["data"])
+            result = self._database.insertData(env.COLLECTION_ALUNOS,payload["data"])
         else:
             return "Erro ao ler o arquivo:" + payload["content"]
 
