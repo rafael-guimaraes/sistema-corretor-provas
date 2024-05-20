@@ -9,7 +9,7 @@ class Config:
         pass
 
     def getConfigAlunos(self) -> dict:
-        return self._database.getData(env.COLLECTION_CONFIG,{"type":"translateAlunos"})[0]["data"]
+        return self._database.getData(env.COLLECTION_CONFIG,{"type":env.ALUNO_DEFAULT_TRANSLATOR.type})[0]["data"]
     
         
     def importListFile(self,file_path):
