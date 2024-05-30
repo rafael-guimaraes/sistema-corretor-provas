@@ -42,6 +42,10 @@ class Banco():
         
         except PyMongoError as e:
             print("Erro ao inserir dados:", e)
+            response = {
+                "acknowledged": False,
+                "data":e["nInserted"]
+            }
 
     def getData(self, collection, filter = {}, distinct = False):
         if self.database is None:

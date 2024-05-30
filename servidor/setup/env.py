@@ -17,5 +17,5 @@ class env:
 
         self.COLLECTION_ALUNOS = "alunos"
         self.COLLECTION_LISTAS = "listas"
-        self.COLLECTION_CONFIG = "config"
+        self.COLLECTION_CONFIG = "configuracoes"
         self.DATABASE_NAME = "univap"
