@@ -30,9 +30,10 @@ namespace desktop.Telas
             {
                 case "importAlunosFile":
                     JArray data = JArray.Parse(response["data"].ToString());
+                    ImportStudents display = (ImportStudents) panelConfigOption.Controls[0];
+                    display.clearData();
                     foreach (JObject item in data)
                     {
-                        ImportStudents display = (ImportStudents) panelConfigOption.Controls[0];
                         display.addStudentItem(item);
                     }
                     break;

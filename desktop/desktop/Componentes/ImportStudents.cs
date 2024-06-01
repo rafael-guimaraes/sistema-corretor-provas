@@ -66,6 +66,16 @@ namespace desktop.Componentes
             buttonImportFile.Enabled = false;
         }
 
+        public void clearData()
+        {
+            if (listStudentItems.InvokeRequired)
+                listStudentItems.Invoke((MethodInvoker)delegate
+                {
+                    listStudentItems.Controls.Clear();
+                });
+            else
+                listStudentItems.Controls.Clear();
+        }
         public void addStudentItem(JObject student)
         {
             if (listStudentItems.InvokeRequired)

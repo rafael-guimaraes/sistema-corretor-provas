@@ -38,6 +38,8 @@ def Router(database,Request) -> dict:
         if task == "importListFile":
             Response = contextObject.importListFile(payload)
         if task == "importAlunosFile":
+            preTask = Alunos(database)
+            preResponse = preTask.clearAlunos()
             Response = contextObject.importAlunosFile(payload)
             subTask = Listas(database)
             subResponse = subTask.createListasTurmas()

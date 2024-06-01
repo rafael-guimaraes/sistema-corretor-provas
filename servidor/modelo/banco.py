@@ -2,7 +2,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.errors import ConnectionFailure, PyMongoError
 from bson.objectid import ObjectId
-
+import json 
 class Banco():
     def __init__(self,url:str): 
         try:
@@ -42,10 +42,13 @@ class Banco():
         
         except PyMongoError as e:
             print("Erro ao inserir dados:", e)
+            stringJson = str(e)[38:].replace("\"","~~").replace("'","\"").replace("~~","'").replace("ObjectId(","").replace(")","")
+            errorJson = dict(json.loads(stringJson))
             response = {
                 "acknowledged": False,
-                "data":e["nInserted"]
+                "data":errorJson
             }
+            return response
 
     def getData(self, collection, filter = {}, distinct = False):
         if self.database is None:
