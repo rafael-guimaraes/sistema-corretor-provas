@@ -2,10 +2,10 @@
 from modelo.gerador import Gerador
 from modelo.banco import Banco as DB
 
-from controllers.Config import *
-from controllers.Alunos import *
-from controllers.Listas import *
-from controllers.Provas import *
+from controllers.controllerConfiguracoes import *
+from controllers.controllerAlunos import *
+from controllers.controllerListas import *
+from controllers.controllerProvas import *
 import json 
 
 def Router(database:DB,Request) -> dict:
