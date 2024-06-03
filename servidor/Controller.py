@@ -1,10 +1,11 @@
 
 from modelo.gerador import Gerador
-from modelo.Banco import Banco
+from modelo.banco import Banco
 
 from controllers.Config import Config
 from controllers.Alunos import Alunos
 from controllers.Listas import Listas
+from controllers.Provas import Provas
 import json 
 
 def Router(database,Request) -> dict:
@@ -43,6 +44,8 @@ def Router(database,Request) -> dict:
             Response = contextObject.importAlunosFile(payload)
             subTask = Listas(database)
             subResponse = subTask.createListasTurmas()
+    elif context == "Provas":
+        Response = Provas(database, task, payload)
     print(Response)
     return {"data":Response,"task":task}
 

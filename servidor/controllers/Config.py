@@ -1,5 +1,5 @@
 
-from modelo.Banco import Banco as DB
+from modelo.banco import Banco as DB
 from modelo.ImportCSV import ImportCSV as CSV
 from setup.env import env
 env = env()

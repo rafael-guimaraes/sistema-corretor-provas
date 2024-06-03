@@ -21,7 +21,7 @@ class Gerador():
         return doc.element.body[0]
     
     def cabecalho(self):
-        doc = Document("modelo/arquivos/cabecalho.docx")
+        doc = Document("servidor/modelo/arquivos/cabecalho.docx")
         return doc.tables[0]
     
     def lista_de_chamada(self, alunos):
@@ -104,7 +104,7 @@ class Gerador():
             lista_provas.append({"matricula": aluno['matricula'], "situacao": "criada", "gabarito": prova[1], "documento": prova[0]})
         
         pdfs = self.gerar_pdfs(lista_provas)
-        if len(pdfs) - len(lista_provas) != 0:
+        if len(pdfs) - len(lista_provas) == 0:
             for i in range(len(lista_provas)):
                 lista_provas[i]['documento'] = pdfs[i]
             return lista_provas
@@ -133,26 +133,23 @@ class Gerador():
         word = client.CreateObject('Word.Application')
         try:
             for i, prova in enumerate(lista):
-                prova['documento'].save(f"modelo/temp/{i}.docx")
-                doc = word.Documents.Open(os.path.realpath(f"modelo/temp/{i}.docx"))
-                doc.SaveAs(os.path.realpath(f"modelo/temp/{i}.pdf"), FileFormat=17)
+                prova['documento'].save(f"servidor/modelo/temp/{i}.docx")
+                doc = word.Documents.Open(os.path.realpath(f"servidor/modelo/temp/{i}.docx"))
+                doc.SaveAs(os.path.realpath(f"servidor/modelo/temp/{i}.pdf"), FileFormat=17)
                 doc.Close()
-                self.ajustar_folhas(f"modelo/temp/{i}.pdf")
+                self.ajustar_folhas(f"servidor/modelo/temp/{i}.pdf")
                 
-                with open(f"modelo/temp/{i}.pdf", "rb") as pdf_file:
+                with open(f"servidor/modelo/temp/{i}.pdf", "rb") as pdf_file:
                     pdfs.append(base64.b64encode(pdf_file.read()))
         except Exception as e:
             traceback.print_exc()
-            print()
-            print()
-            print()
-            print("-" * 90)
+            
         finally:
             word.Quit()
             for i in range(len(lista)):
                 try:
-                    os.remove(f"modelo/temp/{i}.docx")
-                    os.remove(f"modelo/temp/{i}.pdf")
+                    os.remove(f"servidor/modelo/temp/{i}.docx")
+                    os.remove(f"servidor/modelo/temp/{i}.pdf")
                 except:
                     pass
         return pdfs
@@ -162,12 +159,12 @@ class Gerador():
         merger = PdfMerger()
         try:
             for i, prova in enumerate(provas):
-                prova[0].save(f"temp/{i}.docx")
-                doc = word.Documents.Open(os.path.realpath(f"temp/{i}.docx"))
-                doc.SaveAs(os.path.realpath(f"temp/{i}.pdf"), FileFormat=17)
+                prova[0].save(f"servidor/modelo/temp/{i}.docx")
+                doc = word.Documents.Open(os.path.realpath(f"servidor/modelo/temp/{i}.docx"))
+                doc.SaveAs(os.path.realpath(f"servidor/modelo/temp/{i}.pdf"), FileFormat=17)
                 doc.Close()
-                self.ajustar_folhas(f"temp/{i}.pdf")
-                merger.append(f"temp/{i}.pdf") 
+                self.ajustar_folhas(f"servidor/modelo/temp/{i}.pdf")
+                merger.append(f"servidor/modelo/temp/{i}.pdf") 
                 
         except Exception as e:
             traceback.print_exc()
@@ -177,8 +174,8 @@ class Gerador():
         merger.write(os.path.realpath(arquivo_saida))
         merger.close()
         for i in range(len(provas)):
-            os.remove(f"temp/{i}.docx")
-            os.remove(f"temp/{i}.pdf")
+            os.remove(f"servidor/modelo/temp/{i}.docx")
+            os.remove(f"servidor/modelo/temp/{i}.pdf")
       
       
 
