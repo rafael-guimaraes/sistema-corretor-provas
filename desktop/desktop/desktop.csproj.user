@@ -13,6 +13,9 @@
     <Compile Update="Componentes\TranslateOutput.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Telas\ConfigScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -21,9 +24,6 @@
     </Compile>
     <Compile Update="Telas\CreateScreen.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="main.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Componentes\itemLista.cs">
       <SubType>UserControl</SubType>

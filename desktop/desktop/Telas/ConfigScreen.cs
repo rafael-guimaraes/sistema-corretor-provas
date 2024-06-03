@@ -38,8 +38,6 @@ namespace desktop.Telas
                     }
                     break;
             }
-            MessageBox.Show(response["task"].ToString());
-            MessageBox.Show(response["data"].ToString());
         }
 
         public event EventHandler gotoStarterScreen

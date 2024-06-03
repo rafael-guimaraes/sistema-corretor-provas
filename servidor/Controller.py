@@ -1,14 +1,14 @@
 
 from modelo.gerador import Gerador
-from modelo.banco import Banco
+from modelo.banco import Banco as DB
 
-from controllers.Config import Config
-from controllers.Alunos import Alunos
-from controllers.Listas import Listas
-from controllers.Provas import Provas
+from controllers.Config import *
+from controllers.Alunos import *
+from controllers.Listas import *
+from controllers.Provas import *
 import json 
 
-def Router(database,Request) -> dict:
+def Router(database:DB,Request) -> dict:
 
     task = Request["task"]
     context = Request["context"]
@@ -17,35 +17,37 @@ def Router(database,Request) -> dict:
     Response = ""
 
     if context == "Alunos":
-
-        contextObject = Alunos(database)
+        
         if task == "getAlunos":
-            Response = contextObject.getAlunos(json.loads(payload))
+            Response = getAlunos(database,json.loads(payload))
         if task == "getAlunosByID":
-            Response = contextObject.getAlunos({"matricula":payload})[0]
+            Response = getAlunos(database,{"matricula":payload})[0]
        
+
 
     elif context == "Listas":
 
-        contextObject = Listas(database)
         if task == "getListas":
-            Response = contextObject.getListas(json.loads(payload))
+            Response = getListas(database,json.loads(payload))
         if task == "deleteListByID":
-            Response = contextObject.deleteListByID(payload)
+            Response = deleteListByID(database, payload)
+
 
     elif context == "Config":
 
-        contextObject = Config(database)
         if task == "importListFile":
-            Response = contextObject.importListFile(payload)
+            Response = importListFile(database,payload)
         if task == "importAlunosFile":
-            preTask = Alunos(database)
-            preResponse = preTask.clearAlunos()
-            Response = contextObject.importAlunosFile(payload)
-            subTask = Listas(database)
-            subResponse = subTask.createListasTurmas()
+            preResponse = clearAlunos(database)
+            Response = importAlunosFile(database,payload)
+            subResponse = createListasTurmas(database)
+
+
+
     elif context == "Provas":
-        Response = Provas(database, task, payload)
-    print(Response)
+
+        if task == "createProva":
+            Response = createProva(database,task,payload)
+        print(Response)    
     return {"data":Response,"task":task}
 
