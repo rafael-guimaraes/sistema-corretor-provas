@@ -1,37 +1,33 @@
 from docx import Document
 from docx.oxml.table import CT_TcPr
 from docx.oxml.text.paragraph import CT_P
-from copy import deepcopy
-from docx.shared import Cm, Pt
-import random
 from docx.oxml.ns import qn
-from docx.oxml import parse_xml
 from docx.oxml import OxmlElement
+from docx.shared import Cm, Pt
+
+from PyPDF2 import PdfReader, PdfWriter
 from PIL import Image
+import random
+import os
+import base64
 
-class Prova():
-    def __init__(self, arquivo, dados, perguntas, cabecalho, colunas):
-        self.arquivo = arquivo
-        self.dados = dados
-        self.perguntas = deepcopy(perguntas)
-        self.cabecalho = deepcopy(cabecalho)
-        self.gabarito = ""
-        self.colunas = colunas
-        self.alterar_cabecalho()
-        
+from setup.env import env
 
-    def embaralhar_alternativas(self, lista, posicao):
-        item = lista[posicao]
-        random.shuffle(lista)
-        nova_posicao = lista.index(item)
-        return nova_posicao
+LETRAS = "abcde"
+env = env()
 
-    def embaralhar_perguntas(self, perguntas):
-        for pergunta in perguntas:
-            pergunta["resposta"] = self.embaralhar_alternativas(pergunta["alternativas"], pergunta["resposta"])
-        random.shuffle(perguntas)
-        
-    def criar_sessao(self, num_colunas):
+def criar_run(texto, fonte, bold):
+        doc = Document()
+        para = doc.add_paragraph()
+        run = para.add_run(texto)
+        run.font.name = fonte
+        run.font.bold = bold
+        para._element.get_or_add_pPr().spacing_after = Pt(0)      
+        para._element.get_or_add_pPr().spacing_before = Pt(0)
+    
+        return run._element
+    
+def criar_sessao(num_colunas):
         sessao = OxmlElement("w:sectPr")
         
         layout = OxmlElement("w:type")
@@ -58,110 +54,136 @@ class Prova():
         tamanho.set(qn("w:h"), "15840")  
         sessao.append(tamanho)
         
-        return sessao
-        
-    def criar_run(self, texto, fonte, bold):
-        doc = Document()
-        para = doc.add_paragraph()
-        run = para.add_run(texto)
-        run.font.name = fonte
-        run.font.bold = bold
-        para._element.get_or_add_pPr().spacing_after = Pt(0)      
-        para._element.get_or_add_pPr().spacing_before = Pt(0)
+        return sessao   
     
-        return run._element   
+def criar_cabecalho(cabecalho, dados, aluno):
+    mapa = {
+        '<nome>': aluno["nome"],
+        '<matricula>': aluno["matricula"],
+        '<turma>': aluno["turma"],
+        '<titulo>': f"Avaliação {dados["tipo"].capitalize()} de {dados["disciplina"]} do {dados["bimestre"]}º Bimestre"
+    }
+    for linha in cabecalho.rows:
+        for celulas in linha.cells:
+            for paragrafo in celulas.paragraphs:
+                for marcacao, valor in mapa.items():
+                    if marcacao in paragrafo.text:
+                        paragrafo.text = paragrafo.text.replace(marcacao, str(valor))
+                        for run in paragrafo.runs:
+                            run.font.name = "Arial"
+                            run.font.size = Pt(10)
     
-    def alterar_cabecalho(self):
-        for linha in self.cabecalho.rows:
-            for celulas in linha.cells:
-                for paragrafo in celulas.paragraphs:
-                    for marcacao, valor in self.dados.items():
-                        if marcacao in paragrafo.text:
-                            print( marcacao + " " + str(valor))
-                            paragrafo.text = paragrafo.text.replace(marcacao, str(valor))
-        
-        celulas_com_imagens = [
-            (0, 0, 'servidor/modelo/arquivos/univap.png', 0.17),
-            (0, 13, 'servidor/modelo/arquivos/fve.png', 0.17),
-            (3, 1, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 2, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 3, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 4, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 5, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 6, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 7, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 8, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 9, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 10, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (3, 11, 'servidor/modelo/arquivos/letras.png', 0.17),
-            (6, 13, 'servidor/modelo/arquivos/assinatura.png', 0.17),
-            (7, 1, 'servidor/modelo/arquivos/observacoes.png', 0.17)
-        ]
-        for linha, coluna, imagem, escala in celulas_com_imagens:
-            if linha < len(self.cabecalho.rows) and coluna < len(self.cabecalho.rows[linha].cells):
-                cell = self.cabecalho.cell(linha, coluna)
-                with Image.open(imagem) as img:
-                    comprimento, altura = img.size
+    celulas_com_imagens = [
+        (0, 0,  'univap.png'),
+        (0, 13, 'fve.png'),
+        (3, 1,  'letras.png'),
+        (3, 2,  'letras.png'),
+        (3, 3,  'letras.png'),
+        (3, 5,  'letras.png'),
+        (3, 6,  'letras.png'),
+        (3, 7,  'letras.png'),
+        (3, 8,  'letras.png'),
+        (3, 9,  'letras.png'),
+        (3, 10, 'letras.png'),
+        (3, 11, 'letras.png'),
+        (6, 13, 'assinatura.png'),
+        (7, 1,  'observacoes.png')
+    ]
+    
+    for linha, coluna, imagem in celulas_com_imagens:
+        if linha < len(cabecalho.rows) and coluna < len(cabecalho.rows[linha].cells):
+            rota = env.STATIC + imagem
+            cell = cabecalho.cell(linha, coluna)
+            with Image.open(rota) as img:
+                comprimento, altura = img.size
 
-                comprimento = Cm((comprimento / 96) * escala)
+            comprimento = Cm((comprimento / 96) * 0.14)
 
-                paragraph = cell.paragraphs[0] if cell.paragraphs else cell.add_paragraph()
-                run = paragraph.add_run()
-                run.font.name = 'Arial'
-                run.font.size = Pt(2)
-                run.add_picture(imagem, width=comprimento)
-                
+            paragraph = cell.paragraphs[0] if cell.paragraphs else cell.add_paragraph()
+            run = paragraph.add_run()
+            run.font.name = 'Arial'
+            run.font.size = Pt(2)
+            run.add_picture(rota, width=comprimento)
             
-    def criar_prova(self):
-        LETRAS = "abcde"
-        self.embaralhar_perguntas(self.perguntas)
-        
-        novo_doc = Document(self.arquivo)    
-        
-        corpo = novo_doc.element.body
-        corpo.clear()
-        
-        p = novo_doc.add_paragraph()._element
-        propriedades = OxmlElement("w:pPr")
-        propriedades.append(self.criar_sessao(1))
-        p.insert(0, propriedades)
+    return cabecalho
 
-        corpo.insert(0, self.cabecalho._element)
+def embaralhar_alternativas(lista, posicao):
+    
+    
+    item = lista[posicao]
+    random.shuffle(lista)
+    nova_posicao = lista.index(item)
+    return nova_posicao
 
-        sessao = self.criar_sessao(self.colunas)
+def embaralhar_perguntas(perguntas):
+    for pergunta in perguntas:
+        pergunta["indice_resposta"] = embaralhar_alternativas(pergunta["alternativas"], pergunta["indice_resposta"])
+    random.shuffle(perguntas)        
+    
+def ajustar_pdf(caminho):
+        reader = PdfReader(caminho)
+        if len(reader.pages) % 2 != 0:
+            writer = PdfWriter()
+            for page in reader.pages:
+                writer.add_page(page)
+            writer.add_blank_page()
+            with open(caminho, 'wb') as output_pdf:
+                writer.write(output_pdf)
+                           
+def Prova(arquivo, dados, aluno, colunas, perguntas, word):
+    documento = Document(arquivo)    
+    corpo = documento.element.body
+    corpo.clear()
+    
+    p = documento.add_paragraph()._element
+    propriedades = OxmlElement("w:pPr")
+    propriedades.append(criar_sessao(1))
+    p.insert(0, propriedades)
+
+    corpo.insert(0, Document(env.STATIC + "cabecalho.docx").tables[0]._element)
+
+    sessao = criar_sessao(colunas)
+    
+    gabarito = ""
+    for num_pergunta, pergunta in enumerate(perguntas): 
+        marcado = False
+        for elemento in pergunta['enunciado']._element.getchildren():
+            if not isinstance(elemento, CT_TcPr): 
+                if isinstance(elemento, CT_P):
+                    pPr = elemento.get_or_add_pPr()
+                    pPr.spacing_before = Pt(6)
+                    pPr.spacing_after = Pt(2)
+                    
+                    if not marcado:
+                        numero = criar_run(f"{num_pergunta + 1}. ", "Arial", True)
+                        elemento.insert(1, numero)
+                        marcado = True
+                sessao.append(elemento)
         
-        for num_pergunta, pergunta in enumerate(self.perguntas): 
+        for num_alternativa, alternativa in enumerate(pergunta['alternativas']):
             marcado = False
-            for elemento in pergunta['enunciado']._element.getchildren():
+            for elemento in alternativa._element.getchildren():
                 if not isinstance(elemento, CT_TcPr): 
                     if isinstance(elemento, CT_P):
                         pPr = elemento.get_or_add_pPr()
-                        pPr.spacing_before = Pt(6)
+                        pPr.spacing_before = Pt(2)
                         pPr.spacing_after = Pt(2)
                         
                         if not marcado:
-                            numero = self.criar_run(f"{num_pergunta + 1}. ", "Arial", True)
-                            elemento.insert(1, numero)
+                            letra = criar_run(f"{LETRAS[num_alternativa]}) ", "Arial", True)
+                            elemento.insert(1, letra)
                             marcado = True
                     sessao.append(elemento)
-            
-            for num_alternativa, alternativa in enumerate(pergunta['alternativas']):
-                marcado = False
-                for elemento in alternativa._element.getchildren():
-                    if not isinstance(elemento, CT_TcPr): 
-                        if isinstance(elemento, CT_P):
-                            pPr = elemento.get_or_add_pPr()
-                            pPr.spacing_before = Pt(2)
-                            pPr.spacing_after = Pt(2)
-                            
-                            if not marcado:
-                                letra = self.criar_run(f"{LETRAS[num_alternativa]}) ", "Arial", True)
-                                elemento.insert(1, letra)
-                                marcado = True
-                        sessao.append(elemento)
-            self.gabarito += LETRAS[pergunta["resposta"]] 
-        corpo.append(sessao)
-        return novo_doc, self.gabarito
-
-    
-    
+        gabarito += LETRAS[pergunta["indice_resposta"]] 
+    corpo.append(sessao)
+    criar_cabecalho(documento.tables[0], dados, aluno)
+    rota = env.STATIC + "temp/temp"
+    documento.save(rota + ".docx")
+    doc = word.Documents.Open(os.path.realpath(rota + ".docx"))
+    doc.SaveAs(os.path.realpath(rota + ".pdf"), FileFormat=17)
+    doc.Close()
+    ajustar_pdf(rota + ".pdf")
+    with open(rota + ".pdf", "rb") as pdf_file:
+        arquivo = base64.b64encode(pdf_file.read())
+        
+    return {"matricula": aluno, "documento": str(arquivo),"gabarito": gabarito}

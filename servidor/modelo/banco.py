@@ -65,7 +65,20 @@ class Banco():
         except PyMongoError as e:
             print("Erro ao buscar dados:", e)
             return None
+        
+    def getDataById(self, collection, id):
+        if self.database is None:
+            print("Erro: Não foi possível acessar o banco de dados.")
+            return None
 
+        collection = self.database[collection]
+        try:
+            result = collection.find_one({"_id": ObjectId(id)})
+            return result
+        except PyMongoError as e:
+            print("Erro ao buscar dados:", e)
+            return None
+        
     def updateData(self, colecao, novos_dados, filtro = {}):
         if self.database is None:
             print("Erro: Não foi possível acessar o banco de dados.")

@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\telas\\createscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\telas\\createscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\telas\\createscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\telas\\createscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\telas\\starterscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\telas\\starterscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\telas\\listscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\telas\\listscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\componentes\\itemlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\componentes\\itemlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\telas\\listscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\telas\\listscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\componentes\\itemlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\componentes\\itemlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +46,115 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "main.cs",
-              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\main.cs",
-              "RelativeDocumentMoniker": "desktop\\main.cs",
-              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\main.cs",
-              "RelativeToolTip": "desktop\\main.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAcwBUAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "StarterScreen.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\StarterScreen.cs",
+              "RelativeDocumentMoniker": "desktop\\Telas\\StarterScreen.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\StarterScreen.cs",
+              "RelativeToolTip": "desktop\\Telas\\StarterScreen.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowB4AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T04:09:30.092Z",
+              "WhenOpened": "2024-06-06T02:10:05.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateScreen.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\CreateScreen.cs",
+              "RelativeDocumentMoniker": "desktop\\Telas\\CreateScreen.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\CreateScreen.cs",
+              "RelativeToolTip": "desktop\\Telas\\CreateScreen.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAswDgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T23:10:23.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CreateScreen.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\CreateScreen.cs",
+              "RelativeDocumentMoniker": "desktop\\Telas\\CreateScreen.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\CreateScreen.cs [Projeto]",
+              "RelativeToolTip": "desktop\\Telas\\CreateScreen.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T23:09:41.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "main.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\main.cs",
+              "RelativeDocumentMoniker": "desktop\\main.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\main.cs",
+              "RelativeToolTip": "desktop\\main.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAxwBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T22:44:49.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "main.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\main.cs",
               "RelativeDocumentMoniker": "desktop\\main.cs",
               "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\main.cs [Projeto]",
               "RelativeToolTip": "desktop\\main.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T03:52:00.073Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2024-06-05T22:44:44.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "itemLista.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Componentes\\itemLista.cs",
+              "RelativeDocumentMoniker": "desktop\\Componentes\\itemLista.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Componentes\\itemLista.cs",
+              "RelativeToolTip": "desktop\\Componentes\\itemLista.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAgwD0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T22:21:04.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "itemLista.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Componentes\\itemLista.cs",
+              "RelativeDocumentMoniker": "desktop\\Componentes\\itemLista.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Componentes\\itemLista.cs [Projeto]",
+              "RelativeToolTip": "desktop\\Componentes\\itemLista.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T22:36:08.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ListScreen.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\ListScreen.cs",
+              "RelativeDocumentMoniker": "desktop\\Telas\\ListScreen.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\ListScreen.cs",
+              "RelativeToolTip": "desktop\\Telas\\ListScreen.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAApwCQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T22:17:17.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ListScreen.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\ListScreen.cs",
+              "RelativeDocumentMoniker": "desktop\\Telas\\ListScreen.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\ListScreen.cs [Projeto]",
+              "RelativeToolTip": "desktop\\Telas\\ListScreen.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T22:16:21.066Z"
             }
           ]
         }

@@ -35,21 +35,18 @@
             // 
             // buttonEditList
             // 
-            buttonEditList.Location = new Point(950, 4);
-            buttonEditList.Margin = new Padding(3, 4, 3, 4);
+            buttonEditList.Location = new Point(831, 3);
             buttonEditList.Name = "buttonEditList";
-            buttonEditList.Size = new Size(47, 49);
+            buttonEditList.Size = new Size(41, 37);
             buttonEditList.TabIndex = 1;
             buttonEditList.Text = "Edit";
             buttonEditList.UseVisualStyleBackColor = true;
-            buttonEditList.Click += buttonEditList_Click;
             // 
             // buttonDeleteList
             // 
-            buttonDeleteList.Location = new Point(1003, 4);
-            buttonDeleteList.Margin = new Padding(3, 4, 3, 4);
+            buttonDeleteList.Location = new Point(878, 3);
             buttonDeleteList.Name = "buttonDeleteList";
-            buttonDeleteList.Size = new Size(47, 49);
+            buttonDeleteList.Size = new Size(41, 37);
             buttonDeleteList.TabIndex = 2;
             buttonDeleteList.Text = "X";
             buttonDeleteList.UseVisualStyleBackColor = true;
@@ -60,25 +57,25 @@
             checkListItem.AutoSize = true;
             checkListItem.Font = new Font("Segoe UI", 18F);
             checkListItem.ForeColor = SystemColors.ActiveCaptionText;
-            checkListItem.Location = new Point(16, 8);
+            checkListItem.Location = new Point(14, 6);
+            checkListItem.Margin = new Padding(3, 2, 3, 2);
             checkListItem.Name = "checkListItem";
-            checkListItem.Size = new Size(133, 45);
+            checkListItem.Size = new Size(109, 36);
             checkListItem.TabIndex = 5;
             checkListItem.Text = "listTitle";
             checkListItem.UseVisualStyleBackColor = true;
+            checkListItem.CheckedChanged += checkListItem_CheckedChanged;
             // 
             // itemLista
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             Controls.Add(checkListItem);
             Controls.Add(buttonDeleteList);
             Controls.Add(buttonEditList);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "itemLista";
-            Size = new Size(1053, 56);
-            Load += itemLista_Load;
+            Size = new Size(921, 42);
             ResumeLayout(false);
             PerformLayout();
         }

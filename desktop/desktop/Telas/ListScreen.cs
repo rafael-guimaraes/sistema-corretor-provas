@@ -18,6 +18,7 @@ namespace desktop
 
         SocketAPI socket = new SocketAPI("Listas");
         private JArray staticList;
+        private List<itemLista> items = new List<itemLista>();
         public ListScreen()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace desktop
                         panelTabela_Listas.Invoke((MethodInvoker)delegate
                         {
                             itemLista lista = new itemLista(item);
+                            items.Add(lista);
                             panelTabela_Listas.Controls.Add(lista);
                         });
                     }
@@ -87,8 +89,18 @@ namespace desktop
             main.Request(socket.Task("getListas").Body("{}"));
             buttonCreateScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
             buttonNewListScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
+            itemLista.OnItemChecked += ItemLista_OnItemChecked;
         }
-
+        private void ItemLista_OnItemChecked(itemLista selectedItem)
+        {
+            foreach (var item in items)
+            {
+                if (item != selectedItem)
+                {
+                    item.Deselect();
+                }
+            }
+        }
         private void textBoxFiltro_Listas_TextChanged(object sender, EventArgs e)
         {
             loadListItems(textBoxFiltro_Listas.Text);
@@ -97,7 +109,7 @@ namespace desktop
         private void buttonStarterScreen_Click(object sender, EventArgs e)
         {
             main.Socket.OnMessage -= OnResponse;
-
         }
+        
     }
 }

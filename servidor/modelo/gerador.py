@@ -6,24 +6,78 @@ from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 import traceback
 import os
 import base64
-
+from copy import deepcopy
 from modelo.prova import Prova
 
 
 class Gerador():
-    def __init__(self, arquivo): 
-        self.arquivo = arquivo
-
-    def criar_quebra(self):
-        doc = Document()
-        doc.add_page_break()
+    def __init__(self, arquivo, dados, colunas) -> None:
+        """
+            arquivo (str) => Caminho para a rota do arquivo word da prova.
+            alunos (list) => Lista contendo os alunos que realizaram a prova.
+            colunas (int) => Numero de colunas divindo a prova.
+        """
         
-        return doc.element.body[0]
+        self.arquivo = arquivo
+        self.dados = dados
+        self.colunas = colunas
+        
+
+    def ler_perguntas(self):
+        perguntas = []
+        
+        doc = Document(self.arquivo)
+        
+        for tabela in doc.tables:
+            for linha in tabela.rows:
+                celula = linha.cells[0]
+                enunciado = None
+                alternativas = []
+                for num_campo, campo in enumerate(celula.tables):
+                    if num_campo == 0:
+                        enunciado = campo.rows[0].cells[0]
+                    else:
+                        for alternativa in campo.rows:
+                            alternativas.append(alternativa.cells[0])
+                
+                perguntas.append({
+                    "enunciado": enunciado,
+                    "alternativas": alternativas,
+                    "indice_resposta": 0
+                })
+        return perguntas
+       
+   
+    def criar_provas(self, alunos, perguntas):
+        if not alunos: return []
+        provas_criadas = []
+        
+        word = client.CreateObject('Word.Application')
+        for aluno in alunos:
+            prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word)
+            provas_criadas.append(prova)
+            
+        word.quit()
+        return provas_criadas
     
-    def cabecalho(self):
-        doc = Document("servidor/modelo/arquivos/cabecalho.docx")
-        return doc.tables[0]
+    def criar_exemplo(self, perguntas):
+        word = client.CreateObject('Word.Application')
+        aluno = {'nome': 'Fulano Braga da Silva Costa', 'matricula': '50220000', 'turma': '3H'} 
+        prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word)
+        word.quit()
+        return [ prova ]
     
+    def gerar_impressao(self, arquivo_saida, provas):
+        merger = PdfMerger()
+        
+        for prova in provas:
+            prova["documento"] 
+            merger.append() 
+                
+
+        merger.write(os.path.realpath(arquivo_saida))
+        merger.close()
+        
     def lista_de_chamada(self, alunos):
         doc = Document()
 
@@ -44,14 +98,10 @@ class Gerador():
         larguras = [0.5, 10, 3] 
         for i, largura in enumerate(larguras):
             tabela.columns[i].width = Inches(largura)
-
-      
         cabecalho = tabela.rows[0].cells
         cabecalho[0].text = 'Matrícula'
         cabecalho[1].text = 'Nome'
         cabecalho[2].text = 'Assinatura'
-
-       
         for aluno in alunos:
             linha = tabela.add_row().cells
             linha[0].text = aluno['matricula']
@@ -59,124 +109,4 @@ class Gerador():
             linha[2].text = ''
 
         return doc
-    
-    def processar_word(self):
-        try:
-            perguntas = []
-            conteudo = ""
-            doc = Document(self.arquivo)
-            for num_tabela, tabela in enumerate(doc.tables):
-                for linha in tabela.rows:
-                    celula = linha.cells[0]
-                    if num_tabela == 0:
-                        conteudo = celula.text.replace("Conteúdo: ", "").strip()
-                        break  
-                    else:
-                        enunciado = None
-                        alternativas = []
-                        for num_campo, campo in enumerate(celula.tables):
-                            if num_campo == 0:
-                                enunciado = campo.rows[0].cells[0]
-                            else:
-                                for alternativa in campo.rows:
-                                    alternativas.append(alternativa.cells[0])
-                        
-                        perguntas.append({
-                            "enunciado": enunciado,
-                            "alternativas": alternativas,
-                            "resposta": 0
-                        })
-            return perguntas, conteudo
-        except Exception as e:
-            print(e)
-            return None, None
-
-    def gerar_provas(self, dados, alunos, colunas):
-        perguntas, dados['<conteudo>'] = self.processar_word()
-        cabecalho = self.cabecalho()
-        lista_provas = []
-
-        for aluno in alunos:
-            dados['<nome>'] = aluno['nome']
-            dados['<matricula>'] = aluno['matricula']
-            prova = Prova(self.arquivo, dados, perguntas, cabecalho, colunas).criar_prova()
-            
-            lista_provas.append({"matricula": aluno['matricula'], "situacao": "criada", "gabarito": prova[1], "documento": prova[0]})
-        
-        pdfs = self.gerar_pdfs(lista_provas)
-        if len(pdfs) - len(lista_provas) == 0:
-            for i in range(len(lista_provas)):
-                lista_provas[i]['documento'] = pdfs[i]
-            return lista_provas
-        return []
-    
-    def gerar_exemplo(self, dados):
-        perguntas, dados['<conteudo>'] = self.processar_word()
-        cabecalho = cabecalho()
-        dados['<nome>'] = 'Fulano da Silva Costa'
-        dados['<matricula>'] = '50220000'
-        prova = Prova(self.arquivo, dados, perguntas, cabecalho).criar_prova()
-        return prova
-    
-    def ajustar_folhas(self, caminho):
-        reader = PdfReader(caminho)
-        if len(reader.pages) % 2 != 0:
-            writer = PdfWriter()
-            for page in reader.pages:
-                writer.add_page(page)
-            writer.add_blank_page()
-            with open(caminho, 'wb') as output_pdf:
-                writer.write(output_pdf)
-    
-    def gerar_pdfs(self, lista):
-        pdfs = []
-        word = client.CreateObject('Word.Application')
-        try:
-            for i, prova in enumerate(lista):
-                prova['documento'].save(f"servidor/modelo/temp/{i}.docx")
-                doc = word.Documents.Open(os.path.realpath(f"servidor/modelo/temp/{i}.docx"))
-                doc.SaveAs(os.path.realpath(f"servidor/modelo/temp/{i}.pdf"), FileFormat=17)
-                doc.Close()
-                self.ajustar_folhas(f"servidor/modelo/temp/{i}.pdf")
-                
-                with open(f"servidor/modelo/temp/{i}.pdf", "rb") as pdf_file:
-                    pdfs.append(base64.b64encode(pdf_file.read()))
-        except Exception as e:
-            traceback.print_exc()
-            
-        finally:
-            word.Quit()
-            for i in range(len(lista)):
-                try:
-                    os.remove(f"servidor/modelo/temp/{i}.docx")
-                    os.remove(f"servidor/modelo/temp/{i}.pdf")
-                except:
-                    pass
-        return pdfs
-            
-    def gerar_impressao(self, arquivo_saida, provas):
-        word = client.CreateObject('Word.Application')
-        merger = PdfMerger()
-        try:
-            for i, prova in enumerate(provas):
-                prova[0].save(f"servidor/modelo/temp/{i}.docx")
-                doc = word.Documents.Open(os.path.realpath(f"servidor/modelo/temp/{i}.docx"))
-                doc.SaveAs(os.path.realpath(f"servidor/modelo/temp/{i}.pdf"), FileFormat=17)
-                doc.Close()
-                self.ajustar_folhas(f"servidor/modelo/temp/{i}.pdf")
-                merger.append(f"servidor/modelo/temp/{i}.pdf") 
-                
-        except Exception as e:
-            traceback.print_exc()
-        finally:
-            word.Quit()
-
-        merger.write(os.path.realpath(arquivo_saida))
-        merger.close()
-        for i in range(len(provas)):
-            os.remove(f"servidor/modelo/temp/{i}.docx")
-            os.remove(f"servidor/modelo/temp/{i}.pdf")
-      
-      
-
-
+       

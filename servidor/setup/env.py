@@ -19,3 +19,4 @@ class env:
         self.COLLECTION_LISTAS = "listas"
         self.COLLECTION_CONFIG = "configuracoes"
         self.DATABASE_NAME = "univap"
+        self.STATIC = "servidor/modelo/arquivos/"

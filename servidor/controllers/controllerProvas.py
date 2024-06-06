@@ -1,20 +1,29 @@
 from modelo.gerador import Gerador
 from modelo.banco import Banco as DB
 
+from setup.env import env
 
-def createProva(database:DB,body):
-    print(body)
-    gerador = Gerador(body["arquivo"])
+env = env()
+
+def createProva(database:DB, body):
+    gerador = Gerador(body["arquivo"], body["dados"], body["colunas"])
     
-    dados = {
-        "<turma>":"3H",
-        "<professor>":"Alberson",
-        "<titulo>":"Prova POO"
-    }
-    alunos = [{"matricula":50220326,"nome":"Gabriel Costa Fileno"},
-                {"matricula":50220384,"nome":"Kaio Eduardo Braga Barbosa"},
-                {"matricula":50220306,"nome":"Rafael Augusto Guimarães da Silva"}]
+    id_lista = body["lista"]
 
-    provas = gerador.gerar_provas(dados, alunos, 2)
+    alunos = database.getDataById(env.COLLECTION_LISTAS, id_lista)["alunos"]
+    perguntas = gerador.ler_perguntas()
+   
+    provas = gerador.criar_provas(alunos, perguntas)
+    
     database.insertData('provas', provas)
     return provas
+
+def createExample(database, body):
+    print(body)
+    print(body["colunas"])
+    gerador = Gerador(body["arquivo"], body["dados"], body["colunas"])
+    
+    perguntas = gerador.ler_perguntas()
+    exemplo = gerador.criar_exemplo(perguntas)
+    
+    return exemplo[0]

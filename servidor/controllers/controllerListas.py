@@ -3,7 +3,7 @@ from modelo.ImportCSV import ImportCSV as CSV
 from setup.env import env
 env = env()
         
-def getListas(database:DB,filter={}):
+def getListas(database:DB, filter={}):
     listas = database.getData(env.COLLECTION_LISTAS,filter)
     return listas
     

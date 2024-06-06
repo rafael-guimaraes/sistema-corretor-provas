@@ -27,6 +27,36 @@
           }
         }
       },
+      "PdfiumViewer/2.13.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/PdfiumViewer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/PdfiumViewer.dll": {
+            "related": ".xml"
+          }
+        },
+        "resource": {
+          "lib/net20/nl/PdfiumViewer.resources.dll": {
+            "locale": "nl"
+          }
+        }
+      },
+      "PdfiumViewer.Native.x86.v8-xfa/2018.4.8.256": {
+        "type": "package",
+        "build": {
+          "Build/PdfiumViewer.Native.x86.v8-xfa.props": {}
+        }
+      },
+      "PdfiumViewer.Native.x86_64.v8-xfa/2018.4.8.256": {
+        "type": "package",
+        "build": {
+          "Build/PdfiumViewer.Native.x86_64.v8-xfa.props": {}
+        }
+      },
       "Siticone.Desktop.UI/2.1.1": {
         "type": "package",
         "compile": {
@@ -95,6 +125,48 @@
         "packageIcon.png"
       ]
     },
+    "PdfiumViewer/2.13.0": {
+      "sha512": "Nw4owBmJzDVXoMRjCnqPbET07CPOawwhcNjt+PyRaSxONN9bsFF+cm9kcMsDLEAEaxsiDJo5jls8bCQjvjidkA==",
+      "type": "package",
+      "path": "pdfiumviewer/2.13.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Tools/Install.ps1",
+        "lib/net20/PdfiumViewer.dll",
+        "lib/net20/PdfiumViewer.xml",
+        "lib/net20/nl/PdfiumViewer.resources.dll",
+        "pdfiumviewer.2.13.0.nupkg.sha512",
+        "pdfiumviewer.nuspec"
+      ]
+    },
+    "PdfiumViewer.Native.x86.v8-xfa/2018.4.8.256": {
+      "sha512": "seXuvDlj2AcOmTrZpvVdl4SRHfYJczyld3vfgqVHJTGv4s813n/wSyoVmoM0b2IBcBTqjJM+9Gcs4WsJbmUu0w==",
+      "type": "package",
+      "path": "pdfiumviewer.native.x86.v8-xfa/2018.4.8.256",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Build/PdfiumViewer.Native.x86.v8-xfa.props",
+        "Build/x86/pdfium.dll",
+        "pdfiumviewer.native.x86.v8-xfa.2018.4.8.256.nupkg.sha512",
+        "pdfiumviewer.native.x86.v8-xfa.nuspec"
+      ]
+    },
+    "PdfiumViewer.Native.x86_64.v8-xfa/2018.4.8.256": {
+      "sha512": "0RQwmLMPKOHBRqRK+NPMR2H5EQ4KlYO+LnT3Y2lByVUa5/JTPCMswL46JEXX+/MAfJtCpS2PzJvy6QzpH2nuIw==",
+      "type": "package",
+      "path": "pdfiumviewer.native.x86_64.v8-xfa/2018.4.8.256",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Build/PdfiumViewer.Native.x86_64.v8-xfa.props",
+        "Build/x64/pdfium.dll",
+        "pdfiumviewer.native.x86_64.v8-xfa.2018.4.8.256.nupkg.sha512",
+        "pdfiumviewer.native.x86_64.v8-xfa.nuspec"
+      ]
+    },
     "Siticone.Desktop.UI/2.1.1": {
       "sha512": "Ra7IVuwB11Q2yCo541FcPFmcxDyY7TSUmGg2ddbf+rNN18NrPXJ2CKMY0ZbuL+JRIig/jrJcU7ymJHfxKnEWvw==",
       "type": "package",
@@ -126,24 +198,27 @@
     "net8.0-windows7.0": [
       "MaterialSkin.2 >= 2.3.1",
       "Newtonsoft.Json >= 13.0.3",
+      "PdfiumViewer >= 2.13.0",
+      "PdfiumViewer.Native.x86.v8-xfa >= 2018.4.8.256",
+      "PdfiumViewer.Native.x86_64.v8-xfa >= 2018.4.8.256",
       "Siticone.Desktop.UI >= 2.1.1",
       "WebSocketSharp-NonPreRelease >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gabri\\.nuget\\packages\\": {}
+    "C:\\Users\\rafae\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\desktop.csproj",
+      "projectUniqueName": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\desktop.csproj",
       "projectName": "desktop",
-      "projectPath": "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\desktop.csproj",
-      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\obj\\",
+      "projectPath": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\desktop.csproj",
+      "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -163,6 +238,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -176,6 +256,18 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "PdfiumViewer": {
+            "target": "Package",
+            "version": "[2.13.0, )"
+          },
+          "PdfiumViewer.Native.x86.v8-xfa": {
+            "target": "Package",
+            "version": "[2018.4.8.256, )"
+          },
+          "PdfiumViewer.Native.x86_64.v8-xfa": {
+            "target": "Package",
+            "version": "[2018.4.8.256, )"
           },
           "Siticone.Desktop.UI": {
             "target": "Package",
@@ -205,11 +297,21 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'PdfiumViewer 2.13.0' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net8.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "PdfiumViewer",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

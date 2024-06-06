@@ -40,6 +40,7 @@
             toggleColumns = new MaterialSkin.Controls.MaterialSwitch();
             panelTestPreview = new Panel();
             buttonListScreen = new MaterialSkin.Controls.MaterialButton();
+            openFileDialog1 = new OpenFileDialog();
             SuspendLayout();
             // 
             // buttonCreateTest
@@ -49,8 +50,8 @@
             buttonCreateTest.Depth = 0;
             buttonCreateTest.HighEmphasis = true;
             buttonCreateTest.Icon = null;
-            buttonCreateTest.Location = new Point(1017, 638);
-            buttonCreateTest.Margin = new Padding(5, 8, 5, 8);
+            buttonCreateTest.Location = new Point(894, 513);
+            buttonCreateTest.Margin = new Padding(4, 6, 4, 6);
             buttonCreateTest.MouseState = MaterialSkin.MouseState.HOVER;
             buttonCreateTest.Name = "buttonCreateTest";
             buttonCreateTest.NoAccentTextColor = Color.Empty;
@@ -65,9 +66,9 @@
             // 
             labelTestType.AutoSize = true;
             labelTestType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTestType.Location = new Point(31, 200);
+            labelTestType.Location = new Point(23, 108);
             labelTestType.Name = "labelTestType";
-            labelTestType.Size = new Size(149, 28);
+            labelTestType.Size = new Size(120, 21);
             labelTestType.TabIndex = 14;
             labelTestType.Text = "TIPO DE PROVA";
             // 
@@ -85,12 +86,11 @@
             comboboxTestPeriod.FormattingEnabled = true;
             comboboxTestPeriod.IntegralHeight = false;
             comboboxTestPeriod.ItemHeight = 43;
-            comboboxTestPeriod.Location = new Point(35, 514);
-            comboboxTestPeriod.Margin = new Padding(3, 4, 3, 4);
+            comboboxTestPeriod.Location = new Point(27, 344);
             comboboxTestPeriod.MaxDropDownItems = 4;
             comboboxTestPeriod.MouseState = MaterialSkin.MouseState.OUT;
             comboboxTestPeriod.Name = "comboboxTestPeriod";
-            comboboxTestPeriod.Size = new Size(380, 49);
+            comboboxTestPeriod.Size = new Size(333, 49);
             comboboxTestPeriod.StartIndex = 0;
             comboboxTestPeriod.TabIndex = 13;
             // 
@@ -98,9 +98,9 @@
             // 
             labelTestSubject.AutoSize = true;
             labelTestSubject.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTestSubject.Location = new Point(31, 342);
+            labelTestSubject.Location = new Point(23, 214);
             labelTestSubject.Name = "labelTestSubject";
-            labelTestSubject.Size = new Size(112, 28);
+            labelTestSubject.Size = new Size(91, 21);
             labelTestSubject.TabIndex = 15;
             labelTestSubject.Text = "DISCIPLINA";
             // 
@@ -118,12 +118,11 @@
             comboboxTestSubject.FormattingEnabled = true;
             comboboxTestSubject.IntegralHeight = false;
             comboboxTestSubject.ItemHeight = 43;
-            comboboxTestSubject.Location = new Point(35, 374);
-            comboboxTestSubject.Margin = new Padding(3, 4, 3, 4);
+            comboboxTestSubject.Location = new Point(27, 238);
             comboboxTestSubject.MaxDropDownItems = 4;
             comboboxTestSubject.MouseState = MaterialSkin.MouseState.OUT;
             comboboxTestSubject.Name = "comboboxTestSubject";
-            comboboxTestSubject.Size = new Size(380, 49);
+            comboboxTestSubject.Size = new Size(333, 49);
             comboboxTestSubject.StartIndex = 0;
             comboboxTestSubject.TabIndex = 12;
             // 
@@ -131,9 +130,9 @@
             // 
             labelTestPeriod.AutoSize = true;
             labelTestPeriod.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTestPeriod.Location = new Point(31, 482);
+            labelTestPeriod.Location = new Point(23, 320);
             labelTestPeriod.Name = "labelTestPeriod";
-            labelTestPeriod.Size = new Size(99, 28);
+            labelTestPeriod.Size = new Size(80, 21);
             labelTestPeriod.TabIndex = 16;
             labelTestPeriod.Text = "BIMESTRE";
             // 
@@ -151,12 +150,11 @@
             comboboxTestType.FormattingEnabled = true;
             comboboxTestType.IntegralHeight = false;
             comboboxTestType.ItemHeight = 43;
-            comboboxTestType.Location = new Point(35, 234);
-            comboboxTestType.Margin = new Padding(3, 4, 3, 4);
+            comboboxTestType.Location = new Point(27, 134);
             comboboxTestType.MaxDropDownItems = 4;
             comboboxTestType.MouseState = MaterialSkin.MouseState.OUT;
             comboboxTestType.Name = "comboboxTestType";
-            comboboxTestType.Size = new Size(380, 49);
+            comboboxTestType.Size = new Size(333, 49);
             comboboxTestType.StartIndex = 0;
             comboboxTestType.TabIndex = 11;
             comboboxTestType.Tag = "";
@@ -165,9 +163,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(31, 88);
+            label1.Location = new Point(27, 66);
             label1.Name = "label1";
-            label1.Size = new Size(196, 37);
+            label1.Size = new Size(153, 30);
             label1.TabIndex = 10;
             label1.Text = "CRIAR PROVA";
             // 
@@ -179,23 +177,24 @@
             buttonSelectFile.Depth = 0;
             buttonSelectFile.HighEmphasis = true;
             buttonSelectFile.Icon = null;
-            buttonSelectFile.Location = new Point(31, 591);
-            buttonSelectFile.Margin = new Padding(5, 8, 5, 8);
+            buttonSelectFile.Location = new Point(27, 439);
+            buttonSelectFile.Margin = new Padding(4, 6, 4, 6);
             buttonSelectFile.MouseState = MaterialSkin.MouseState.HOVER;
             buttonSelectFile.Name = "buttonSelectFile";
             buttonSelectFile.NoAccentTextColor = Color.Empty;
-            buttonSelectFile.Size = new Size(380, 48);
+            buttonSelectFile.Size = new Size(333, 49);
             buttonSelectFile.TabIndex = 7;
             buttonSelectFile.Text = "SELECIONAR ARQUIVO";
             buttonSelectFile.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             buttonSelectFile.UseAccentColor = false;
             buttonSelectFile.UseVisualStyleBackColor = true;
+            buttonSelectFile.Click += buttonSelectFile_Click;
             // 
             // toggleColumns
             // 
             toggleColumns.AutoSize = true;
             toggleColumns.Depth = 0;
-            toggleColumns.Location = new Point(461, 159);
+            toggleColumns.Location = new Point(23, 396);
             toggleColumns.Margin = new Padding(0);
             toggleColumns.MouseLocation = new Point(-1, -1);
             toggleColumns.MouseState = MaterialSkin.MouseState.HOVER;
@@ -208,10 +207,9 @@
             // 
             // panelTestPreview
             // 
-            panelTestPreview.Location = new Point(461, 200);
-            panelTestPreview.Margin = new Padding(3, 4, 3, 4);
+            panelTestPreview.Location = new Point(377, 66);
             panelTestPreview.Name = "panelTestPreview";
-            panelTestPreview.Size = new Size(650, 363);
+            panelTestPreview.Size = new Size(583, 422);
             panelTestPreview.TabIndex = 1;
             // 
             // buttonListScreen
@@ -221,8 +219,8 @@
             buttonListScreen.Depth = 0;
             buttonListScreen.HighEmphasis = true;
             buttonListScreen.Icon = null;
-            buttonListScreen.Location = new Point(35, 35);
-            buttonListScreen.Margin = new Padding(4, 6, 4, 6);
+            buttonListScreen.Location = new Point(27, 26);
+            buttonListScreen.Margin = new Padding(4);
             buttonListScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonListScreen.Name = "buttonListScreen";
             buttonListScreen.NoAccentTextColor = Color.Empty;
@@ -233,11 +231,16 @@
             buttonListScreen.UseAccentColor = false;
             buttonListScreen.UseVisualStyleBackColor = true;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // CreateScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
+            Controls.Add(buttonSelectFile);
             Controls.Add(buttonListScreen);
             Controls.Add(label1);
             Controls.Add(labelTestType);
@@ -247,12 +250,10 @@
             Controls.Add(comboboxTestSubject);
             Controls.Add(buttonCreateTest);
             Controls.Add(labelTestPeriod);
-            Controls.Add(buttonSelectFile);
             Controls.Add(panelTestPreview);
             Controls.Add(toggleColumns);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CreateScreen";
-            Size = new Size(1155, 740);
+            Size = new Size(1011, 555);
             Load += criarProva_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -271,5 +272,6 @@
         private Label labelTestPeriod;
         private Label labelTestType;
         private MaterialSkin.Controls.MaterialButton buttonListScreen;
+        private OpenFileDialog openFileDialog1;
     }
 }

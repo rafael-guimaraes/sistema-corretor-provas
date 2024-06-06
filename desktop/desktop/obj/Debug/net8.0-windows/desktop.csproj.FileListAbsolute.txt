@@ -74,3 +74,7 @@ C:\Users\rafae\Documents\github\TCC\desktop\desktop\obj\Debug\net8.0-windows\ref
 C:\Users\rafae\Documents\github\TCC\desktop\desktop\obj\Debug\net8.0-windows\desktop.pdb
 C:\Users\rafae\Documents\github\TCC\desktop\desktop\obj\Debug\net8.0-windows\desktop.genruntimeconfig.cache
 C:\Users\rafae\Documents\github\TCC\desktop\desktop\obj\Debug\net8.0-windows\ref\desktop.dll
+C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\PdfiumViewer.dll
+C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\nl\PdfiumViewer.resources.dll
+C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\x64\pdfium.dll
+C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\x86\pdfium.dll

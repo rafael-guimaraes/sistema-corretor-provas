@@ -23,6 +23,7 @@ namespace desktop
 
         MaterialSkinManager materialSkinManager;
         SocketAPI socket = new SocketAPI("Listas");
+        public static event Action<itemLista> OnItemChecked;
         public itemLista(JObject lista)
         {
             InitializeComponent();
@@ -44,14 +45,17 @@ namespace desktop
             main.Request(socket.Task("getListas").Body());
         }
 
-        private void buttonEditList_Click(object sender, EventArgs e)
+        private void checkListItem_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkListItem.Checked)
+            {
+                OnItemChecked?.Invoke(this); 
+            }
         }
 
-        private void itemLista_Load(object sender, EventArgs e)
+        public void Deselect()
         {
-
+            checkListItem.Checked = false;
         }
     }
 }
