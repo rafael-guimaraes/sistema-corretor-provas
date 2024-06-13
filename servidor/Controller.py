@@ -43,8 +43,9 @@ def Router(database:DB,Request) -> dict:
             subResponse = createListasTurmas(database)
 
 
-
     elif context == "Provas":
+        if task == "getProvas":
+            Response  = getProva(database)
         if task == "createProva":
             Response = createProva(database, json.loads(payload))
         elif task == "createExemplo":

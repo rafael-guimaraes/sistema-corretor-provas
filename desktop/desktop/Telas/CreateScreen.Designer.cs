@@ -45,22 +45,24 @@
             // 
             // buttonCreateTest
             // 
+            buttonCreateTest.AutoSize = false;
             buttonCreateTest.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             buttonCreateTest.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             buttonCreateTest.Depth = 0;
             buttonCreateTest.HighEmphasis = true;
             buttonCreateTest.Icon = null;
-            buttonCreateTest.Location = new Point(894, 513);
+            buttonCreateTest.Location = new Point(843, 497);
             buttonCreateTest.Margin = new Padding(4, 6, 4, 6);
             buttonCreateTest.MouseState = MaterialSkin.MouseState.HOVER;
             buttonCreateTest.Name = "buttonCreateTest";
             buttonCreateTest.NoAccentTextColor = Color.Empty;
-            buttonCreateTest.Size = new Size(94, 36);
+            buttonCreateTest.Size = new Size(145, 43);
             buttonCreateTest.TabIndex = 4;
             buttonCreateTest.Text = "FINALIZAR";
             buttonCreateTest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             buttonCreateTest.UseAccentColor = false;
             buttonCreateTest.UseVisualStyleBackColor = true;
+            buttonCreateTest.Click += buttonCreateTest_Click;
             // 
             // labelTestType
             // 
@@ -207,10 +209,12 @@
             // 
             // panelTestPreview
             // 
-            panelTestPreview.Location = new Point(377, 66);
+            panelTestPreview.BackColor = SystemColors.ControlDark;
+            panelTestPreview.Location = new Point(382, 66);
             panelTestPreview.Name = "panelTestPreview";
-            panelTestPreview.Size = new Size(583, 422);
+            panelTestPreview.Size = new Size(606, 422);
             panelTestPreview.TabIndex = 1;
+            panelTestPreview.Paint += panelTestPreview_Paint;
             // 
             // buttonListScreen
             // 

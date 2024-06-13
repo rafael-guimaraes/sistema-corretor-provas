@@ -33,10 +33,10 @@ class Banco():
                 data = [data]
 
             result = collection.insert_many(data, ordered=False)
-
+          
             response = {
-                "acknowledged": result.acknowledged,
-                "data":self.strObjectID(data)
+                "resultado": str(result.acknowledged),
+                "data": self.strObjectID(data)
             }
             return response
         
@@ -61,6 +61,7 @@ class Banco():
                 result = self.strObjectID(list(collection.find(filter)))
             else:
                 result = list(collection.distinct(distinct))
+            print(result)
             return result
         except PyMongoError as e:
             print("Erro ao buscar dados:", e)

@@ -17,10 +17,10 @@ namespace desktop
     public partial class StarterScreen : UserControl
     {
         SocketAPI api;
-        WebSocket socket;
-
+        private JArray staticList;
+        SocketAPI socket = new SocketAPI("Provas");
         MaterialButton buttonListScreen;
-
+        public event EventHandler gotoPrint;
         private void loadButtonListScreen()
         {
             buttonListScreen = new MaterialButton();
@@ -49,11 +49,89 @@ namespace desktop
             loadButtonListScreen();
             main.Socket.OnMessage += OnResponse;
             buttonConfigScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
+            main.Request(socket.Task("getProvas").Body("{}"));
+        }
 
+        private void Button_Click(object sender, EventArgs e, string id_prova, string arquivo)
+        {
+            main.Socket.OnMessage -= OnResponse;
+            main.LOCAL.Add("prova", id_prova);
+            main.LOCAL.Add("arquivo", arquivo);
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)delegate
+                {
+                    gotoPrint?.Invoke(this, EventArgs.Empty);
+                });
+            }
+            else
+            {
+                gotoPrint?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private void loadProvasItems()
+        {
+            if (flowpanelLista_Criadas.InvokeRequired)
+                flowpanelLista_Criadas.Invoke((MethodInvoker)delegate
+                {
+                    flowpanelLista_Criadas.Controls.Clear();
+                    flowpanelLista_Criadas.Controls.Add(buttonListScreen);
+                });
+            else
+            {
+                flowpanelLista_Criadas.Controls.Clear();
+                flowpanelLista_Criadas.Controls.Add(buttonListScreen);
+            }
+                
+
+            
+            foreach (JObject item in staticList)
+            {
+                string title = item["nome"].ToString();
+                string id = item["_id"].ToString();
+                string arquivo = item["arquivo"].ToString();
+
+                if (flowpanelLista_Criadas.InvokeRequired)
+                {
+                    flowpanelLista_Criadas.Invoke((MethodInvoker)delegate
+                    {
+                        MaterialButton button = new MaterialButton();
+                        button.Text = title;
+                        button.Font = new Font(button.Font.FontFamily, 4);
+                        button.Size = new Size(flowpanelLista_Criadas.Width - 10, 60);
+                        button.AutoSize = false;
+                        button.Click += (sender, e) => Button_Click(sender, e, id, arquivo);
+                        flowpanelLista_Criadas.Controls.Add(button);
+                   
+                    });
+                }
+                else
+                {
+                    MaterialButton button = new MaterialButton();
+                    button.Text = title;
+                    button.Font = new Font(button.Font.FontFamily, 4);
+                    button.Size = new Size(flowpanelLista_Criadas.Width - 10, 60);
+                    button.AutoSize = false;
+                    button.Click += (sender, e) => Button_Click(sender, e, id, arquivo);
+                    flowpanelLista_Criadas.Controls.Add(button);
+                }
+               
+            }
         }
         private void OnResponse(object sender, MessageEventArgs e)
         {
-            MessageBox.Show("AQUI ESTA NA TELA INICAL" + e.Data);
+            JObject response = JObject.Parse(e.Data);
+            string task = response["task"].ToString();
+            switch (task)
+            {
+                case "getProvas":
+                    staticList = JArray.Parse(response["data"].ToString());
+                    loadProvasItems();
+                    MessageBox.Show(staticList.ToString());
+                    break;
+               
+            }
         }
 
     }

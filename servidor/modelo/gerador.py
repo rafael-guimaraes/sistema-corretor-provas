@@ -2,13 +2,14 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Cm, Inches
 from comtypes import client
-from PyPDF2 import PdfMerger, PdfReader, PdfWriter
+from PyPDF2 import PdfMerger
 import traceback
 import os
 import base64
 from copy import deepcopy
 from modelo.prova import Prova
 
+from io import BytesIO
 
 class Gerador():
     def __init__(self, arquivo, dados, colunas) -> None:
@@ -67,16 +68,24 @@ class Gerador():
         word.quit()
         return [ prova ]
     
-    def gerar_impressao(self, arquivo_saida, provas):
+    def gerar_impressao(self, provas):
         merger = PdfMerger()
         
         for prova in provas:
-            prova["documento"] 
-            merger.append() 
-                
-
-        merger.write(os.path.realpath(arquivo_saida))
+            pdf_data = base64.b64decode(prova["documento"])
+            
+            pdf_file = BytesIO(pdf_data)
+            
+            merger.append(pdf_file)
+        
+        output_pdf = BytesIO()
+        merger.write(output_pdf)
         merger.close()
+        output_pdf.seek(0)
+        combined_pdf_data = output_pdf.read()
+        combined_pdf_base64 = base64.b64encode(combined_pdf_data).decode('utf-8')
+        
+        return combined_pdf_base64
         
     def lista_de_chamada(self, alunos):
         doc = Document()

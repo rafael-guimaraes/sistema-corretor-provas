@@ -15,8 +15,6 @@ namespace desktop
 {
     public partial class itemLista : UserControl
     {
-
-        String fundo = "50, 65, 72";
         private string listID;
         private string listType;
         public string listTitle;
@@ -24,6 +22,7 @@ namespace desktop
         MaterialSkinManager materialSkinManager;
         SocketAPI socket = new SocketAPI("Listas");
         public static event Action<itemLista> OnItemChecked;
+
         public itemLista(JObject lista)
         {
             InitializeComponent();
@@ -47,15 +46,20 @@ namespace desktop
 
         private void checkListItem_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkListItem.Checked)
-            {
-                OnItemChecked?.Invoke(this); 
-            }
+            OnItemChecked?.Invoke(this);
         }
 
         public void Deselect()
         {
             checkListItem.Checked = false;
+        }
+        public bool CheckListItem
+        {
+            get { return checkListItem.Checked; }
+        }
+        public string ListID
+        {
+            get { return listID; }
         }
     }
 }

@@ -108,8 +108,6 @@ def criar_cabecalho(cabecalho, dados, aluno):
     return cabecalho
 
 def embaralhar_alternativas(lista, posicao):
-    
-    
     item = lista[posicao]
     random.shuffle(lista)
     nova_posicao = lista.index(item)
@@ -144,6 +142,7 @@ def Prova(arquivo, dados, aluno, colunas, perguntas, word):
 
     sessao = criar_sessao(colunas)
     
+    embaralhar_perguntas(perguntas)
     gabarito = ""
     for num_pergunta, pergunta in enumerate(perguntas): 
         marcado = False
@@ -184,6 +183,6 @@ def Prova(arquivo, dados, aluno, colunas, perguntas, word):
     doc.Close()
     ajustar_pdf(rota + ".pdf")
     with open(rota + ".pdf", "rb") as pdf_file:
-        arquivo = base64.b64encode(pdf_file.read())
+        arquivo = base64.b64encode(pdf_file.read()).decode('utf-8')
         
-    return {"matricula": aluno, "documento": str(arquivo),"gabarito": gabarito}
+    return {"matricula": aluno["matricula"], "documento": arquivo, "gabarito": gabarito}

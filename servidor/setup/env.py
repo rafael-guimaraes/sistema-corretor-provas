@@ -18,5 +18,6 @@ class env:
         self.COLLECTION_ALUNOS = "alunos"
         self.COLLECTION_LISTAS = "listas"
         self.COLLECTION_CONFIG = "configuracoes"
+        self.COLLECTION_PROVAS = "provas"
         self.DATABASE_NAME = "univap"
         self.STATIC = "servidor/modelo/arquivos/"

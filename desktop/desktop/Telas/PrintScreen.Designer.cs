@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             buttonStarterScreen = new MaterialSkin.Controls.MaterialButton();
+            panel = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // buttonStarterScreen
@@ -38,8 +39,8 @@
             buttonStarterScreen.Depth = 0;
             buttonStarterScreen.HighEmphasis = true;
             buttonStarterScreen.Icon = null;
-            buttonStarterScreen.Location = new Point(35, 35);
-            buttonStarterScreen.Margin = new Padding(4, 6, 4, 6);
+            buttonStarterScreen.Location = new Point(31, 26);
+            buttonStarterScreen.Margin = new Padding(4);
             buttonStarterScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonStarterScreen.Name = "buttonStarterScreen";
             buttonStarterScreen.NoAccentTextColor = Color.Empty;
@@ -50,13 +51,25 @@
             buttonStarterScreen.UseAccentColor = false;
             buttonStarterScreen.UseVisualStyleBackColor = true;
             // 
+            // panel
+            // 
+            panel.BackColor = SystemColors.ControlDark;
+            panel.Location = new Point(31, 87);
+            panel.Margin = new Padding(3, 2, 3, 2);
+            panel.Name = "panel";
+            panel.Size = new Size(945, 430);
+            panel.TabIndex = 33;
+            // 
             // PrintScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panel);
             Controls.Add(buttonStarterScreen);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PrintScreen";
-            Size = new Size(1155, 740);
+            Size = new Size(1011, 555);
+            Load += PrintScreen_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -64,5 +77,6 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialButton buttonStarterScreen;
+        private FlowLayoutPanel panel;
     }
 }

@@ -12,17 +12,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebSocketSharp;
 using PdfiumViewer;
+using System.Collections;
 
 namespace desktop
 {
     public partial class CreateScreen : UserControl
     {
-        
+
         SocketAPI socket = new SocketAPI("Provas");
 
         String[] categoriaIndex = { "REGULAR", "SUBSTITUTIVA", "RECUPERAÇÃO", "EXAME" };
         String[] disciplinaIndex = { "Matemática FGB 1", "Matemática FGB 2", "Matemática AP" };
         String[] periodoIndex = { "1", "2", "3", "4", "GERAL" };
+        String lista;
+        String rota;
         public CreateScreen()
         {
             InitializeComponent();
@@ -34,9 +37,18 @@ namespace desktop
             remove { buttonListScreen.Click -= value; }
         }
 
+        public event EventHandler gotoStarterScreen;
+
+
 
         private void criarProva_Load(object sender, EventArgs e)
         {
+            if (main.LOCAL.TryGetValue("lista", out String objeto))
+            {
+                lista = objeto;
+                main.LOCAL.Clear();
+            }
+            buttonCreateTest.Enabled = false;
             comboboxTestType.Items.AddRange(categoriaIndex);
             comboboxTestSubject.Items.AddRange(disciplinaIndex);
             comboboxTestPeriod.Items.AddRange(periodoIndex);
@@ -44,48 +56,65 @@ namespace desktop
             comboboxTestSubject.SelectedIndex = 0;
             comboboxTestPeriod.SelectedIndex = 0;
             main.Socket.OnMessage += OnResponse;
-            buttonCreateTest.Click += (s, e) =>
-            {
-                main.Socket.OnMessage -= OnResponse;
-            };
-            
+
         }
         private void OnResponse(object sender, MessageEventArgs e)
         {
             JObject response = JObject.Parse(e.Data);
             string task = response["task"].ToString();
-            JObject data = JObject.Parse(response["data"].ToString());
-            String base64 = data["documento"].ToString();
-            base64 = base64.Substring(2, base64.Length - 3);
-            byte[] pdfBytes = Convert.FromBase64String(base64);
-            MemoryStream pdfStream = new MemoryStream(pdfBytes);
-                
-            PdfDocument pdfDocument = PdfDocument.Load(pdfStream);
-            PdfiumViewer.PdfViewer pdf = new PdfViewer();
-            pdf.Document = pdfDocument;
-            if (panelTestPreview.InvokeRequired)
+            switch (task)
             {
+                case "createExemplo":
+                    JObject data = JObject.Parse(response["data"].ToString());
+                   
+                    String base64 = data["documento"].ToString();
+                    byte[] pdfBytes = Convert.FromBase64String(base64);
+                    MemoryStream pdfStream = new MemoryStream(pdfBytes);
 
-                panelTestPreview.Invoke((MethodInvoker)delegate
-                {
-                     panelTestPreview.Controls.Clear();
-                     panelTestPreview.Controls.Add(pdf);
-                });
+                    PdfDocument pdfDocument = PdfDocument.Load(pdfStream);
+                    PdfiumViewer.PdfViewer pdf = new PdfViewer();
+                    pdf.Document = pdfDocument;
+                 
+                    if (panelTestPreview.InvokeRequired)
+                    {
+                        panelTestPreview.Invoke((MethodInvoker)delegate
+                        {
+                            panelTestPreview.Controls.Clear();
+                            panelTestPreview.Controls.Add(pdf);
+                            buttonCreateTest.Enabled = true;
+                        });
+                    }
+                    else
+                    {
+                        panelTestPreview.Controls.Clear();
+                        panelTestPreview.Controls.Add(pdf);
+                        buttonCreateTest.Enabled = true;
+                    }
+                    
+                    
+                    break;
+                case "createProva":
+                    main.Socket.OnMessage -= OnResponse;
+                    if (InvokeRequired)
+                    {
+                        Invoke((MethodInvoker)delegate
+                        {
+                            gotoStarterScreen?.Invoke(this, EventArgs.Empty);
+                        });
+                    }
+                    else
+                    {
+                        gotoStarterScreen?.Invoke(this, EventArgs.Empty);
+                    }
+                    break;
             }
-            else {
-                panelTestPreview.Controls.Clear();
-                panelTestPreview.Controls.Add(pdf);
-            }
-                
-
-
         }
 
         private void buttonSelectFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string rota = openFileDialog1.FileName;
+                rota = openFileDialog1.FileName;
                 string tipo = comboboxTestType.Text;
                 string disciplina = comboboxTestSubject.Text;
                 string bimestre = comboboxTestPeriod.Text;
@@ -99,17 +128,46 @@ namespace desktop
                 var info = new
                 {
                     arquivo = rota,
-                    lista = "665d4134b6c63184eb1a08cf",
+                    lista = lista,
                     colunas = colunas,
                     dados = dados
                 };
 
                 string json = JsonConvert.SerializeObject(info, Formatting.Indented);
                 main.Request(socket.Context("Provas").Task("createExemplo").Body(json));
+
                 
-                MessageBox.Show(json);
             }
-            
+
+        }
+
+        private void buttonCreateTest_Click(object sender, EventArgs e)
+        {
+            string tipo = comboboxTestType.Text;
+            string disciplina = comboboxTestSubject.Text;
+            string bimestre = comboboxTestPeriod.Text;
+            int colunas = toggleColumns.CheckState == CheckState.Checked ? 2 : 1;
+            var dados = new
+            {
+                disciplina = disciplina,
+                tipo = tipo,
+                bimestre = bimestre
+            };
+            var info = new
+            {
+                arquivo = rota,
+                lista = lista,
+                colunas = colunas,
+                dados = dados
+            };
+
+            string json = JsonConvert.SerializeObject(info, Formatting.Indented);
+            main.Request(socket.Context("Provas").Task("createProva").Body(json));
+        }
+
+        private void panelTestPreview_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         public event EventHandler voltarInicio

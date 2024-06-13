@@ -43,9 +43,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(37, 87);
+            label1.Location = new Point(32, 65);
             label1.Name = "label1";
-            label1.Size = new Size(292, 37);
+            label1.Size = new Size(228, 30);
             label1.TabIndex = 32;
             label1.Text = "LISTAS DE CHAMADA";
             // 
@@ -56,8 +56,8 @@
             buttonStarterScreen.Depth = 0;
             buttonStarterScreen.HighEmphasis = true;
             buttonStarterScreen.Icon = null;
-            buttonStarterScreen.Location = new Point(35, 35);
-            buttonStarterScreen.Margin = new Padding(4, 6, 4, 6);
+            buttonStarterScreen.Location = new Point(31, 26);
+            buttonStarterScreen.Margin = new Padding(4, 4, 4, 4);
             buttonStarterScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonStarterScreen.Name = "buttonStarterScreen";
             buttonStarterScreen.NoAccentTextColor = Color.Empty;
@@ -77,12 +77,12 @@
             botaoFiltrar_Listas.Depth = 0;
             botaoFiltrar_Listas.HighEmphasis = true;
             botaoFiltrar_Listas.Icon = null;
-            botaoFiltrar_Listas.Location = new Point(992, 140);
-            botaoFiltrar_Listas.Margin = new Padding(5, 8, 5, 8);
+            botaoFiltrar_Listas.Location = new Point(868, 105);
+            botaoFiltrar_Listas.Margin = new Padding(4, 6, 4, 6);
             botaoFiltrar_Listas.MouseState = MaterialSkin.MouseState.HOVER;
             botaoFiltrar_Listas.Name = "botaoFiltrar_Listas";
             botaoFiltrar_Listas.NoAccentTextColor = Color.Empty;
-            botaoFiltrar_Listas.Size = new Size(123, 37);
+            botaoFiltrar_Listas.Size = new Size(108, 28);
             botaoFiltrar_Listas.TabIndex = 13;
             botaoFiltrar_Listas.Text = "FILTRAR";
             botaoFiltrar_Listas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -93,10 +93,9 @@
             // 
             textBoxFiltro_Listas.BorderStyle = BorderStyle.None;
             textBoxFiltro_Listas.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxFiltro_Listas.Location = new Point(35, 142);
-            textBoxFiltro_Listas.Margin = new Padding(3, 4, 3, 4);
+            textBoxFiltro_Listas.Location = new Point(31, 106);
             textBoxFiltro_Listas.Name = "textBoxFiltro_Listas";
-            textBoxFiltro_Listas.Size = new Size(949, 35);
+            textBoxFiltro_Listas.Size = new Size(830, 28);
             textBoxFiltro_Listas.TabIndex = 12;
             textBoxFiltro_Listas.TextChanged += textBoxFiltro_Listas_TextChanged;
             // 
@@ -108,37 +107,36 @@
             buttonCreateScreen.Depth = 0;
             buttonCreateScreen.HighEmphasis = true;
             buttonCreateScreen.Icon = null;
-            buttonCreateScreen.Location = new Point(892, 627);
-            buttonCreateScreen.Margin = new Padding(5, 8, 5, 8);
+            buttonCreateScreen.Location = new Point(780, 470);
+            buttonCreateScreen.Margin = new Padding(4, 6, 4, 6);
             buttonCreateScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonCreateScreen.Name = "buttonCreateScreen";
             buttonCreateScreen.NoAccentTextColor = Color.Empty;
-            buttonCreateScreen.Size = new Size(225, 48);
+            buttonCreateScreen.Size = new Size(197, 36);
             buttonCreateScreen.TabIndex = 5;
             buttonCreateScreen.Text = "CRIAR PROVA";
             buttonCreateScreen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             buttonCreateScreen.UseAccentColor = false;
             buttonCreateScreen.UseVisualStyleBackColor = true;
+            buttonCreateScreen.Click += buttonCreateScreen_Click;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(panelTabela_Listas);
             panel2.Controls.Add(buttonNewListScreen);
-            panel2.Location = new Point(35, 191);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(31, 143);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1082, 415);
+            panel2.Size = new Size(947, 311);
             panel2.TabIndex = 1;
             // 
             // panelTabela_Listas
             // 
             panelTabela_Listas.AutoScroll = true;
             panelTabela_Listas.FlowDirection = FlowDirection.TopDown;
-            panelTabela_Listas.Location = new Point(0, 68);
-            panelTabela_Listas.Margin = new Padding(3, 4, 3, 4);
+            panelTabela_Listas.Location = new Point(0, 51);
             panelTabela_Listas.Name = "panelTabela_Listas";
-            panelTabela_Listas.Size = new Size(1080, 347);
+            panelTabela_Listas.Size = new Size(945, 260);
             panelTabela_Listas.TabIndex = 1;
             panelTabela_Listas.WrapContents = false;
             // 
@@ -150,12 +148,12 @@
             buttonNewListScreen.Depth = 0;
             buttonNewListScreen.HighEmphasis = true;
             buttonNewListScreen.Icon = null;
-            buttonNewListScreen.Location = new Point(0, 8);
-            buttonNewListScreen.Margin = new Padding(5, 8, 5, 8);
+            buttonNewListScreen.Location = new Point(0, 6);
+            buttonNewListScreen.Margin = new Padding(4, 6, 4, 6);
             buttonNewListScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonNewListScreen.Name = "buttonNewListScreen";
             buttonNewListScreen.NoAccentTextColor = Color.Empty;
-            buttonNewListScreen.Size = new Size(1082, 48);
+            buttonNewListScreen.Size = new Size(947, 36);
             buttonNewListScreen.TabIndex = 0;
             buttonNewListScreen.Text = "+ NOVA LISTA DE ALUNOS";
             buttonNewListScreen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -164,7 +162,7 @@
             // 
             // ListScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
             Controls.Add(botaoFiltrar_Listas);
@@ -172,9 +170,8 @@
             Controls.Add(buttonStarterScreen);
             Controls.Add(buttonCreateScreen);
             Controls.Add(panel2);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ListScreen";
-            Size = new Size(1155, 716);
+            Size = new Size(1011, 537);
             Load += ListScreen_Load;
             panel2.ResumeLayout(false);
             ResumeLayout(false);

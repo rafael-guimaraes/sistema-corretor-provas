@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebSocketSharp;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace desktop
 {
@@ -19,6 +20,7 @@ namespace desktop
         SocketAPI socket = new SocketAPI("Listas");
         private JArray staticList;
         private List<itemLista> items = new List<itemLista>();
+        private itemLista selectedItem;
         public ListScreen()
         {
             InitializeComponent();
@@ -87,19 +89,23 @@ namespace desktop
         {
             main.Socket.OnMessage += OnResponse;
             main.Request(socket.Task("getListas").Body("{}"));
+            buttonCreateScreen.Enabled = false;
             buttonCreateScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
             buttonNewListScreen.Click += (s, e) => { main.Socket.OnMessage -= OnResponse; };
             itemLista.OnItemChecked += ItemLista_OnItemChecked;
         }
-        private void ItemLista_OnItemChecked(itemLista selectedItem)
+        private void ItemLista_OnItemChecked(itemLista selected)
         {
+            selectedItem = selected.CheckListItem ? selected : null;
             foreach (var item in items)
             {
-                if (item != selectedItem)
+                if (item != selected)
                 {
                     item.Deselect();
                 }
             }
+            selectedItem = selected;
+            buttonCreateScreen.Enabled = selected.CheckListItem;
         }
         private void textBoxFiltro_Listas_TextChanged(object sender, EventArgs e)
         {
@@ -110,6 +116,10 @@ namespace desktop
         {
             main.Socket.OnMessage -= OnResponse;
         }
-        
+
+        private void buttonCreateScreen_Click(object sender, EventArgs e)
+        {
+            main.LOCAL.Add("lista", selectedItem.ListID);
+        }
     }
 }

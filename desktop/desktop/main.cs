@@ -26,6 +26,8 @@ namespace desktop
         private JObject request;
         private string tela_atual;
 
+        public static Dictionary<string, String> LOCAL = new Dictionary<string, String>();
+
         public main()
         {
             InitializeComponent();
@@ -109,13 +111,14 @@ namespace desktop
         }
 
 
-        private void loadStarterScreen()
+        public void loadStarterScreen()
         {
             StarterScreen screen = new StarterScreen();
             screen.gotoListScreen += (sender, args) => switchScreen("list");
             screen.gotoConfig += (sender, args) => switchScreen("config");
-            /*
             screen.gotoPrint += (sender, args) => switchScreen("print");
+
+            /*
             screen.gotoCorrect += (sender, args) => switchScreen("correct");
             screen.gotoOverlay += (sender, args) => switchScreen("overlay");
             screen.gotoExport += (sender, args) => switchScreen("export");
@@ -166,6 +169,7 @@ namespace desktop
             CreateScreen screen = new CreateScreen();
 
             screen.gotoListScreen += (sender, args) => switchScreen("list");
+            screen.gotoStarterScreen += (sender, args) => switchScreen("menu");
 
             Text = "CRIAÇÃO DE AVALIAÇÃO";
 
@@ -176,7 +180,7 @@ namespace desktop
         {
             PrintScreen screen = new PrintScreen();
 
-            screen.gotoStarterScreen += (sender, args) => switchScreen("main");
+            screen.gotoStarterScreen += (sender, args) => switchScreen("menu");
 
             Text = "IMPRIMIR AVALIAÇÃO";
 
@@ -187,7 +191,7 @@ namespace desktop
         {
             CorrectScreen screen = new CorrectScreen();
 
-            screen.gotoStarterScreen += (sender, args) => switchScreen("main");
+            screen.gotoStarterScreen += (sender, args) => switchScreen("menu");
 
             Text = "CORREÇÃO DE AVALIAÇÃO";
 
@@ -198,7 +202,7 @@ namespace desktop
         {
             OverlayScreen screen = new OverlayScreen();
 
-            screen.gotoStarterScreen += (sender, args) => switchScreen("main");
+            screen.gotoStarterScreen += (sender, args) => switchScreen("menu");
 
             Text = "IMPRIMIR RESULTADOS DA AVALIAÇÃO";
 
@@ -209,7 +213,7 @@ namespace desktop
         {
             ExportScreen screen = new ExportScreen();
 
-            screen.gotoStarterScreen += (sender, args) => switchScreen("main");
+            screen.gotoStarterScreen += (sender, args) => switchScreen("menu");
 
             Text = "EXPORTAR DADOS DA AVALIAÇÃO";
 
