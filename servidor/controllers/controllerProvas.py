@@ -1,4 +1,5 @@
 from modelo.gerador import Gerador
+from modelo.leitor import Leitor
 import os
 from modelo.banco import Banco as DB
 
@@ -56,4 +57,7 @@ def createExample(database, body):
 
 def corrigirProvas(database, body):
     pasta = body["pasta"]
-    pasta = "C:\\Users\\rafae\\Desktop\\pasta_selecionada"
+    provas = Leitor().ler_provas(pasta)
+    for num, prova in enumerate(provas):
+        print(f"Prova {num + 1}")
+        print(prova.join(" "))
