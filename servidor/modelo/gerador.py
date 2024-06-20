@@ -12,7 +12,7 @@ from modelo.prova import Prova
 from io import BytesIO
 
 class Gerador():
-    def __init__(self, arquivo, dados, colunas) -> None:
+    def __init__(self, arquivo, dados, colunas, id) -> None:
         """
             arquivo (str) => Caminho para a rota do arquivo word da prova.
             alunos (list) => Lista contendo os alunos que realizaram a prova.
@@ -22,7 +22,7 @@ class Gerador():
         self.arquivo = arquivo
         self.dados = dados
         self.colunas = colunas
-        
+        self.id = id
 
     def ler_perguntas(self):
         perguntas = []
@@ -55,7 +55,7 @@ class Gerador():
         
         word = client.CreateObject('Word.Application')
         for aluno in alunos:
-            prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word)
+            prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word, self.id)
             provas_criadas.append(prova)
             
         word.quit()
@@ -64,11 +64,11 @@ class Gerador():
     def criar_exemplo(self, perguntas):
         word = client.CreateObject('Word.Application')
         aluno = {'nome': 'Fulano Braga da Silva Costa', 'matricula': '50220000', 'turma': '3H'} 
-        prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word)
+        prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word, self.id)
         word.quit()
         return [ prova ]
     
-    def gerar_impressao(self, provas):
+    def gerar_impressao(self, provas, saida_arquivo):
         merger = PdfMerger()
         
         for prova in provas:
@@ -77,15 +77,10 @@ class Gerador():
             pdf_file = BytesIO(pdf_data)
             
             merger.append(pdf_file)
-        
-        output_pdf = BytesIO()
-        merger.write(output_pdf)
+
+        merger.write(saida_arquivo)
         merger.close()
-        output_pdf.seek(0)
-        combined_pdf_data = output_pdf.read()
-        combined_pdf_base64 = base64.b64encode(combined_pdf_data).decode('utf-8')
-        
-        return combined_pdf_base64
+       
         
     def lista_de_chamada(self, alunos):
         doc = Document()
