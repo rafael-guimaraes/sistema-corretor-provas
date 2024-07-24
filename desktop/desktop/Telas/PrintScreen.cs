@@ -48,7 +48,8 @@ namespace desktop.Telas
                 arquivo = a;
                 main.LOCAL.Clear();
             }
-            byte[] pdfBytes = Convert.FromBase64String(arquivo);
+
+            byte[] pdfBytes = File.ReadAllBytes(arquivo);
             MemoryStream pdfStream = new MemoryStream(pdfBytes);
 
             PdfDocument pdfDocument = PdfDocument.Load(pdfStream);

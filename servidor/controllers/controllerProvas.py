@@ -1,4 +1,6 @@
 from modelo.gerador import Gerador
+from modelo.leitor import Leitor
+import os
 from modelo.banco import Banco as DB
 
 from setup.env import env
@@ -10,19 +12,29 @@ def getProva(database:DB):
 
 def createProva(database:DB, body):
     dados = body["dados"]
-    gerador = Gerador(body["arquivo"], dados, body["colunas"])
     
+    prova = database.insertData(env.COLLECTION_PROVAS, {})
+    id = prova["id"][0]
     id_lista = body["lista"]
-
     lista = database.getDataById(env.COLLECTION_LISTAS, id_lista)
+    
+    gerador = Gerador(body["arquivo"], dados, body["colunas"], id)
+    
+    
     alunos = lista["alunos"]
     titulo_lista = lista["title"]
     perguntas = gerador.ler_perguntas()
-   
+    
+    nome = titulo_lista + " - " + dados["disciplina"] + " - " + dados["tipo"] + " - " + dados["bimestre"] + "bim"
+    arquivo = os.path.realpath(env.STATIC + nome + ".pdf") 
+    
     provas = gerador.criar_provas(alunos, perguntas)
-    arquivo = gerador.gerar_impressao(provas)
+    
+    gerador.gerar_impressao(provas, arquivo)
+  
+    provas =  [{chave: valor for chave, valor in prova.items() if chave != 'documento'} for prova in provas]
     prova = { 
-        "nome": titulo_lista + " - " + dados["disciplina"] + " - " + dados["tipo"] + " - " + dados["bimestre"] + "bim",
+        "nome":nome,
         "lista": id_lista,
         "tipo": dados["tipo"],
         "bimestre": dados["bimestre"],
@@ -31,14 +43,21 @@ def createProva(database:DB, body):
         "provas": provas
     }
 
-    prova = database.insertData(env.COLLECTION_PROVAS, prova)
+    prova = database.updateDataByID(env.COLLECTION_PROVAS, prova, id)
     
     return prova
 
 def createExample(database, body):
-    gerador = Gerador(body["arquivo"], body["dados"], body["colunas"])
+    gerador = Gerador(body["arquivo"], body["dados"], body["colunas"], "")
     
     perguntas = gerador.ler_perguntas()
     exemplo = gerador.criar_exemplo(perguntas)
     
     return exemplo[0]
+
+def corrigirProvas(database, body):
+    pasta = body["pasta"]
+    provas = Leitor().ler_provas(pasta)
+    for num, prova in enumerate(provas):
+        print(f"Prova {num + 1}")
+        print(prova.join(" "))

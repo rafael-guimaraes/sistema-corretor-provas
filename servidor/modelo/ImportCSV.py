@@ -3,6 +3,7 @@ env = env()
 class ImportCSV():
 
     def __init__(self,p:str = "",translator:dict = dict()) -> None:
+        print(env.CSV_NOTATION)
         self._path = p
         self._fields = translator # CSV : MongoDB
         self._csv_indexes = {}
@@ -46,7 +47,7 @@ class ImportCSV():
         File.close()
 
         # Breaks lines, then its fields ((),())
-        lines_fields = tuple(map(lambda i: tuple(i[:-1].split(env.CSV_NOTATION(self._path))),lines))
+        lines_fields = tuple(map(lambda i: tuple(i[:-1].split(env.CSV_NOTATION)),lines))
 
         # Gets the needed fields and its index according to the header
         self._csv_indexes = dict(filter(lambda key:key[1] in self._fields.keys(),tuple(enumerate(lines_fields[0]))))

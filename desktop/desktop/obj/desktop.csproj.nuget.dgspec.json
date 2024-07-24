@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\desktop.csproj": {}
+    "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\desktop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\desktop.csproj": {
+    "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\desktop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\desktop.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\desktop.csproj",
         "projectName": "desktop",
-        "projectPath": "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\desktop.csproj",
-        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\desktop\\desktop\\obj\\",
+        "projectPath": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\desktop.csproj",
+        "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -88,7 +93,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

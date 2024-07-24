@@ -46,10 +46,12 @@ def Router(database:DB,Request) -> dict:
     elif context == "Provas":
         if task == "getProvas":
             Response  = getProva(database)
-        if task == "createProva":
+        elif task == "createProva":
             Response = createProva(database, json.loads(payload))
         elif task == "createExemplo":
             Response = createExample(database, json.loads(payload))
+        elif task == "corrigirProva":
+            Response = corrigirProvas(database, json.loads(payload))
         
     return {"data":Response,"task":task}
 
