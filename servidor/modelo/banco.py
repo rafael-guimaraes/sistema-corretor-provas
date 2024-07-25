@@ -3,11 +3,17 @@ from pymongo.server_api import ServerApi
 from pymongo.errors import ConnectionFailure, PyMongoError
 from bson.objectid import ObjectId
 import json 
+from setup.env import env
+env = env()
 class Banco():
     def __init__(self,url:str): 
         try:
             self.connection = MongoClient(url)
-            print(self.connection.admin.command('ping'))
+            print(env.CONNECT + "banco.py | Banco().__init__() -> MongoDB Connected."
+                if self.connection.admin.command('ping') == {'ok':1.0}
+                else env.WARNING + "banco.py | Banco().__init__() -> MongoDB couldn't connect."
+            )
+            
             self.database = self.connection.univap
         except ConnectionFailure as e:
             print("Não foi possível conectar ao banco de dados:", e)

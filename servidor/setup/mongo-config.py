@@ -1,38 +1,37 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.errors import ConnectionFailure, PyMongoError
 from pymongo.database import Database as DB
-from colorama import Fore as F, Style as S
 from env import env
 env = env()
 
 def initialize_translators(db:DB):
-    resultado = db[env.COLLECTION_CONFIG].insert_one(env.ALUNO_DEFAULT_TRANSLATOR).acknowledged 
+    result = db[env.COLLECTION_CONFIG].insert_one(env.ALUNO_DEFAULT_TRANSLATOR).acknowledged 
     print(
-        F.GREEN + "[DONE]" + S.RESET_ALL + " mongo-config.py | initialize_translators() -> Tradutor de alunos criado." 
-        if resultado
-        else F.RED+ "[ERRO]" + S.RESET_ALL + " mongo-config.py | initialize_translators() -> Erro ao criar tradutor de alunos."
+        env.SUCCESS + "mongo-config.py | initialize_translators()" 
+        if result
+        else env.WARNING + "mongo-config.py | initialize_translators()"
     )
 
 def setup_rules(db:DB):
-    resultado = db[env.COLLECTION_ALUNOS].create_index({"matricula":1}, unique=True)
+    result = db[env.COLLECTION_ALUNOS].create_index({"matricula":1}, unique=True)
     print (
-        F.GREEN + "[DONE]" + S.RESET_ALL + " mongo-config.py | setup_rules() -> Regra de Matrícula única criada." 
-        if resultado == "matricula_1"
-        else F.RED+ "[ERRO]" + S.RESET_ALL + " mongo-config.py | setup_rules() -> Erro ao criar Regra de Matrícula única. Resultado: {resultado}"
+        env.SUCCESS + "mongo-config.py | setup_rules() -> Unique rule for 'matricula' " 
+        if result == "matricula_1"
+        else env.WARNING + "mongo-config.py | setup_rules() -> Unique rule for 'matricula'.\n\tResult: {resultado}"
     )
     
 def create_database():
     try:
         connection = MongoClient(env.MONGO_DB_URL)
         print(
-            F.GREEN + "[DONE]" + S.RESET_ALL + " mongo-config.py | create_database() -> Banco de dados criado."
+            env.SUCCESS + "mongo-config.py | create_database()"
             if connection.admin.command('ping') == {'ok': 1.0} 
-            else F.RED+ "[ERRO]" + S.RESET_ALL + " mongo-config.py | create_database() -> Erro ao criar banco de dados."
+            else env.WARNING + "mongo-config.py | create_database()"
         )
         database = connection[env.DATABASE_NAME]
         return database
     except ConnectionFailure as e:
-        print(F.RED+ "[ERRO]" + S.RESET_ALL + " mongo-config.py | create_database() -> Não foi possível criar o banco de dados:", e)
+        print(env.WARNING + "mongo-config.py | create_database() -> ", e)
     return None 
 
 database = create_database()

@@ -12,7 +12,7 @@ import os
 import base64
 import qrcode
 from setup.env import env
-
+from Emitter import Emitter
 LETRAS = "abcde"
 env = env()
 
@@ -148,6 +148,11 @@ def ajustar_pdf(caminho):
                 writer.write(output_pdf)
                            
 def Prova(arquivo, dados, aluno, colunas, perguntas, word, id):
+    print(env.RUNNING + "prova.py | Prova() -> Started")
+    Socket = Emitter("criarProva")
+    print(env.CHECKED + "prova.py | Prova() -> Passed")
+
+    Socket.send({"task":"teste","body":"Olá"})
     documento = Document(arquivo)    
     corpo = documento.element.body
     corpo.clear()

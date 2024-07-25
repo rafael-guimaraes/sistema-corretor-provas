@@ -8,6 +8,10 @@ import os
 import base64
 from copy import deepcopy
 from modelo.prova import Prova
+from setup.env import env
+env = env()
+
+from time import time
 
 from io import BytesIO
 
@@ -25,6 +29,7 @@ class Gerador():
         self.id = id
 
     def ler_perguntas(self):
+        T0 = time()
         perguntas = []
         
         doc = Document(self.arquivo)
@@ -46,6 +51,7 @@ class Gerador():
                     "alternativas": alternativas,
                     "indice_resposta": 0
                 })
+        print(env.CHECKED + "gerador.py | Gerador.ler_perguntaas() -> Time: " + str(time() - T0) + "s")
         return perguntas
        
    
