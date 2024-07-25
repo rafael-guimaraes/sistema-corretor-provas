@@ -78,3 +78,7 @@ C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\Pdf
 C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\nl\PdfiumViewer.resources.dll
 C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\x64\pdfium.dll
 C:\Users\rafae\Documents\github\TCC\desktop\desktop\bin\Debug\net8.0-windows\x86\pdfium.dll
+C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\x64\pdfium.dll
+C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\x86\pdfium.dll
+C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\PdfiumViewer.dll
+C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\nl\PdfiumViewer.resources.dll

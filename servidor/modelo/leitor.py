@@ -1,6 +1,6 @@
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
-from pyzbar.pyzbar import decode
+# from pyzbar.pyzbar import decode
 from base64 import b64decode
 from uuid import uuid4
 import numpy as np
