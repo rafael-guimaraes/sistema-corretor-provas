@@ -33,9 +33,8 @@ class Banco():
                 data = [data]
 
             result = collection.insert_many(data, ordered=False)
-        
             response = {
-                "resultado": str(result.acknowledged),
+                "acknowledged": str(result.acknowledged),
                 "id": [str(id) for id in result.inserted_ids],
                 "data": self.strObjectID(data)
             }
@@ -46,7 +45,7 @@ class Banco():
             stringJson = str(e)[38:].replace("\"","~~").replace("'","\"").replace("~~","'").replace("ObjectId(","").replace(")","")
             errorJson = dict(json.loads(stringJson))
             response = {
-                "acknowledged": False,
+                "acknowledged": "False",
                 "data":errorJson
             }
             return response

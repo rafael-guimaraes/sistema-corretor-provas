@@ -13,7 +13,6 @@ def deleteListByID(database:DB,id:str):
         print(str(deleted_item))
         return f"{id} was succesfully deleted!" if deleted_item.acknowledged else f"{id} couldn't be deleted." 
     else:
-        print("\n\n\n\n\nID NÃO SELECIONADO:"+id + "\n\n")
         return f"{id} is not an ID."
         
 
@@ -33,7 +32,7 @@ def createListasTurmas(database:DB):
         listas.append(lista)
 
     listas_criadas = database.insertData(env.COLLECTION_LISTAS,listas)
-    if (listas_criadas["acknowledged"]):
+    if (listas_criadas["acknowledged"] == "True"):
         return listas
     else:
         return "Não foi possível criar as Turmas"

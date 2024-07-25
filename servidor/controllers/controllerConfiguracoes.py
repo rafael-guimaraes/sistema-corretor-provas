@@ -21,8 +21,7 @@ def importListFile(database:DB,file_path):
         result = database.insertData(env.COLLECTION_ALUNOS,payload["data"])
     else:
         return "Erro ao ler o arquivo:" + payload["content"]
-
-    if result["acknowledged"]:
+    if result["acknowledged"] == "True":
         return sorted(result["data"],key= lambda d: d["matricula"])
     else:
         return "Erro ao inserir no banco"
@@ -39,7 +38,7 @@ def importAlunosFile(database:DB,file_path):
     else:
         return "Erro ao ler o arquivo:" + payload["content"]
 
-    if result["acknowledged"]:
+    if result["acknowledged"] == "True":
         return sorted(result["data"],key= lambda d: d["matricula"])
     else:
         return "Erro ao inserir no banco"
