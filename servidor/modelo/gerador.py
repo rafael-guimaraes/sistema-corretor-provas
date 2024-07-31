@@ -9,6 +9,7 @@ import base64
 from copy import deepcopy
 from modelo.prova import Prova
 from setup.env import env
+from Emitter import Emitter
 env = env()
 
 from time import time
@@ -16,13 +17,14 @@ from time import time
 from io import BytesIO
 
 class Gerador():
-    def __init__(self, arquivo, dados, colunas, id) -> None:
+    def __init__(self,socket_connection, arquivo, dados, colunas, id) -> None:
         """
             arquivo (str) => Caminho para a rota do arquivo word da prova.
             alunos (list) => Lista contendo os alunos que realizaram a prova.
             colunas (int) => Numero de colunas divindo a prova.
         """
-        
+        self._socket_connection = socket_connection
+        print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.__init__ -> self._socket_connection", self._socket_connection)
         self.arquivo = arquivo
         self.dados = dados
         self.colunas = colunas
@@ -51,7 +53,6 @@ class Gerador():
                     "alternativas": alternativas,
                     "indice_resposta": 0
                 })
-        print(env.CHECKED + "gerador.py | Gerador.ler_perguntaas() -> Time: " + str(time() - T0) + "s")
         return perguntas
        
    
@@ -60,9 +61,15 @@ class Gerador():
         provas_criadas = []
         
         word = client.CreateObject('Word.Application')
-        for aluno in alunos:
+        num_alunos = len(alunos)
+        for i,aluno in enumerate(alunos):
+            T0 = time()
             prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word, self.id)
             provas_criadas.append(prova)
+            print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_provas() -> Objecto socket: " + str(self._socket_connection))
+            print(env.SUCCESS+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_provas() -> Time: " + str(time() - T0) + "s")
+            Emitter("updateProgress.createProva",self._socket_connection).send({"total":num_alunos,"progress":i+1})
+
             
         word.quit()
         return provas_criadas
@@ -70,11 +77,15 @@ class Gerador():
     def criar_exemplo(self, perguntas):
         word = client.CreateObject('Word.Application')
         aluno = {'nome': 'Fulano Braga da Silva Costa', 'matricula': '50220000', 'turma': '3H'} 
+        T0 = time()
         prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word, self.id)
         word.quit()
+        print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_exemplo() -> Time: " + str(time() - T0) + "s")
+
         return [ prova ]
     
     def gerar_impressao(self, provas, saida_arquivo):
+        T0 = time()
         merger = PdfMerger()
         
         for prova in provas:
@@ -86,6 +97,8 @@ class Gerador():
 
         merger.write(saida_arquivo)
         merger.close()
+        print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.gerar_impressao() -> Time: " + str(time() - T0) + "s")
+
        
         
     def lista_de_chamada(self, alunos):

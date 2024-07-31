@@ -59,3 +59,33 @@ ALUNO,NOME_ALUNO,TURMA_PREF,SERIE,SIT,ALUNO_EMAIL,LEGAL_EMAIL
 50241890,Felipe Martins Lima,EConACli-2PMB,2,Pre-Mat,felipe.lima@example.com,maria.martins@example.com
 50241901,Luana Oliveira Souza,EConQui-3PMC,3,Matriculado,luana.souza@example.com,carlos.oliveira@example.com
 50242012,Matheus Silva Costa,EConEle-1PMA,1,Pre-Mat,matheus.costa@example.com,maria.silva@example.com
+50250123,Maria da Silva,EConInf-1PMA,1,Matriculado,maria.silva@example.com,jose.silva@example.com
+50250124,João Pereira,EConInf-1PMA,1,Matriculado,joao.pereira@example.com,ana.pereira@example.com
+50250125,Ana Souza,EConInf-1PMA,1,Matriculado,ana.souza@example.com,carlos.souza@example.com
+50250126,Carlos Oliveira,EConInf-1PMA,1,Matriculado,carlos.oliveira@example.com,maria.oliveira@example.com
+50250127,Pedro Santos,EConInf-1PMA,1,Matriculado,pedro.santos@example.com,joana.santos@example.com
+50250128,Lucas Lima,EConInf-1PMA,1,Matriculado,lucas.lima@example.com,fernando.lima@example.com
+50250129,Julia Ferreira,EConInf-1PMA,1,Matriculado,julia.ferreira@example.com,maria.ferreira@example.com
+50250130,Aline Costa,EConInf-1PMA,1,Matriculado,aline.costa@example.com,joao.costa@example.com
+50250131,Fernando Alves,EConInf-1PMA,1,Matriculado,fernando.alves@example.com,ana.alves@example.com
+50250132,Ricardo Souza,EConInf-1PMA,1,Matriculado,ricardo.souza@example.com,mariana.souza@example.com
+50250133,Mariana Silva,EConInf-1PMA,1,Matriculado,mariana.silva@example.com,joao.silva@example.com
+50250134,André Mendes,EConInf-1PMA,1,Matriculado,andre.mendes@example.com,carla.mendes@example.com
+50250135,Paula Rocha,EConInf-1PMA,1,Matriculado,paula.rocha@example.com,pedro.rocha@example.com
+50250136,Fabio Carvalho,EConInf-1PMA,1,Matriculado,fabio.carvalho@example.com,maria.carvalho@example.com
+50250137,Renata Lima,EConInf-1PMA,1,Matriculado,renata.lima@example.com,carlos.lima@example.com
+50250138,Gustavo Azevedo,EConInf-1PMA,1,Matriculado,gustavo.azevedo@example.com,fernanda.azevedo@example.com
+50250139,Beatriz Martins,EConInf-1PMA,1,Matriculado,beatriz.martins@example.com,marco.martins@example.com
+50250140,Rafael Sousa,EConInf-1PMA,1,Matriculado,rafael.sousa@example.com,ana.sousa@example.com
+50250141,Carla Nunes,EConInf-1PMA,1,Matriculado,carla.nunes@example.com,pedro.nunes@example.com
+50250142,Igor Teixeira,EConInf-1PMA,1,Matriculado,igor.teixeira@example.com,marcia.teixeira@example.com
+50250143,Marina Batista,EConInf-1PMA,1,Matriculado,marina.batista@example.com,joao.batista@example.com
+50250144,Thiago Reis,EConInf-1PMA,1,Matriculado,thiago.reis@example.com,julia.reis@example.com
+50250145,Vanessa Moreira,EConInf-1PMA,1,Matriculado,vanessa.moreira@example.com,carlos.moreira@example.com
+50250146,Guilherme Almeida,EConInf-1PMA,1,Matriculado,guilherme.almeida@example.com,maria.almeida@example.com
+50250147,Daniela Franco,EConInf-1PMA,1,Matriculado,daniela.franco@example.com,joao.franco@example.com
+50250148,Alexandre Lopes,EConInf-1PMA,1,Matriculado,alexandre.lopes@example.com,ana.lopes@example.com
+50250149,Ana Clara,EConInf-1PMA,1,Matriculado,ana.clara@example.com,carlos.clara@example.com
+50250150,Lucas Martins,EConInf-1PMA,1,Matriculado,lucas.martins@example.com,joana.martins@example.com
+50250151,Caroline Rocha,EConInf-1PMA,1,Matriculado,caroline.rocha@example.com,marcos.rocha@example.com
+50250152,Felipe Santana,EConInf-1PMA,1,Matriculado,felipe.santana@example.com,julia.santana@example.com

@@ -3,7 +3,6 @@ env = env()
 class ImportCSV():
 
     def __init__(self,p:str = "",translator:dict = dict()) -> None:
-        print(env.CSV_NOTATION)
         self._path = p
         self._fields = translator # CSV : MongoDB
         self._csv_indexes = {}

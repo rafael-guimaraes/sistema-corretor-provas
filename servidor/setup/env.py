@@ -24,10 +24,12 @@ class env:
         self.COLLECTION_PROVAS = "provas"
         self.DATABASE_NAME = "univap"
         self.STATIC = "servidor/modelo/arquivos/"
+        self.DIRECTORY = "C:\\Users\\gabri\\Documents\\GitHub\\TCC\\servidor"
         self.RUNNING = F.YELLOW + "[RUNNING] " + S.RESET_ALL
         self.WARNING = F.RED + "[WARNING] " + S.RESET_ALL
         self.SUCCESS = F.LIGHTGREEN_EX + "[SUCCESS] " + S.RESET_ALL
         self.EMITTED = F.CYAN + "[EMITTED] " + S.RESET_ALL
-        self.REQUEST = F.CYAN + "[REQUEST] " + S.RESET_ALL
+        self.BACKEND = F.CYAN + "[BACKEND] " + S.RESET_ALL
+        self.DESKTOP = F.CYAN + "[DESKTOP] " + S.RESET_ALL
         self.CONNECT = F.LIGHTWHITE_EX + "[CONNECT] " + S.RESET_ALL
-        self.CHECKED = F.LIGHTRED_EX + "[CHECKED] " + S.RESET_ALL
+        self.CHECKED = F.LIGHTBLUE_EX + "[CHECKED] " + S.RESET_ALL

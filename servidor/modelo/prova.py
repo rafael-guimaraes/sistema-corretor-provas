@@ -12,7 +12,7 @@ import os
 import base64
 import qrcode
 from setup.env import env
-from Emitter import Emitter
+from time import time
 LETRAS = "abcde"
 env = env()
 
@@ -148,11 +148,8 @@ def ajustar_pdf(caminho):
                 writer.write(output_pdf)
                            
 def Prova(arquivo, dados, aluno, colunas, perguntas, word, id):
-    print(env.RUNNING + "prova.py | Prova() -> Started")
-    Socket = Emitter("criarProva")
-    print(env.CHECKED + "prova.py | Prova() -> Passed")
 
-    Socket.send({"task":"teste","body":"Olá"})
+    T0 = time()
     documento = Document(arquivo)    
     corpo = documento.element.body
     corpo.clear()
@@ -202,6 +199,7 @@ def Prova(arquivo, dados, aluno, colunas, perguntas, word, id):
     criar_cabecalho(documento.tables[0], dados, aluno, id)
     rota = env.STATIC + "temp/temp"
     documento.save(rota + ".docx")
+    print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Prova().save(\".docx\") -> Time: " + str(time() - T0) + "s")
     doc = word.Documents.Open(os.path.realpath(rota + ".docx"))
     doc.SaveAs(os.path.realpath(rota + ".pdf"), FileFormat=17)
     doc.Close()

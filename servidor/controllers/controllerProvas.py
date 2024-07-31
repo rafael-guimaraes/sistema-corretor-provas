@@ -10,7 +10,7 @@ def getProva(database:DB):
     alunos = database.getData(env.COLLECTION_PROVAS)
     return alunos
 
-def createProva(database:DB, body):
+def createProva(socket_connection, database:DB, body):
     dados = body["dados"]
     
     prova = database.insertData(env.COLLECTION_PROVAS, {})
@@ -18,7 +18,7 @@ def createProva(database:DB, body):
     id_lista = body["lista"]
     lista = database.getDataById(env.COLLECTION_LISTAS, id_lista)
     
-    gerador = Gerador(body["arquivo"], dados, body["colunas"], id)
+    gerador = Gerador(socket_connection, body["arquivo"], dados, body["colunas"], id)
     
     
     alunos = lista["alunos"]
@@ -47,17 +47,16 @@ def createProva(database:DB, body):
     
     return prova
 
-def createExample(database, body):
-    gerador = Gerador(body["arquivo"], body["dados"], body["colunas"], "")
+def createExample(socket_connection, database, body):
+    gerador = Gerador(socket_connection, body["arquivo"], body["dados"], body["colunas"], "")
     
     perguntas = gerador.ler_perguntas()
     exemplo = gerador.criar_exemplo(perguntas)
     
     return exemplo[0]
 
-def corrigirProvas(database, body):
-    pasta = body["pasta"]
-    provas = Leitor().ler_provas(pasta)
+def corrigirProvas(socket_connection, database, body):
+    provas = Leitor(socket_connection).ler_provas(body["pasta"])
     for num, prova in enumerate(provas):
         print(f"Prova {num + 1}")
         print(prova.join(" "))

@@ -10,6 +10,9 @@ import os
 
 
 class Leitor:
+
+    def __init__(self,socket_connection):
+        self._socket_connection = socket_connection
     def ler_provas(self, pasta_provas):
         """
         Retorna uma lista de objetos Prova gerados a partir das imagens da pasta.
@@ -289,6 +292,6 @@ class Leitor:
             return prova
     
 
-provas = Leitor().ler_provas("C:\\Users\\rafae\\Desktop\\pasta_selecionada")
+provas = Leitor(None).ler_provas("C:\\Users\\rafae\\Desktop\\pasta_selecionada")
 for prova in provas:
     print(prova)

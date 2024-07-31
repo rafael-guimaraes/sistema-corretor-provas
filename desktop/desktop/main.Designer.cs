@@ -46,7 +46,6 @@
             ClientSize = new Size(1152, 797);
             Controls.Add(activeScreen);
             Margin = new Padding(3, 4, 3, 4);
-            MaximizeBox = false;
             Name = "main";
             Padding = new Padding(3, 85, 3, 4);
             StartPosition = FormStartPosition.CenterScreen;

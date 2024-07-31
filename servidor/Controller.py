@@ -8,7 +8,7 @@ from controllers.controllerListas import *
 from controllers.controllerProvas import *
 import json 
 
-def Router(database:DB,Request) -> dict:
+def Router(database:DB,Request,SocketConnection) -> dict:
 
     task = Request["task"]
     context = Request["context"]
@@ -47,11 +47,11 @@ def Router(database:DB,Request) -> dict:
         if task == "getProvas":
             Response  = getProva(database)
         elif task == "createProva":
-            Response = createProva(database, json.loads(payload))
+            Response = createProva(SocketConnection, database, json.loads(payload))
         elif task == "createExemplo":
-            Response = createExample(database, json.loads(payload))
+            Response = createExample(SocketConnection, database, json.loads(payload))
         elif task == "corrigirProva":
-            Response = corrigirProvas(database, json.loads(payload))
+            Response = corrigirProvas(SocketConnection, database, json.loads(payload))
         
     return {"data":Response,"task":task}
 
