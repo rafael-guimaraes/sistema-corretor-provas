@@ -7,7 +7,8 @@ from setup.env import env
 
 env = env()
 def getProva(database:DB):
-    alunos = database.getData(env.COLLECTION_PROVAS)
+    filter = { "$and": [ {"nome": {"$exists": True}},{"arquivo": {"$exists": True}} ] }
+    alunos = database.getData(env.COLLECTION_PROVAS, filter)
     return alunos
 
 async def createProva(socket_connection, database:DB, body):
