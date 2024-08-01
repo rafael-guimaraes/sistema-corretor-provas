@@ -17,6 +17,10 @@ class env:
                 "LEGAL_EMAIL": "legal_email"
             }
         }
+        self.DEFAULT_PASSWORD = {
+            "type":"systemAuthorization",
+            "password":"admin"
+        }
 
         self.COLLECTION_ALUNOS = "alunos"
         self.COLLECTION_LISTAS = "listas"
