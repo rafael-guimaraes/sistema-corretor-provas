@@ -12,4 +12,11 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\gabri\.nuget\packages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)pdfiumviewer.native.x86_64.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.native.x86_64.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props')" />
+    <Import Project="$(NuGetPackageRoot)pdfiumviewer.native.x86.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.native.x86.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgPdfiumViewer Condition=" '$(PkgPdfiumViewer)' == '' ">C:\Users\gabri\.nuget\packages\pdfiumviewer\2.13.0</PkgPdfiumViewer>
+  </PropertyGroup>
 </Project>

@@ -1,26 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\",
+  "WorkspaceRootPath": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\kaiob\\onedrive\\documents\\github\\tcc\\desktop\\desktop\\modalcriarlista.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\modalcriarlista.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\telas\\printscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\telas\\printscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\kaiob\\onedrive\\documents\\github\\tcc\\desktop\\desktop\\modalcriarlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\modalcriarlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\kaiob\\onedrive\\documents\\github\\tcc\\desktop\\desktop\\modalcriarlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\modalcriarlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\kaiob\\onedrive\\documents\\github\\tcc\\desktop\\desktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\kaiob\\onedrive\\documents\\github\\tcc\\desktop\\desktop\\criarprova.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\criarprova.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|c:\\users\\rafae\\documents\\github\\tcc\\desktop\\desktop\\telas\\printscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02C406C-1E10-4650-BAB9-1A7C9B2A4974}|desktop\\desktop.csproj|solutionrelative:desktop\\telas\\printscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,69 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "modalCriarLista.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\modalCriarLista.Designer.cs",
-              "RelativeDocumentMoniker": "desktop\\modalCriarLista.Designer.cs",
-              "ToolTip": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\modalCriarLista.Designer.cs",
-              "RelativeToolTip": "desktop\\modalCriarLista.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T17:23:15.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "modalCriarLista.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\modalCriarLista.cs",
-              "RelativeDocumentMoniker": "desktop\\modalCriarLista.cs",
-              "ToolTip": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\modalCriarLista.cs [Projeto]",
-              "RelativeToolTip": "desktop\\modalCriarLista.cs [Projeto]",
+              "Title": "PrintScreen.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\PrintScreen.cs",
+              "RelativeDocumentMoniker": "desktop\\Telas\\PrintScreen.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\PrintScreen.cs",
+              "RelativeToolTip": "desktop\\Telas\\PrintScreen.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwDwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T17:23:01.202Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form1.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\Form1.cs",
-              "RelativeDocumentMoniker": "desktop\\Form1.cs",
-              "ToolTip": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\Form1.cs [Projeto]",
-              "RelativeToolTip": "desktop\\Form1.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T17:20:32.863Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "criarProva.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\criarProva.cs",
-              "RelativeDocumentMoniker": "desktop\\criarProva.cs",
-              "ToolTip": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\criarProva.cs [Projeto]",
-              "RelativeToolTip": "desktop\\criarProva.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T17:10:05.545Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "modalCriarLista.cs",
-              "DocumentMoniker": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\modalCriarLista.cs",
-              "RelativeDocumentMoniker": "desktop\\modalCriarLista.cs",
-              "ToolTip": "C:\\Users\\kaiob\\OneDrive\\Documents\\GitHub\\TCC\\desktop\\desktop\\modalCriarLista.cs",
-              "RelativeToolTip": "desktop\\modalCriarLista.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAIAwwCwAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T17:04:29.044Z",
+              "WhenOpened": "2024-06-17T21:11:00.836Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PrintScreen.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\PrintScreen.cs",
+              "RelativeDocumentMoniker": "desktop\\Telas\\PrintScreen.cs",
+              "ToolTip": "C:\\Users\\rafae\\Documents\\github\\TCC\\desktop\\desktop\\Telas\\PrintScreen.cs [Projeto]",
+              "RelativeToolTip": "desktop\\Telas\\PrintScreen.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T21:10:11.377Z",
+              "EditorCaption": " [Projeto]"
             }
           ]
         }

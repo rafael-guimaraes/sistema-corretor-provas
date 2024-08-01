@@ -2,28 +2,106 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Cm, Inches
 from comtypes import client
-from PyPDF2 import PdfMerger, PdfReader, PdfWriter
+from PyPDF2 import PdfMerger
 import traceback
 import os
 import base64
-
+from copy import deepcopy
 from modelo.prova import Prova
+from setup.env import env
+from Emitter import emit
+env = env()
 
+from time import time
+
+from io import BytesIO
 
 class Gerador():
-    def __init__(self, arquivo): 
+    def __init__(self,socket_connection, arquivo, dados, colunas, id) -> None:
+        """
+            arquivo (str) => Caminho para a rota do arquivo word da prova.
+            alunos (list) => Lista contendo os alunos que realizaram a prova.
+            colunas (int) => Numero de colunas divindo a prova.
+        """
+        self._socket_connection = socket_connection
+        print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.__init__ -> self._socket_connection", self._socket_connection)
         self.arquivo = arquivo
+        self.dados = dados
+        self.colunas = colunas
+        self.id = id
 
-    def criar_quebra(self):
-        doc = Document()
-        doc.add_page_break()
+    def ler_perguntas(self):
+        T0 = time()
+        perguntas = []
         
-        return doc.element.body[0]
+        doc = Document(self.arquivo)
+        
+        for tabela in doc.tables:
+            for linha in tabela.rows:
+                celula = linha.cells[0]
+                enunciado = None
+                alternativas = []
+                for num_campo, campo in enumerate(celula.tables):
+                    if num_campo == 0:
+                        enunciado = campo.rows[0].cells[0]
+                    else:
+                        for alternativa in campo.rows:
+                            alternativas.append(alternativa.cells[0])
+                
+                perguntas.append({
+                    "enunciado": enunciado,
+                    "alternativas": alternativas,
+                    "indice_resposta": 0
+                })
+        return perguntas
+       
+   
+    async def criar_provas(self, alunos, perguntas):
+        if not alunos: return []
+        provas_criadas = []
+        
+        word = client.CreateObject('Word.Application')
+        num_alunos = len(alunos)
+        await emit("updateProgress.createProva",self._socket_connection,{"total":num_alunos,"progress":0})
+        for i,aluno in enumerate(alunos):
+            T0 = time()
+            prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word, self.id)
+            provas_criadas.append(prova)
+            print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_provas() -> Objecto socket: " + str(self._socket_connection))
+            print(env.SUCCESS+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_provas() -> Time: " + str(time() - T0) + "s")
+            await emit("updateProgress.createProva",self._socket_connection,{"total":num_alunos,"progress":i+1})
+
+            
+        word.quit()
+        return provas_criadas
     
-    def cabecalho(self):
-        doc = Document("modelo/arquivos/cabecalho.docx")
-        return doc.tables[0]
+    def criar_exemplo(self, perguntas):
+        word = client.CreateObject('Word.Application')
+        aluno = {'nome': 'Fulano Braga da Silva Costa', 'matricula': '50220000', 'turma': '3H'} 
+        T0 = time()
+        prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word, self.id)
+        word.quit()
+        print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_exemplo() -> Time: " + str(time() - T0) + "s")
+
+        return [ prova ]
     
+    def gerar_impressao(self, provas, saida_arquivo):
+        T0 = time()
+        merger = PdfMerger()
+        
+        for prova in provas:
+            pdf_data = base64.b64decode(prova["documento"])
+            
+            pdf_file = BytesIO(pdf_data)
+            
+            merger.append(pdf_file)
+
+        merger.write(saida_arquivo)
+        merger.close()
+        print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.gerar_impressao() -> Time: " + str(time() - T0) + "s")
+
+       
+        
     def lista_de_chamada(self, alunos):
         doc = Document()
 
@@ -44,14 +122,10 @@ class Gerador():
         larguras = [0.5, 10, 3] 
         for i, largura in enumerate(larguras):
             tabela.columns[i].width = Inches(largura)
-
-      
         cabecalho = tabela.rows[0].cells
         cabecalho[0].text = 'Matrícula'
         cabecalho[1].text = 'Nome'
         cabecalho[2].text = 'Assinatura'
-
-       
         for aluno in alunos:
             linha = tabela.add_row().cells
             linha[0].text = aluno['matricula']
@@ -59,127 +133,4 @@ class Gerador():
             linha[2].text = ''
 
         return doc
-    
-    def processar_word(self):
-        try:
-            perguntas = []
-            conteudo = ""
-            doc = Document(self.arquivo)
-            for num_tabela, tabela in enumerate(doc.tables):
-                for linha in tabela.rows:
-                    celula = linha.cells[0]
-                    if num_tabela == 0:
-                        conteudo = celula.text.replace("Conteúdo: ", "").strip()
-                        break  
-                    else:
-                        enunciado = None
-                        alternativas = []
-                        for num_campo, campo in enumerate(celula.tables):
-                            if num_campo == 0:
-                                enunciado = campo.rows[0].cells[0]
-                            else:
-                                for alternativa in campo.rows:
-                                    alternativas.append(alternativa.cells[0])
-                        
-                        perguntas.append({
-                            "enunciado": enunciado,
-                            "alternativas": alternativas,
-                            "resposta": 0
-                        })
-            return perguntas, conteudo
-        except Exception as e:
-            print(e)
-            return None, None
-
-    def gerar_provas(self, dados, alunos, colunas):
-        perguntas, dados['<conteudo>'] = self.processar_word()
-        cabecalho = self.cabecalho()
-        lista_provas = []
-
-        for aluno in alunos:
-            dados['<nome>'] = aluno['nome']
-            dados['<matricula>'] = aluno['matricula']
-            prova = Prova(self.arquivo, dados, perguntas, cabecalho, colunas).criar_prova()
-            
-            lista_provas.append({"matricula": aluno['matricula'], "situacao": "criada", "gabarito": prova[1], "documento": prova[0]})
-        
-        pdfs = self.gerar_pdfs(lista_provas)
-        if len(pdfs) - len(lista_provas) != 0:
-            for i in range(len(lista_provas)):
-                lista_provas[i]['documento'] = pdfs[i]
-            return lista_provas
-        return []
-    
-    def gerar_exemplo(self, dados):
-        perguntas, dados['<conteudo>'] = self.processar_word()
-        cabecalho = cabecalho()
-        dados['<nome>'] = 'Fulano da Silva Costa'
-        dados['<matricula>'] = '50220000'
-        prova = Prova(self.arquivo, dados, perguntas, cabecalho).criar_prova()
-        return prova
-    
-    def ajustar_folhas(self, caminho):
-        reader = PdfReader(caminho)
-        if len(reader.pages) % 2 != 0:
-            writer = PdfWriter()
-            for page in reader.pages:
-                writer.add_page(page)
-            writer.add_blank_page()
-            with open(caminho, 'wb') as output_pdf:
-                writer.write(output_pdf)
-    
-    def gerar_pdfs(self, lista):
-        pdfs = []
-        word = client.CreateObject('Word.Application')
-        try:
-            for i, prova in enumerate(lista):
-                prova['documento'].save(f"modelo/temp/{i}.docx")
-                doc = word.Documents.Open(os.path.realpath(f"modelo/temp/{i}.docx"))
-                doc.SaveAs(os.path.realpath(f"modelo/temp/{i}.pdf"), FileFormat=17)
-                doc.Close()
-                self.ajustar_folhas(f"modelo/temp/{i}.pdf")
-                
-                with open(f"modelo/temp/{i}.pdf", "rb") as pdf_file:
-                    pdfs.append(base64.b64encode(pdf_file.read()))
-        except Exception as e:
-            traceback.print_exc()
-            print()
-            print()
-            print()
-            print("-" * 90)
-        finally:
-            word.Quit()
-            for i in range(len(lista)):
-                try:
-                    os.remove(f"modelo/temp/{i}.docx")
-                    os.remove(f"modelo/temp/{i}.pdf")
-                except:
-                    pass
-        return pdfs
-            
-    def gerar_impressao(self, arquivo_saida, provas):
-        word = client.CreateObject('Word.Application')
-        merger = PdfMerger()
-        try:
-            for i, prova in enumerate(provas):
-                prova[0].save(f"temp/{i}.docx")
-                doc = word.Documents.Open(os.path.realpath(f"temp/{i}.docx"))
-                doc.SaveAs(os.path.realpath(f"temp/{i}.pdf"), FileFormat=17)
-                doc.Close()
-                self.ajustar_folhas(f"temp/{i}.pdf")
-                merger.append(f"temp/{i}.pdf") 
-                
-        except Exception as e:
-            traceback.print_exc()
-        finally:
-            word.Quit()
-
-        merger.write(os.path.realpath(arquivo_saida))
-        merger.close()
-        for i in range(len(provas)):
-            os.remove(f"temp/{i}.docx")
-            os.remove(f"temp/{i}.pdf")
-      
-      
-
-
+       

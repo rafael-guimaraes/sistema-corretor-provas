@@ -1,0 +1,91 @@
+ALUNO,NOME_ALUNO,TURMA_PREF,SERIE,SIT,ALUNO_EMAIL,LEGAL_EMAIL
+50220123,Maria da Silva,EConInf-1PMA,1,Matriculado,maria.silva@example.com,jose.silva@example.com
+50220234,João Santos Pereira,EConPub-2PMB,2,Matriculado,joao.pereira@example.com,ana.santos@example.com
+50220345,Carlos Oliveira Souza,EConACli-3PMC,3,Matriculado,carlos.souza@example.com,maria.oliveira@example.com
+50220456,Ana Luiza Almeida,EConQui-1PMA,1,Pre-Mat,ana.almeida@example.com,pedro.almeida@example.com
+50220567,Pedro Henrique Lima,EConEle-2PMB,2,Pre-Mat,pedro.lima@example.com,mariana.lima@example.com
+50220678,Luana Oliveira Silva,EConInf-3PMC,3,Pre-Mat,luana.silva@example.com,joao.oliveira@example.com
+50220789,Guilherme Santos Pereira,EConPub-1PMA,1,Matriculado,guilherme.pereira@example.com,patricia.santos@example.com
+50220890,Laura Martins Costa,EConACli-2PMB,2,Matriculado,laura.costa@example.com,paulo.martins@example.com
+50220901,Gabriel Silva Santos,EConQui-3PMC,3,Pre-Mat,gabriel.santos@example.com,juliana.silva@example.com
+50221012,Isabela Almeida Lima,EConEle-1PMA,1,Matriculado,isabela.lima@example.com,pedro.almeida@example.com
+50221123,Matheus Costa Oliveira,EConInf-2PMB,2,Matriculado,matheus.oliveira@example.com,maria.costa@example.com
+50221234,Amanda Pereira Santos,EConPub-3PMC,3,Pre-Mat,amanda.santos@example.com,jose.pereira@example.com
+50221345,Lucas Lima Almeida,EConACli-1PMA,1,Matriculado,lucas.almeida@example.com,ana.lima@example.com
+50221456,Mariana Santos Souza,EConQui-2PMB,2,Matriculado,mariana.souza@example.com,carlos.santos@example.com
+50221567,Felipe Oliveira Pereira,EConEle-3PMC,3,Pre-Mat,felipe.pereira@example.com,maria.oliveira@example.com
+50221678,Juliana Costa Silva,EConInf-1PMA,1,Pre-Mat,juliana.silva@example.com,pedro.costa@example.com
+50221789,Ricardo Almeida Santos,EConPub-1PMB,1,Matriculado,ricardo.santos@example.com,maria.almeida@example.com
+50221890,Daniela Martins Lima,EConACli-2PMB,2,Pre-Mat,daniela.lima@example.com,jose.martins@example.com
+50221901,Fernando Silva Pereira,EConQui-3PMC,3,Matriculado,fernando.pereira@example.com,ana.silva@example.com
+50222012,Carolina Oliveira Souza,EConEle-1PMA,1,Pre-Mat,carolina.souza@example.com,pedro.oliveira@example.com
+50230123,Beatriz Oliveira Silva,EConInf-1PMA,1,Matriculado,beatriz.silva@example.com,joao.oliveira@example.com
+50230234,Leonardo Santos Pereira,EConPub-2PMB,2,Matriculado,leonardo.pereira@example.com,maria.santos@example.com
+50230345,Julia Martins Costa,EConACli-3PMC,3,Matriculado,julia.costa@example.com,pedro.martins@example.com
+50230456,Lucas Almeida Souza,EConQui-1PMA,1,Pre-Mat,lucas.souza@example.com,ana.almeida@example.com
+50230567,Isabella Lima Pereira,EConEle-2PMB,2,Pre-Mat,isabella.pereira@example.com,carlos.lima@example.com
+50230678,Gabriel Oliveira Santos,EConInf-3PMC,3,Pre-Mat,gabriel.santos@example.com,maria.oliveira@example.com
+50230789,Sophia Silva Lima,EConPub-1PMA,1,Matriculado,sophia.lima@example.com,joao.silva@example.com
+50230890,Enzo Costa Pereira,EConACli-2PMB,2,Matriculado,enzo.pereira@example.com,laura.costa@example.com
+50230901,Ana Carolina Almeida,EConQui-3PMC,3,Pre-Mat,ana.almeida@example.com,gustavo.almeida@example.com
+50231012,Rafaela Santos Souza,EConEle-1PMA,1,Matriculado,rafaela.souza@example.com,marcos.santos@example.com
+50231123,Luiz Felipe Martins,EConInf-2PMB,2,Matriculado,luiz.martins@example.com,marta.felipe@example.com
+50231234,Mariana Oliveira Costa,EConPub-3PMC,3,Pre-Mat,mariana.costa@example.com,jose.oliveira@example.com
+50231345,Felipe Lima Santos,EConACli-1PMA,1,Matriculado,felipe.santos@example.com,ana.lima@example.com
+50231456,Ana Clara Pereira Silva,EConQui-2PMB,2,Matriculado,ana.pereira@example.com,pedro.silva@example.com
+50231567,Gustavo Almeida Costa,EConEle-3PMC,3,Pre-Mat,gustavo.costa@example.com,maria.almeida@example.com
+50231678,Larissa Santos Oliveira,EConInf-1PMA,1,Pre-Mat,larissa.oliveira@example.com,carlos.santos@example.com
+50231789,Davi Lima Pereira,EConPub-1PMB,1,Matriculado,davi.pereira@example.com,ana.lima@example.com
+50231890,Luana Oliveira Santos,EConACli-2PMB,2,Pre-Mat,luana.santos@example.com,maria.oliveira@example.com
+50231901,Matheus Costa Lima,EConQui-3PMC,3,Matriculado,matheus.lima@example.com,carlos.costa@example.com
+50232012,Manuela Santos Pereira,EConEle-1PMA,1,Pre-Mat,manuela.pereira@example.com,joao.santos@example.com
+50240123,Lucas Oliveira Silva,EConInf-1PMA,1,Matriculado,lucas.silva@example.com,maria.oliveira@example.com
+50240234,Juliana Santos Pereira,EConPub-2PMB,2,Matriculado,juliana.pereira@example.com,pedro.santos@example.com
+50240345,Felipe Martins Costa,EConACli-3PMC,3,Matriculado,felipe.costa@example.com,ana.martins@example.com
+50240456,Ana Luiza Almeida Souza,EConQui-1PMA,1,Pre-Mat,ana.luiza.souza@example.com,carlos.almeida@example.com
+50240567,Gabriel Lima Pereira,EConEle-2PMB,2,Pre-Mat,gabriel.pereira@example.com,maria.lima@example.com
+50240678,Larissa Oliveira Santos,EConInf-3PMC,3,Pre-Mat,larissa.santos@example.com,joao.oliveira@example.com
+50240789,Rafaela Silva Lima,EConPub-1PMA,1,Matriculado,rafaela.lima@example.com,carlos.silva@example.com
+50240890,Enzo Costa Pereira,EConACli-2PMB,2,Matriculado,enzo.pereira@example.com,laura.costa@example.com
+50240901,Ana Carolina Almeida,EConQui-3PMC,3,Pre-Mat,ana.almeida@example.com,gustavo.almeida@example.com
+50241012,Matheus Santos Souza,EConEle-1PMA,1,Matriculado,matheus.souza@example.com,ana.santos@example.com
+50241123,Luiza Martins Costa,EConInf-2PMB,2,Matriculado,luiza.costa@example.com,pedro.martins@example.com
+50241234,Gustavo Oliveira Lima,EConPub-3PMC,3,Pre-Mat,gustavo.lima@example.com,maria.oliveira@example.com
+50241345,Ana Clara Pereira Souza,EConACli-1PMA,1,Matriculado,ana.pereira@example.com,carlos.souza@example.com
+50241456,Lucas Silva Santos,EConQui-2PMB,2,Matriculado,lucas.santos@example.com,maria.silva@example.com
+50241567,Manuela Lima Costa,EConEle-3PMC,3,Pre-Mat,manuela.costa@example.com,pedro.lima@example.com
+50241678,João Oliveira Silva,EConInf-1PMA,1,Pre-Mat,joao.silva@example.com,ana.oliveira@example.com
+50241789,Julia Santos Pereira,EConPub-1PMB,1,Matriculado,julia.pereira@example.com,pedro.santos@example.com
+50241890,Felipe Martins Lima,EConACli-2PMB,2,Pre-Mat,felipe.lima@example.com,maria.martins@example.com
+50241901,Luana Oliveira Souza,EConQui-3PMC,3,Matriculado,luana.souza@example.com,carlos.oliveira@example.com
+50242012,Matheus Silva Costa,EConEle-1PMA,1,Pre-Mat,matheus.costa@example.com,maria.silva@example.com
+50250123,Maria da Silva,EConInf-1PMA,1,Matriculado,maria.silva@example.com,jose.silva@example.com
+50250124,João Pereira,EConInf-1PMA,1,Matriculado,joao.pereira@example.com,ana.pereira@example.com
+50250125,Ana Souza,EConInf-1PMA,1,Matriculado,ana.souza@example.com,carlos.souza@example.com
+50250126,Carlos Oliveira,EConInf-1PMA,1,Matriculado,carlos.oliveira@example.com,maria.oliveira@example.com
+50250127,Pedro Santos,EConInf-1PMA,1,Matriculado,pedro.santos@example.com,joana.santos@example.com
+50250128,Lucas Lima,EConInf-1PMA,1,Matriculado,lucas.lima@example.com,fernando.lima@example.com
+50250129,Julia Ferreira,EConInf-1PMA,1,Matriculado,julia.ferreira@example.com,maria.ferreira@example.com
+50250130,Aline Costa,EConInf-1PMA,1,Matriculado,aline.costa@example.com,joao.costa@example.com
+50250131,Fernando Alves,EConInf-1PMA,1,Matriculado,fernando.alves@example.com,ana.alves@example.com
+50250132,Ricardo Souza,EConInf-1PMA,1,Matriculado,ricardo.souza@example.com,mariana.souza@example.com
+50250133,Mariana Silva,EConInf-1PMA,1,Matriculado,mariana.silva@example.com,joao.silva@example.com
+50250134,André Mendes,EConInf-1PMA,1,Matriculado,andre.mendes@example.com,carla.mendes@example.com
+50250135,Paula Rocha,EConInf-1PMA,1,Matriculado,paula.rocha@example.com,pedro.rocha@example.com
+50250136,Fabio Carvalho,EConInf-1PMA,1,Matriculado,fabio.carvalho@example.com,maria.carvalho@example.com
+50250137,Renata Lima,EConInf-1PMA,1,Matriculado,renata.lima@example.com,carlos.lima@example.com
+50250138,Gustavo Azevedo,EConInf-1PMA,1,Matriculado,gustavo.azevedo@example.com,fernanda.azevedo@example.com
+50250139,Beatriz Martins,EConInf-1PMA,1,Matriculado,beatriz.martins@example.com,marco.martins@example.com
+50250140,Rafael Sousa,EConInf-1PMA,1,Matriculado,rafael.sousa@example.com,ana.sousa@example.com
+50250141,Carla Nunes,EConInf-1PMA,1,Matriculado,carla.nunes@example.com,pedro.nunes@example.com
+50250142,Igor Teixeira,EConInf-1PMA,1,Matriculado,igor.teixeira@example.com,marcia.teixeira@example.com
+50250143,Marina Batista,EConInf-1PMA,1,Matriculado,marina.batista@example.com,joao.batista@example.com
+50250144,Thiago Reis,EConInf-1PMA,1,Matriculado,thiago.reis@example.com,julia.reis@example.com
+50250145,Vanessa Moreira,EConInf-1PMA,1,Matriculado,vanessa.moreira@example.com,carlos.moreira@example.com
+50250146,Guilherme Almeida,EConInf-1PMA,1,Matriculado,guilherme.almeida@example.com,maria.almeida@example.com
+50250147,Daniela Franco,EConInf-1PMA,1,Matriculado,daniela.franco@example.com,joao.franco@example.com
+50250148,Alexandre Lopes,EConInf-1PMA,1,Matriculado,alexandre.lopes@example.com,ana.lopes@example.com
+50250149,Ana Clara,EConInf-1PMA,1,Matriculado,ana.clara@example.com,carlos.clara@example.com
+50250150,Lucas Martins,EConInf-1PMA,1,Matriculado,lucas.martins@example.com,joana.martins@example.com
+50250151,Caroline Rocha,EConInf-1PMA,1,Matriculado,caroline.rocha@example.com,marcos.rocha@example.com
+50250152,Felipe Santana,EConInf-1PMA,1,Matriculado,felipe.santana@example.com,julia.santana@example.com

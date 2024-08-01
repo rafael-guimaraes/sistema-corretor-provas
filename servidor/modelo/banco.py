@@ -1,62 +1,134 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.errors import ConnectionFailure, PyMongoError
-
+from bson.objectid import ObjectId
+import json 
+from setup.env import env
+env = env()
 class Banco():
-    def __init__(self, usuario, senha): 
+    def __init__(self,url:str): 
         try:
-            self.client = MongoClient()
-            self.client.admin.command('ping')
-            self.db = self.client['univap']
+            self.connection = MongoClient(url)
+            print(env.CONNECT+ __file__.replace(env.DIRECTORY,"") + " | Banco.__init__() -> MongoDB Connected."
+                if self.connection.admin.command('ping') == {'ok':1.0}
+                else env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco().__init__() -> MongoDB couldn't connect."
+            )
+            
+            self.database = self.connection.univap
         except ConnectionFailure as e:
-            print("Não foi possível conectar ao banco de dados:", e)
-            self.client = None
-            self.db = None
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.__init__(): -> ConnectionFailure", e)  
+            self.connection = None
+            self.database = None
 
-    def inserir_dados(self, colecao, dados):
-        if self.db is None:
-            print("Erro: Não foi possível acessar o banco de dados.")
-            return
+    def strObjectID(self, data:list|tuple):
+        new_list = []
+        for item in data:
+            new_dict = {}
+            for k,v in item.items():
+                new_dict[k] = str(v) if k == "_id" else v
+            new_list.append(new_dict)            
+        return new_list
+    
+    def insertData(self, collection, data):
+        if self.database is None:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.insertData(): -> self.database is None")  
 
-        colecao = self.db[colecao]
+            return 
+        collection = self.database[collection]
         try:
-            if isinstance(dados, list):
-                colecao.insert_many(dados)
+            if type(data) not in (list,tuple) :
+                data = [data]
+
+            result = collection.insert_many(data, ordered=False)
+            response = {
+                "acknowledged": str(result.acknowledged),
+                "id": [str(id) for id in result.inserted_ids],
+                "data": self.strObjectID(data)
+            }
+            return response
+        
+        except PyMongoError as e:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.insertData(): -> PyMongoError", e)  
+            stringJson = str(e)[38:].replace("\"","~~").replace("'","\"").replace("~~","'").replace("ObjectId(","").replace(")","")
+            errorJson = dict(json.loads(stringJson))
+            response = {
+                "acknowledged": "False",
+                "data":errorJson
+            }
+            return response
+
+    def getData(self, collection, filter = {}, distinct = False):
+        if self.database is None:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.getData(): -> self.database is None")
+            return None
+
+        collection = self.database[collection]
+        try:
+            if not distinct:
+                result = self.strObjectID(list(collection.find(filter)))
             else:
-                colecao.insert_one(dados)
+                result = list(collection.distinct(distinct))
+            return result
         except PyMongoError as e:
-            print("Erro ao inserir dados:", e)
-
-    def buscar_dados(self, colecao, filtro = {}):
-        if self.db is None:
-            print("Erro: Não foi possível acessar o banco de dados.")
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.getData(): -> PyMongoError", e)  
+            return None
+        
+    def getDataById(self, collection, id):
+        if self.database is None:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.getDataById(): -> self.database is None")
             return None
 
-        colecao = self.db[colecao]
+        collection = self.database[collection]
         try:
-            return colecao.find(filtro)
+            result = collection.find_one({"_id": ObjectId(id)})
+            return result
         except PyMongoError as e:
-            print("Erro ao buscar dados:", e)
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.getDataById(): -> PyMongoError", e)  
             return None
-
-    def atualizar_dados(self, colecao, novos_dados, filtro = {}):
-        if self.db is None:
-            print("Erro: Não foi possível acessar o banco de dados.")
+        
+    def updateData(self, colecao, novos_dados, filtro = {}):
+        if self.database is None:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.updateData(): -> self.database is None")
             return
 
-        colecao = self.db[colecao]
+        colecao = self.database[colecao]
         try:
             colecao.update_many(filtro, {"$set": novos_dados})
         except PyMongoError as e:
-            print("Erro ao atualizar dados:", e)
-
-    def deletar_dados(self, colecao, filtro = {}):
-        if self.db is None:
-            print("Erro: Não foi possível acessar o banco de dados.")
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.updateData(): -> PyMongoError", e)  
+            
+    def updateDataByID(self, colecao, novos_dados,  id):
+        if self.database is None:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.updateDataByID(): -> self.database is None")
             return
 
-        colecao = self.db[colecao]
+        colecao = self.database[colecao]
         try:
-            colecao.delete_many(filtro)
+            colecao.update_one({"_id": ObjectId(id)}, {"$set": novos_dados})
         except PyMongoError as e:
-            print("Erro ao deletar dados:", e)
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.updateDataByID(): -> PyMongoError", e)  
+        return novos_dados
+            
+    def deleteData(self, colecao, filtro = {}):
+        if self.database is None:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.deleteData(): -> self.database is None")
+            return
+
+        colecao = self.database[colecao]
+        try:
+            return colecao.delete_many(filtro)
+        except PyMongoError as e:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.deleteData(): -> PyMongoError", e)  
+    
+    def deleteDataByID(self, collection, id=None):
+        if self.database is None:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.deleteDataByID(): -> self.database is None")
+            return
+        
+        collection = self.database[collection]
+
+        object_id = ObjectId(id)
+        try:
+            return collection.delete_one({"_id": object_id})
+        except PyMongoError as e:
+            print(env.WARNING+ __file__.replace(env.DIRECTORY,"") + " | Banco.deleteDataByID(): -> PyMongoError", e)  
