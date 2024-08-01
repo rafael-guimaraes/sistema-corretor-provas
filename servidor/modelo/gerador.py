@@ -9,7 +9,7 @@ import base64
 from copy import deepcopy
 from modelo.prova import Prova
 from setup.env import env
-from Emitter import Emitter
+from Emitter import emit
 env = env()
 
 from time import time
@@ -56,7 +56,7 @@ class Gerador():
         return perguntas
        
    
-    def criar_provas(self, alunos, perguntas):
+    async def criar_provas(self, alunos, perguntas):
         if not alunos: return []
         provas_criadas = []
         
@@ -68,7 +68,7 @@ class Gerador():
             provas_criadas.append(prova)
             print(env.CHECKED+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_provas() -> Objecto socket: " + str(self._socket_connection))
             print(env.SUCCESS+ __file__.replace(env.DIRECTORY,"") + " | Gerador.criar_provas() -> Time: " + str(time() - T0) + "s")
-            Emitter("updateProgress.createProva",self._socket_connection).send({"total":num_alunos,"progress":i+1})
+            await emit("updateProgress.createProva",self._socket_connection,{"total":num_alunos,"progress":i+1})
 
             
         word.quit()

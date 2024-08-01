@@ -18,7 +18,7 @@ async def API(sender, path):
         Request = json.loads(message)
 
         print(env.DESKTOP+ __file__.replace(env.DIRECTORY,"") + " | Socket request: -> Task: " + Request["task"])
-        Response = Router(Database,Request,sender)
+        Response = await Router(Database,Request,sender)
         if sender:
             await sender.send(str(Response))
             print(env.EMITTED+ __file__.replace(env.DIRECTORY,"") + " | Socket emitted: -> task: " + Response["task"])

@@ -10,7 +10,7 @@ def getProva(database:DB):
     alunos = database.getData(env.COLLECTION_PROVAS)
     return alunos
 
-def createProva(socket_connection, database:DB, body):
+async def createProva(socket_connection, database:DB, body):
     dados = body["dados"]
     
     prova = database.insertData(env.COLLECTION_PROVAS, {})
@@ -28,7 +28,7 @@ def createProva(socket_connection, database:DB, body):
     nome = titulo_lista + " - " + dados["disciplina"] + " - " + dados["tipo"] + " - " + dados["bimestre"] + "bim"
     arquivo = os.path.realpath(env.STATIC + nome + ".pdf") 
     
-    provas = gerador.criar_provas(alunos, perguntas)
+    provas = await gerador.criar_provas(alunos, perguntas)
     
     gerador.gerar_impressao(provas, arquivo)
   
