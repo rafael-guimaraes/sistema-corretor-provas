@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebSocketSharp;
 using PdfiumViewer;
+using desktop.Componentes;
 using System.Collections;
 
 namespace desktop
@@ -62,10 +63,33 @@ namespace desktop
         {
             JObject response = JObject.Parse(e.Data);
             string task = response["task"].ToString();
+            JObject data;
+
             switch (task)
             {
+                case "updateProgress.createProva": 
+                    data = JObject.Parse(response["data"].ToString());
+                    int total = int.Parse(data["total"].ToString());
+                    int progress = int.Parse(data["progress"].ToString());
+
+                    Componentes.ProgressBar progressBar = new Componentes.ProgressBar((int) panelTestPreview.Size.Width, (int) panelTestPreview.Size.Height);
+                    if (panelTestPreview.InvokeRequired)
+                    {
+                        panelTestPreview.Invoke((MethodInvoker)delegate
+                        {
+                            panelTestPreview.Controls.Clear();
+                            panelTestPreview.Controls.Add(progressBar);
+                            progressBar.updateValue(total, progress);
+                        });
+                    }
+                    else
+                    {
+                        progressBar.updateValue(total, progress);
+                        MessageBox.Show("Não");
+                    }
+                    break;
                 case "createExemplo":
-                    JObject data = JObject.Parse(response["data"].ToString());
+                    data = JObject.Parse(response["data"].ToString());
                    
                     String base64 = data["documento"].ToString();
                     byte[] pdfBytes = Convert.FromBase64String(base64);

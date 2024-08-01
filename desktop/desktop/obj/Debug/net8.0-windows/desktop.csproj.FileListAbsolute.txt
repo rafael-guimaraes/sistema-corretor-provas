@@ -82,3 +82,4 @@ C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\x64
 C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\x86\pdfium.dll
 C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\PdfiumViewer.dll
 C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\bin\Debug\net8.0-windows\nl\PdfiumViewer.resources.dll
+C:\Users\gabri\Documents\GitHub\TCC\desktop\desktop\obj\Debug\net8.0-windows\desktop.Componentes.ProgressBar.resources

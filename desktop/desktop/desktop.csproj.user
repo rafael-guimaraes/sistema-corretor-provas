@@ -10,6 +10,9 @@
     <Compile Update="Componentes\itemStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Componentes\ProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Componentes\TranslateOutput.cs">
       <SubType>UserControl</SubType>
     </Compile>

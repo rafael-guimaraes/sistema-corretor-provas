@@ -51,12 +51,12 @@
             buttonCreateTest.Depth = 0;
             buttonCreateTest.HighEmphasis = true;
             buttonCreateTest.Icon = null;
-            buttonCreateTest.Location = new Point(843, 497);
-            buttonCreateTest.Margin = new Padding(4, 6, 4, 6);
+            buttonCreateTest.Location = new Point(963, 663);
+            buttonCreateTest.Margin = new Padding(5, 8, 5, 8);
             buttonCreateTest.MouseState = MaterialSkin.MouseState.HOVER;
             buttonCreateTest.Name = "buttonCreateTest";
             buttonCreateTest.NoAccentTextColor = Color.Empty;
-            buttonCreateTest.Size = new Size(145, 43);
+            buttonCreateTest.Size = new Size(166, 57);
             buttonCreateTest.TabIndex = 4;
             buttonCreateTest.Text = "FINALIZAR";
             buttonCreateTest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -68,9 +68,9 @@
             // 
             labelTestType.AutoSize = true;
             labelTestType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTestType.Location = new Point(23, 108);
+            labelTestType.Location = new Point(26, 144);
             labelTestType.Name = "labelTestType";
-            labelTestType.Size = new Size(120, 21);
+            labelTestType.Size = new Size(149, 28);
             labelTestType.TabIndex = 14;
             labelTestType.Text = "TIPO DE PROVA";
             // 
@@ -88,11 +88,12 @@
             comboboxTestPeriod.FormattingEnabled = true;
             comboboxTestPeriod.IntegralHeight = false;
             comboboxTestPeriod.ItemHeight = 43;
-            comboboxTestPeriod.Location = new Point(27, 344);
+            comboboxTestPeriod.Location = new Point(31, 459);
+            comboboxTestPeriod.Margin = new Padding(3, 4, 3, 4);
             comboboxTestPeriod.MaxDropDownItems = 4;
             comboboxTestPeriod.MouseState = MaterialSkin.MouseState.OUT;
             comboboxTestPeriod.Name = "comboboxTestPeriod";
-            comboboxTestPeriod.Size = new Size(333, 49);
+            comboboxTestPeriod.Size = new Size(380, 49);
             comboboxTestPeriod.StartIndex = 0;
             comboboxTestPeriod.TabIndex = 13;
             // 
@@ -100,9 +101,9 @@
             // 
             labelTestSubject.AutoSize = true;
             labelTestSubject.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTestSubject.Location = new Point(23, 214);
+            labelTestSubject.Location = new Point(26, 285);
             labelTestSubject.Name = "labelTestSubject";
-            labelTestSubject.Size = new Size(91, 21);
+            labelTestSubject.Size = new Size(112, 28);
             labelTestSubject.TabIndex = 15;
             labelTestSubject.Text = "DISCIPLINA";
             // 
@@ -120,11 +121,12 @@
             comboboxTestSubject.FormattingEnabled = true;
             comboboxTestSubject.IntegralHeight = false;
             comboboxTestSubject.ItemHeight = 43;
-            comboboxTestSubject.Location = new Point(27, 238);
+            comboboxTestSubject.Location = new Point(31, 317);
+            comboboxTestSubject.Margin = new Padding(3, 4, 3, 4);
             comboboxTestSubject.MaxDropDownItems = 4;
             comboboxTestSubject.MouseState = MaterialSkin.MouseState.OUT;
             comboboxTestSubject.Name = "comboboxTestSubject";
-            comboboxTestSubject.Size = new Size(333, 49);
+            comboboxTestSubject.Size = new Size(380, 49);
             comboboxTestSubject.StartIndex = 0;
             comboboxTestSubject.TabIndex = 12;
             // 
@@ -132,9 +134,9 @@
             // 
             labelTestPeriod.AutoSize = true;
             labelTestPeriod.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTestPeriod.Location = new Point(23, 320);
+            labelTestPeriod.Location = new Point(26, 427);
             labelTestPeriod.Name = "labelTestPeriod";
-            labelTestPeriod.Size = new Size(80, 21);
+            labelTestPeriod.Size = new Size(99, 28);
             labelTestPeriod.TabIndex = 16;
             labelTestPeriod.Text = "BIMESTRE";
             // 
@@ -152,11 +154,12 @@
             comboboxTestType.FormattingEnabled = true;
             comboboxTestType.IntegralHeight = false;
             comboboxTestType.ItemHeight = 43;
-            comboboxTestType.Location = new Point(27, 134);
+            comboboxTestType.Location = new Point(31, 179);
+            comboboxTestType.Margin = new Padding(3, 4, 3, 4);
             comboboxTestType.MaxDropDownItems = 4;
             comboboxTestType.MouseState = MaterialSkin.MouseState.OUT;
             comboboxTestType.Name = "comboboxTestType";
-            comboboxTestType.Size = new Size(333, 49);
+            comboboxTestType.Size = new Size(380, 49);
             comboboxTestType.StartIndex = 0;
             comboboxTestType.TabIndex = 11;
             comboboxTestType.Tag = "";
@@ -165,9 +168,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(27, 66);
+            label1.Location = new Point(31, 88);
             label1.Name = "label1";
-            label1.Size = new Size(153, 30);
+            label1.Size = new Size(196, 37);
             label1.TabIndex = 10;
             label1.Text = "CRIAR PROVA";
             // 
@@ -179,12 +182,12 @@
             buttonSelectFile.Depth = 0;
             buttonSelectFile.HighEmphasis = true;
             buttonSelectFile.Icon = null;
-            buttonSelectFile.Location = new Point(27, 439);
-            buttonSelectFile.Margin = new Padding(4, 6, 4, 6);
+            buttonSelectFile.Location = new Point(31, 585);
+            buttonSelectFile.Margin = new Padding(5, 8, 5, 8);
             buttonSelectFile.MouseState = MaterialSkin.MouseState.HOVER;
             buttonSelectFile.Name = "buttonSelectFile";
             buttonSelectFile.NoAccentTextColor = Color.Empty;
-            buttonSelectFile.Size = new Size(333, 49);
+            buttonSelectFile.Size = new Size(381, 65);
             buttonSelectFile.TabIndex = 7;
             buttonSelectFile.Text = "SELECIONAR ARQUIVO";
             buttonSelectFile.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -196,7 +199,7 @@
             // 
             toggleColumns.AutoSize = true;
             toggleColumns.Depth = 0;
-            toggleColumns.Location = new Point(23, 396);
+            toggleColumns.Location = new Point(26, 528);
             toggleColumns.Margin = new Padding(0);
             toggleColumns.MouseLocation = new Point(-1, -1);
             toggleColumns.MouseState = MaterialSkin.MouseState.HOVER;
@@ -209,10 +212,11 @@
             // 
             // panelTestPreview
             // 
-            panelTestPreview.BackColor = SystemColors.ControlDark;
-            panelTestPreview.Location = new Point(382, 66);
+            panelTestPreview.BackColor = SystemColors.ControlLight;
+            panelTestPreview.Location = new Point(437, 88);
+            panelTestPreview.Margin = new Padding(3, 4, 3, 4);
             panelTestPreview.Name = "panelTestPreview";
-            panelTestPreview.Size = new Size(606, 422);
+            panelTestPreview.Size = new Size(693, 563);
             panelTestPreview.TabIndex = 1;
             panelTestPreview.Paint += panelTestPreview_Paint;
             // 
@@ -223,8 +227,8 @@
             buttonListScreen.Depth = 0;
             buttonListScreen.HighEmphasis = true;
             buttonListScreen.Icon = null;
-            buttonListScreen.Location = new Point(27, 26);
-            buttonListScreen.Margin = new Padding(4);
+            buttonListScreen.Location = new Point(31, 35);
+            buttonListScreen.Margin = new Padding(5);
             buttonListScreen.MouseState = MaterialSkin.MouseState.HOVER;
             buttonListScreen.Name = "buttonListScreen";
             buttonListScreen.NoAccentTextColor = Color.Empty;
@@ -241,7 +245,7 @@
             // 
             // CreateScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             Controls.Add(buttonSelectFile);
@@ -256,8 +260,9 @@
             Controls.Add(labelTestPeriod);
             Controls.Add(panelTestPreview);
             Controls.Add(toggleColumns);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CreateScreen";
-            Size = new Size(1011, 555);
+            Size = new Size(1155, 740);
             Load += criarProva_Load;
             ResumeLayout(false);
             PerformLayout();

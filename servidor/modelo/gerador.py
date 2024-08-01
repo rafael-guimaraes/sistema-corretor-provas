@@ -62,6 +62,7 @@ class Gerador():
         
         word = client.CreateObject('Word.Application')
         num_alunos = len(alunos)
+        await emit("updateProgress.createProva",self._socket_connection,{"total":num_alunos,"progress":0})
         for i,aluno in enumerate(alunos):
             T0 = time()
             prova =  Prova(self.arquivo, self.dados, aluno, self.colunas, deepcopy(perguntas), word, self.id)
